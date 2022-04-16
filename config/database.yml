@@ -49,6 +49,6 @@ test:
   encoding: unicode
   database: rails_project_test
   pool: 5
-  username:
-  password:
+  username: labber
+  password: labber
   timeout: 5000
