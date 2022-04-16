@@ -60,22 +60,22 @@ level: 2
    {
   text: "My latest work of art! Meet Mr. Elephant.",
   image: open_asset("post_1.jpg"),
-  user_id: 1
+  user_id: 5
  },
  {
   text: "LOL",
   image: open_asset("post_2.jpg"),
-  user_id: 2
+  user_id: 6
  },
  {
   text: "Morning breakfast!☀️🍓🍓🥞",
   image: open_asset("post_3.jpg"),
-  user_id: 3
+  user_id: 5
  },
  {
   text: "Brothers and sisters. Miranda Priestly.",
   image: open_asset("post_4.jpg"),
-  user_id: 4
+  user_id: 6
  },
  {
   text: "Fuck coffeecup",
@@ -90,18 +90,98 @@ level: 2
  {
   text: "Becoming a photographer with my 📸",
   image: open_asset("post_7.jpg"),
-  user_id: 6
+  user_id: 5
  },
  {
   text: "Mom and dad's anniversary🍷",
   image: open_asset("post_8.jpg"),
-  user_id: 3
+  user_id: 6
  },
  {
   text: "My new best friend",
   image: open_asset("post_9.jpg"),
-  user_id: 2
+  user_id: 5
  }
 ])
 
 puts "Post.count", Post.count
+
+Comment.create!([
+  {
+  text: "Buy my art at my parent's Etsy store www.etsy.com",
+  post_id: 1,
+  user_id: 5
+},
+{
+  text: "I think this elephant is evil",
+  post_id: 1,
+  user_id: 1
+},
+{
+  text: "I love this!",
+  post_id: 1,
+  user_id: 3
+},
+{
+  text: "Awwww so cute😍",
+  post_id: 9,
+  user_id: 6
+},
+{
+  text: "So fcking cute!!",
+  post_id: 9,
+  user_id: 4
+},
+{
+  text: "You are so ugly 🤢",
+  post_id: 2,
+  user_id: 2
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+},
+{
+  text: "Hi",
+  post_id: 7,
+  user_id: 3
+}
+])
+
+puts "Comment.count", Comment.count
