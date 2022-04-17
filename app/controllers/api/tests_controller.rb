@@ -1,7 +1,8 @@
 class Api::TestsController < ApplicationController
   def index
+    user = User.find(1)
     render :json => {
-      message: "hello!"
+      message: "Hello #{user.name}!"
     }
   end
 end
