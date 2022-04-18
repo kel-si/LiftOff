@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import PostListItem from "./components/PostListItem";
+import { posts, users } from "../test_data/dummyData";
+import PostList from "./components/PostList";
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class App extends Component {
       <div className="App">
         <h1>{this.state.message}</h1>
         <button onClick={this.fetchData}>Fetch Data</button>
-        <PostListItem />
+        <PostList posts={posts} />
       </div>
     );
   }
