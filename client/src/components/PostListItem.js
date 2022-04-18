@@ -1,5 +1,5 @@
 import React from "react";
-import { Posts, Users } from "../test_data/dummyData";
+import { posts, users } from "../test_data/dummyData";
 
 export default function PostListItem(props) {
   return (
@@ -7,12 +7,12 @@ export default function PostListItem(props) {
       <article className="post">
         <header className="post--header">
           {/* <img className="post--avatar" src={post.avatar} /> */}
-          <h2 className="post--name">{Users[0].name}</h2>
+          <h2 className="post--name">{users[0].name}</h2>
         </header>
 
         <div className="post--body">
-          <p>{Posts[0].text}</p>
-          <img src={Posts[0].image} />
+          <p>{posts[0].text}</p>
+          <img src={posts[0].image} />
         </div>
 
         {/* <div className="post--image">
