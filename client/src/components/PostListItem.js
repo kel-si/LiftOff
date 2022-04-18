@@ -1,7 +1,7 @@
 import React from "react";
-import { posts, users } from "../test_data/dummyData";
 
 export default function PostListItem(props) {
+  console.log(typeof props.image);
   return (
     <div>
       <article className="post">
@@ -12,7 +12,7 @@ export default function PostListItem(props) {
 
         <div className="post--body">
           <p>{props.text}</p>
-          <img src={props.image} />
+          <img src={props.image} alt="user's post" />
         </div>
 
         {/* <div className="post--image">
