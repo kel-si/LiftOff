@@ -9,7 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "Click the button to load data!",
+      text: "Click the button to load data!",
+      user_id: 0
     };
   }
 
@@ -20,17 +21,20 @@ class App extends Component {
         // handle success
         console.log(response.data); // The entire response from the Rails API
 
-        console.log(response.data.message); // Just the message
+        console.log(response.data.text); // Just the message
         this.setState({
-          message: response.data.message,
-        });
+          text: response.data.text,
+          user_id: response.data.user_id
+        })
+        
       });
   };
 
   render() {
     return (
       <div className="App">
-        <h1>{this.state.message}</h1>
+        <h1>{this.state.text}</h1>
+        <h1>{this.state.user_id}</h1>
         <button onClick={this.fetchData}>Fetch Data</button>
         <PostList posts={posts} users={users}/>
       </div>
