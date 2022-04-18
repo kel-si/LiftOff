@@ -1,4 +1,4 @@
-export const Users = [
+export const users = [
   {
     id: 1,
     name: "Miranda",
@@ -49,7 +49,7 @@ export const Users = [
   },
 ];
 
-export const Posts = [
+export const posts = [
   {
     id: 1,
     text: "My latest work of art! Meet Mr. Elephant.",
@@ -106,7 +106,7 @@ export const Posts = [
   },
 ];
 
-export const Comments = [
+export const comments = [
   {
     id: 1,
     text: "Buy my art at my parent's Etsy store www.etsy.com",
