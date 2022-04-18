@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
     # get '/data', to: 'tests#index'
     
-    resources :posts
+    resources :feed
 
   end
 
