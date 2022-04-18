@@ -7,12 +7,12 @@ export default function PostListItem(props) {
       <article className="post">
         <header className="post--header">
           {/* <img className="post--avatar" src={post.avatar} /> */}
-          <h2 className="post--name">{users[0].name}</h2>
+          <h2 className="post--name">{props.name}</h2>
         </header>
 
         <div className="post--body">
-          <p>{posts[0].text}</p>
-          <img src={posts[0].image} />
+          <p>{props.text}</p>
+          <img src={props.image} />
         </div>
 
         {/* <div className="post--image">
