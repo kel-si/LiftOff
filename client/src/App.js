@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { users } from "./test_data/dummyData";
 import PostList from "./components/PostList";
 
 class App extends Component {
@@ -9,6 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       posts: [],
+      users: []
     };
   }
 
@@ -20,7 +20,8 @@ class App extends Component {
         console.log(response.data); // The entire response from the Rails API
 
         this.setState({
-          posts: response.data,
+          posts: response.data.posts,
+          users: response.data.users
         });
       })
       .catch((error) => {
@@ -33,7 +34,7 @@ class App extends Component {
       <div className="App">
         <h1>posts</h1>
         <button onClick={this.fetchData}>Fetch Data</button>
-        <PostList posts={this.state.posts} users={users} />
+        <PostList posts={this.state.posts} users={this.state.users} />
       </div>
     );
   }
