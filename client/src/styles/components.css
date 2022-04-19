@@ -1,0 +1,32 @@
+/* * {
+  border: 1px solid black;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  padding: 10px;
+  margin: 0 10px 0 10px;
+  background-color: blue;
+}
+
+.avatar-image {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
