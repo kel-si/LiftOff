@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import PostList from "./components/PostList";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
-      users: []
+      users: [],
     };
   }
 
@@ -21,7 +22,7 @@ class App extends Component {
 
         this.setState({
           posts: response.data.posts,
-          users: response.data.users
+          users: response.data.users,
         });
       })
       .catch((error) => {
@@ -32,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>posts</h1>
+        <Navbar />
         <button onClick={this.fetchData}>Fetch Data</button>
         <PostList posts={this.state.posts} users={this.state.users} />
       </div>
