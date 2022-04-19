@@ -20,7 +20,7 @@ export default function PostListItem(props) {
         </div> */}
 
         <footer className="post--footer">
-          <small className="footer--age">Created at: 10:05am</small>
+          <small className="footer--age">{props.time}</small>
         </footer>
       </article>
     </div>

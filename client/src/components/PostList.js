@@ -19,6 +19,7 @@ const users = props.users;
         name={assignUserName(users, post)}
         text={post.text}
         image={post.image}
+        time={post.created_at}
       />
     );
   });
