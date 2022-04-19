@@ -6,9 +6,15 @@ export default function Navbar() {
     <nav>
       <h1>Logo</h1>
       <ul>
-        <li>My Posts Button</li>
-        <li>Guidelines</li>
-        <li>Log Out Button</li>
+        <button>
+          <li>My Posts Button</li>
+        </button>
+        <button>
+          <li>Guidelines</li>
+        </button>
+        <button>
+          <li>Log Out Button</li>
+        </button>
       </ul>
       <container className="avatar-container">
         <img
