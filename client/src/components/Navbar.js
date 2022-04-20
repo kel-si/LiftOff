@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/components.css";
 
 export default function Navbar() {
@@ -7,10 +8,10 @@ export default function Navbar() {
       <h1>Logo</h1>
       <ul>
         <button>
-          <li>My Posts Button</li>
+          <li><Link to="/my-posts">My Posts Button</Link></li>
         </button>
         <button>
-          <li>Guidelines</li>
+        <li><Link to="/guidelines">Guidelines</Link></li>
         </button>
         <button>
           <li>Log Out Button</li>
