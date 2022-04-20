@@ -1,7 +1,10 @@
 import React from "react";
+import Feed from "./Feed";
 
 export default function MyPosts(props) {
   return (
-    <div><h1>MyPosts</h1></div>
-  )
+    <div>
+      <Feed />
+    </div>
+  );
 }
