@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./App.css";
 import PostList from "./components/PostList";
 import Navbar from "./components/Navbar";
 
