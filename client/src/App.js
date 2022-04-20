@@ -1,33 +1,18 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import PostList from "./components/PostList";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Feed from "./components/Feed";
 
 export default function App() {
-  const [state, setState] = useState({
-    posts: [],
-    users: [],
-  });
-
-  useEffect(() => {
-    axios
-      .get("/api/feed")
-      .then((response) => {
-        console.log("response", response);
-        setState({
-          posts: response.data.posts,
-          users: response.data.users,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <div className="App">
-      <Navbar />
-      <PostList posts={state.posts} users={state.users} />
+      <Router>
+         <Navbar />
+         <Routes>
+           <Route path="/" element={<Feed />}/>
+         </Routes>
+      </Router>
     </div>
   );
 }
