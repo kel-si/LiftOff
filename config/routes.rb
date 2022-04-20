@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   namespace :api do # /api/data
 
     # get '/data', to: 'tests#index'
+    get '/register' => 'users#new'
+    post '/users/' => 'users#create'
+
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    get 'logout' => 'sessions#destroy'
     
     resources :feed
 
@@ -13,11 +19,6 @@ Rails.application.routes.draw do
     !request.xhr? && request.format.html?
   end
 
-  get '/register' => 'users#new'
-  post '/users/' => 'users#create'
-
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+  
 
 end
