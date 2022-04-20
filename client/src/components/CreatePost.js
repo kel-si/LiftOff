@@ -1,24 +1,24 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect } from "react";
 
-export default function CreatePost( ) {
-
+export default function CreatePost() {
   const [post, setPost] = useState("");
   const [image, setImage] = useState("");
-  
-  const handleSubmit =(e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("post:", post, "image:", image);
-   }
+    //axios put request
+  };
 
   return (
     <div className="form-container">
-      <form onSubmit={ handleSubmit } >
+      <form onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
             name="description"
             placeholder="description"
-            value={ post }
+            value={post}
             onChange={(event) => setPost(event.target.value)}
           />
         </div>
@@ -27,21 +27,18 @@ export default function CreatePost( ) {
             type="file"
             name="image"
             placeholder="image"
-            value={ image }
+            value={image}
             onChange={(event) => setImage(event.target.value)}
           />
         </div>
         <div>
-          <button type="submit" value="Add Post">Post</button>
+          <button type="submit" value="Add Post">
+            Post
+          </button>
         </div>
-  
       </form>
 
-      <div>
-
-      </div>
+      <div></div>
     </div>
   );
 }
-
-
