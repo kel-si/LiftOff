@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from "react";
 import axios from "axios";
 import PostList from "./PostList";
-import Navbar from "./Navbar";
+import CreatePost from "./CreatePost";
 
 export default function Feed(props) {
   const [state, setState] = useState({
@@ -25,6 +25,7 @@ export default function Feed(props) {
   }, []);
   return (
     <div className="Feed">
+      <CreatePost />
       <PostList posts={state.posts} users={state.users} />
     </div>
     )
