@@ -7,5 +7,6 @@ class Api::FeedController < ApplicationController
  end
 
  def create
+   
  end
 end 
