@@ -1,26 +1,21 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import PostList from "./components/PostList";
 import Navbar from "./components/Navbar";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-      users: [],
-    };
-  }
+export default function App() {
+  const [state, setState] = useState({
+    posts: [],
+    users: [],
+  });
 
-  fetchData = () => {
+  useEffect(() => {
     axios
-      .get("/api/feed") // You can simply make your requests to "/api/whatever you want"
+      .get("/api/feed")
       .then((response) => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
-
-        this.setState({
+        console.log("response", response);
+        setState({
           posts: response.data.posts,
           users: response.data.users,
         });
@@ -28,17 +23,12 @@ class App extends Component {
       .catch((error) => {
         console.log(error);
       });
-  };
+  }, []);
 
-  render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <button onClick={this.fetchData}>Fetch Data</button>
-        <PostList posts={this.state.posts} users={this.state.users} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Navbar />
+      <PostList posts={state.posts} users={state.users} />
+    </div>
+  );
 }
-
-export default App;
