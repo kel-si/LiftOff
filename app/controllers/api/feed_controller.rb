@@ -5,4 +5,7 @@ class Api::FeedController < ApplicationController
 
     render :json => { posts: @posts, users: @users } 
  end
+
+ def create
+ end
 end 
