@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     !request.xhr? && request.format.html?
   end
 
+  get '/register' => 'users#new'
+  post '/users/' => 'users#create'
+
 end
