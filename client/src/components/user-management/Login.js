@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Navigate } from 'react-router-dom';
 
 export default function Login() {
-  const [formValue, setformValue] = React.useState({
+  const [formValue, setformValue] = useState({
     email: "",
     password: "",
   });
-
   const handleChange = (event) => {
     setformValue({
       ...formValue,
@@ -14,16 +14,18 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { 
     event.preventDefault();
-    const { email, password } = formValue;
-    console.log("event", event.target);
-    console.log("email", email);
-    console.log("password", password);
     console.log("formValue", formValue);
     axios
       .post("/api/login", { formValue })
-      .then(() => setformValue({ ...formValue, email, password }));
+      .then((res) => {
+        console.log("from server:", res.data);
+        <Navigate replace to="/home" />;
+      })
+      .catch((err) => {
+        console.log(err)
+      });
   };
 
   return (

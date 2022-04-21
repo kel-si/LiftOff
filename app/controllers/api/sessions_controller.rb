@@ -3,11 +3,18 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    if user = User.authenticate_with_credentials(params[:email], params[:password])
+    puts "params", params
+    if user = User.authenticate_with_credentials(params[:formValue][:email], params[:formValue][:password])
       session[:user_id] = user.id
-      puts "made it here!"
+      render json: {
+        logged_in: true,
+        user: user
+      }
     else
-      puts "else..."
+      render json: { 
+        status: 401,
+        errors: ['no such user, please try again']
+      }
     end
   end
 
