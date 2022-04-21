@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import "../styles/Quiz.scss";
 export default function Quiz() {
 	const questions = [
 		{
@@ -62,7 +62,8 @@ export default function Quiz() {
 }
 
 	return (
-		<div className='app'>
+    <div className='quiz-container'>
+		<div className='quiz'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
@@ -72,20 +73,21 @@ length}</div>
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
-							<span>Question 1</span>/{questions.length}
+							<span>Question {currentQuestion + 1}</span>/{questions.length}
 						</div>
 						<div className='question-text'>{questions[currentQuestion].
 questionText}</div>
 					</div>
 					<div className='answer-section'>
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-            <button onClick={() =>handleAnswerButtonClick(answerOption.
+            <button className="quiz-button" onClick={() =>handleAnswerButtonClick(answerOption.
 isCorrect)}>{answerOption.answerText}</button>
             ))}
 					</div>
 				</>
 			)}
 		</div>
+    </div>
 	);
 }
 
