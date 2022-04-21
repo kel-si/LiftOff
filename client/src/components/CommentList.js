@@ -3,7 +3,7 @@ import CommentListItem from "./CommentListItem";
 import axios from "axios";
 
 export default function CommentList(props) {
-  console.log("listitemprops", props.comments);
+  // console.log("listitemprops", props.comments);
   const comments = props.comments.map((comment) => {
     return (
       <div>

@@ -19,7 +19,6 @@ export default function PostList(props) {
     axios
       .get("/api/comments")
       .then((response) => {
-        console.log("response comments", response.data.comments);
         setState({
           comments: response.data.comments,
         });
