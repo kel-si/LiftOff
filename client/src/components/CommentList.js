@@ -2,7 +2,7 @@ import React from "react";
 import CommentListItem from "./CommentListItem";
 
 export default function CommentList(props) {
-  // console.log("listitemprops", props.comments);
+  console.log("list item props", props.comments);
   const comments = props.comments.map((comment) => {
     return (
       <div>
