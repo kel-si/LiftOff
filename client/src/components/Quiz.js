@@ -38,6 +38,15 @@ export default function Quiz() {
 				{ answerText: 'connect with others without being bounded by physical distance and national borders, especially amid a global pandemic and looming global climate catastrophe', isCorrect: true },
 			],
 		},
+    {
+      questionText: 'Identify the appropriate for the following post:  the post is as follows: "I am feeling down today. Is any of you available for chat?',
+      answerOptions: [
+        { answerText: 'not my problem', isCorrect: false },
+        { answerText: 'free today. but no time for you, im SO SORRY, not really.', isCorrect: false },
+        { answerText: 'no one cares about you', isCorrect: false },
+        { answerText: 'I feel you. I have to go for soccer training now. But lets chat later tonight on Discord?!', isCorrect: true },
+      ],
+    }
 	];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
