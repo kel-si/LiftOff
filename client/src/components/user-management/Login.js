@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login(props) {
+
   const [formValue, setformValue] = useState({
     email: "",
     password: "",
@@ -20,15 +21,35 @@ export default function Login() {
     event.preventDefault();
     console.log("formValue", formValue);
     axios
-      .post("/api/login", { formValue })
+      .post("/api/login", { formValue }, {withCredentials: true})
       .then((res) => {
-        console.log("from server:", res.data);
+      if (res.data.logged_in) {
+        props.handleLogin(res.data)
+        console.log(res.data.user)
         navigate("/my-posts");
+      } else {
+        setformValue({
+          errors: res.data.errors 
+        })
+      }
       })
       .catch((err) => {
-        console.log(err)
+        console.log('api errors:', err)
       });
   };
+
+
+  const handleErrors = () => {
+    return (
+      <div>
+        <ul>{formValue.errors.map((error) => {
+          return <li key={error}>{error}</li>
+        })}
+        </ul> 
+      </div>
+    )
+  };
+
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
