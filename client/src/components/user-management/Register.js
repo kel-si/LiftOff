@@ -23,13 +23,12 @@ export default function Register(props) {
     event.preventDefault();
     console.log("formValue", formValue);
     axios
-      .post("/api/users/", { formValue } 
-      , {withCredentials: true})
+      .post("/api/users/", { formValue })
       .then((res) => {
+        console.log("initial res from server", res.data)
         if (res.data.logged_in) {
-        props.handleLogin(res.data)
-        console.log("from server:", res.data);
-        redirect("/my-posts");
+          props.handleLogin(res.data);
+          redirect("/my-posts");
       } else {
         setformValue({
           errors: res.data.errors
@@ -42,47 +41,49 @@ export default function Register(props) {
   };
 
   return (
+    <div>
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Register to Get Started</h2>
       <input className="form--input"
         type="name"
         name="name"
         placeholder="Choose a username"
-        value={formValue.name}
+        value={formValue.name || ''}
         onChange={handleChange}
       />
       <input className="form--input"
         type="email"
         name="email"
         placeholder="enter an email"
-        value={formValue.email}
+        value={formValue.email || ''}
         onChange={handleChange}
       />
       <input className="form--input"
         type="password"
         name="password"
         placeholder="enter a password"
-        value={formValue.password}
+        value={formValue.password || ''}
         onChange={handleChange}
       />
        <input className="form--input"
         type="password"
         name="password_confirmation"
         placeholder="confirm your password"
-        value={formValue.password_confirmation}
+        value={formValue.password_confirmation || ''}
         onChange={handleChange}
       />
        <input className="form--input"
         type="email"
         name="parent_email"
         placeholder="enter your parent's email"
-        value={formValue.parent_email}
+        value={formValue.parent_email || ''}
         onChange={handleChange}
       />
       <button color="primary" type="submit" className="primary--btn">
         Register
       </button>
     </form>
+    </div>
   );
 }
 

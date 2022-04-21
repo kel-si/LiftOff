@@ -4,9 +4,7 @@ import "../styles/CreatePost.scss";
 
 export default function CreatePost( ) {
 
-  const [post, setPost] = useState(
-    ""
-  );
+  const [post, setPost] = useState("");
 
   const handleChange = (e) => {
     setPost( 

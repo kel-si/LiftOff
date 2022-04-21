@@ -29,12 +29,13 @@ def show
  end
   
   def create
+    puts "user params", params
     @user = User.new(user_params)
     if @user.save
-      # session[:user_id] = user  
-      login!
+      session[:user_id] = @user  
+      # login!
       render json: {
-        # logged_in: true,
+        logged_in: true,
         status: :created,
         user: @user
       }
@@ -43,7 +44,7 @@ def show
         # status: 401,
         # errors: ['error creating user']
         status: 500,
-        errors: @user.erros.full_messages
+        errors: @user.errors.full_messages
       }
     end
   end
