@@ -5,7 +5,7 @@ import "../styles/components.css";
 export default function Navbar() {
   return (
     <nav>
-      <h1>Logo</h1>
+      <h1><Link to="/">Logo</Link></h1>
       <ul>
         <button>
           <li><Link to="/my-posts">My Posts Button</Link></li>
