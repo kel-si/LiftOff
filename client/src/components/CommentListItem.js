@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CommentListItem() {
+export default function CommentListItem(props) {
   return (
     <div className="comment--container">
       <article className="comment">
@@ -9,10 +9,10 @@ export default function CommentListItem() {
         </header>
 
         <div className="comment--body">
-          <p>comment here</p>
+          <p>{props.text}</p>
         </div>
         <footer className="comment--footer">
-          <small className="footer--age">timestamp</small>
+          <small className="footer--age">{props.time}</small>
         </footer>
       </article>
     </div>
