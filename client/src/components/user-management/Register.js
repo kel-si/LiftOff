@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-export default function Register() {
+export default function Register(props) {
   const [formValue, setformValue] = useState({
     name: "",
     email: "",
@@ -23,13 +23,21 @@ export default function Register() {
     event.preventDefault();
     console.log("formValue", formValue);
     axios
-      .post("/api/users/", { formValue })
+      .post("/api/users/", { formValue } 
+      , {withCredentials: true})
       .then((res) => {
+        if (res.data.logged_in) {
+        props.handleLogin(res.data)
         console.log("from server:", res.data);
         redirect("/my-posts");
-      })
+      } else {
+        setformValue({
+          errors: res.data.errors
+        })
+      }
+    })
       .catch((err) => {
-        console.log(err)
+        console.log('api errors:', err)
       });
   };
 

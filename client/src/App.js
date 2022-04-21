@@ -53,7 +53,7 @@ export default function App() {
           <Route path="/my-posts" element={<MyPosts />} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register handleLogin={handleLogin} />} />
         </Routes>
       </Router>
     </div>

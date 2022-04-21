@@ -39,16 +39,16 @@ export default function Login(props) {
   };
 
 
-  const handleErrors = () => {
-    return (
-      <div>
-        <ul>{formValue.errors.map((error) => {
-          return <li key={error}>{error}</li>
-        })}
-        </ul> 
-      </div>
-    )
-  };
+  // const handleErrors = () => {
+    // return (
+      // <div>
+        //{/* {/* <ul>{formValue.errors.map((error) => { */}
+          // // return <li key={error}>{error}</li>
+        // })}
+        //{/* </ul>  */}
+      //{/* </div> */}
+    // )
+  // };
 
 
   return (
