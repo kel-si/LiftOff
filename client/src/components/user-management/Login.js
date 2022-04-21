@@ -21,7 +21,7 @@ export default function Login() {
       .post("/api/login", { formValue })
       .then((res) => {
         console.log("from server:", res.data);
-        <Navigate replace to="/home" />;
+        <Navigate replace to="/my-posts" />;
       })
       .catch((err) => {
         console.log(err)
