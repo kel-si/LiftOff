@@ -1,13 +1,14 @@
 import React from "react";
 import Login from "./user-management/Login";
-import Register from "./user-management/Register";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <div>
-      <h1>Landing Page</h1>
+    <div className="page-container">
+      <h1>Get ready for LiftOff!</h1>
+      <h3>A training camp that will set you up to explore the social media universe successfully.</h3>
       <Login />
-      <Register />
+      <Link to="/register">Register</Link>
     </div>
   );
 }

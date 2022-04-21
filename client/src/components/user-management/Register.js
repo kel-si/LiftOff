@@ -34,45 +34,45 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>Register to Get Started</p>
-      <input
+    <form onSubmit={handleSubmit} className="form-container">
+      <h2>Register to Get Started</h2>
+      <input className="form--input"
         type="name"
         name="name"
         placeholder="Choose a username"
         value={formValue.name}
         onChange={handleChange}
       />
-      <input
+      <input className="form--input"
         type="email"
         name="email"
         placeholder="enter an email"
         value={formValue.email}
         onChange={handleChange}
       />
-      <input
+      <input className="form--input"
         type="password"
         name="password"
         placeholder="enter a password"
         value={formValue.password}
         onChange={handleChange}
       />
-       <input
+       <input className="form--input"
         type="password"
         name="password_confirmation"
         placeholder="confirm your password"
         value={formValue.password_confirmation}
         onChange={handleChange}
       />
-       <input
+       <input className="form--input"
         type="email"
         name="parent_email"
         placeholder="enter your parent's email"
         value={formValue.parent_email}
         onChange={handleChange}
       />
-      <button color="primary" type="submit">
-        Login
+      <button color="primary" type="submit" className="primary--btn">
+        Register
       </button>
     </form>
   );

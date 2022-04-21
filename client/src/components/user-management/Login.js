@@ -31,23 +31,23 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>Login to Get Started</p>
-      <input
+    <form onSubmit={handleSubmit} className="form-container">
+      <h2>Login to Get Started</h2>
+      <input className="form--input"
         type="email"
         name="email"
         placeholder="enter an email"
         value={formValue.email}
         onChange={handleChange}
       />
-      <input
+      <input className="form--input"
         type="password"
         name="password"
         placeholder="enter a password"
         value={formValue.password}
         onChange={handleChange}
       />
-      <button color="primary" type="submit">
+      <button color="primary" type="submit" className="primary--btn">
         Login
       </button>
     </form>
