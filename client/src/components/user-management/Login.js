@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [formValue, setformValue] = useState({
@@ -14,6 +14,8 @@ export default function Login() {
     });
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => { 
     event.preventDefault();
     console.log("formValue", formValue);
@@ -21,7 +23,7 @@ export default function Login() {
       .post("/api/login", { formValue })
       .then((res) => {
         console.log("from server:", res.data);
-        <Navigate replace to="/my-posts" />;
+        navigate("/my-posts");
       })
       .catch((err) => {
         console.log(err)

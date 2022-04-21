@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [formValue, setformValue] = useState({
@@ -10,6 +10,8 @@ export default function Register() {
     password_confirmation: "",
     parent_email: ""
   });
+  const redirect = useNavigate();
+
   const handleChange = (event) => {
     setformValue({
       ...formValue,
@@ -24,7 +26,7 @@ export default function Register() {
       .post("/api/users/", { formValue })
       .then((res) => {
         console.log("from server:", res.data);
-        <Navigate replace to="/my-posts" />;
+        redirect("/my-posts");
       })
       .catch((err) => {
         console.log(err)
