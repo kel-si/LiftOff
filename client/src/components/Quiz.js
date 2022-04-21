@@ -67,21 +67,18 @@ export default function Quiz() {
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
-				<div className='score-section'>You scored {score} out of {questions.
-length}</div>
+				<div className='score-section'>You scored {score} out of {questions.length}</div>
 			) : (
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
 						</div>
-						<div className='question-text'>{questions[currentQuestion].
-questionText}</div>
+						<div className='question-text'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='answer-section'>
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-            <button className="quiz-button" onClick={() =>handleAnswerButtonClick(answerOption.
-isCorrect)}>{answerOption.answerText}</button>
+            <button className="quiz-button" onClick={() =>handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
             ))}
 					</div>
 				</>
