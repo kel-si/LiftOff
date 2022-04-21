@@ -3,7 +3,7 @@ import React from "react";
 export default function PostListItem(props) {
   console.log(typeof props.image);
   return (
-    <div>
+    <div className="post--container">
       <article className="post">
         <header className="post--header">
           {/* <img className="post--avatar" src={post.avatar} /> */}
@@ -12,7 +12,7 @@ export default function PostListItem(props) {
 
         <div className="post--body">
           <p>{props.text}</p>
-          <img src={props.image} alt="user's post" />
+          <img src={props.image} alt="error" />
         </div>
 
         {/* <div className="post--image">

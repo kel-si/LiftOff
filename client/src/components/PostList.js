@@ -1,8 +1,7 @@
 import React from "react";
 import PostListItem from "./PostListItem";
 
-
-const assignUserName = function(users, post) {
+const assignUserName = function (users, post) {
   for (const user of users) {
     if (user.id === post.user_id) {
       return user.name;
@@ -11,7 +10,7 @@ const assignUserName = function(users, post) {
 };
 
 export default function PostList(props) {
-const users = props.users;
+  const users = props.users;
   const feed = props.posts.map((post) => {
     return (
       <PostListItem
@@ -23,5 +22,5 @@ const users = props.users;
       />
     );
   });
-  return <ul>{feed}</ul>;
+  return <ul className="container">{feed}</ul>;
 }
