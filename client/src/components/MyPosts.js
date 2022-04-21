@@ -5,7 +5,6 @@ export default function MyPosts(props) {
   return (
     <div>
       <Feed />
-      <CommentList />
     </div>
   );
 }
