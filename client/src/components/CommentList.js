@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CommentListItem from "./CommentListItem";
-import axios from "axios";
 
 export default function CommentList(props) {
   // console.log("listitemprops", props.comments);
