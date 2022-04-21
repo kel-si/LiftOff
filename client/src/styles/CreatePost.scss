@@ -1,0 +1,26 @@
+.form-container {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.primary--btn {
+ background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+ padding: 10px 30px;
+ border: none;
+ border-radius: 20px;
+ color: #fff;
+ box-shadow: none;
+ margin-bottom: 20px;
+ font-weight: 700;
+ font-size: 20px;
+}
+
+.form--input {
+width: 100%;
+background-color: transparent;
+border-bottom: 2px solid #fe5196;
+margin-bottom: 20px;
+height: 50px;
+font-size: 18px;
+font-weight: 100;
+}

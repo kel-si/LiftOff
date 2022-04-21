@@ -22,5 +22,9 @@ export default function PostList(props) {
       />
     );
   });
-  return <ul className="container">{feed}</ul>;
+  return (
+  <div className="container">
+  <ul>{feed}</ul>
+  </div>
+  );
 }

@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import axios from "axios"; 
+import "../styles/CreatePost.scss";
 
 export default function CreatePost( ) {
 
@@ -30,7 +31,7 @@ export default function CreatePost( ) {
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div>
-          <input
+          <input className="form--input"
             type="text"
             name="post"
             placeholder="description"
@@ -39,7 +40,7 @@ export default function CreatePost( ) {
           />
         </div>
         <div>
-          <button type="submit" value="Add Post">
+          <button type="submit" value="Add Post" className="primary--btn">
             Post
           </button>
         </div>
