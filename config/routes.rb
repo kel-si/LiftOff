@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     
     resources :feed
 
+    resources :posts
+
+    get '/posts' => 'posts#new'
+    post '/posts' => 'posts#create'
+
   end
 
   get '*path', to: "static_pages#fallback_index_html", constraints: ->(request) do

@@ -1,14 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState }  from 'react';
+import axios from "axios"; 
 
-export default function CreatePost() {
-  const [post, setPost] = useState("");
-  const [image, setImage] = useState("");
+export default function CreatePost( ) {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("post:", post, "image:", image);
-    //axios put request
+  const [post, setPost] = useState(
+    ""
+  );
+
+  const handleChange = (e) => {
+    setPost( 
+      e.target.value
+    )
   };
+
+  const handleSubmit =(e) => {
+    e.preventDefault();
+    console.log("post:", post );
+    axios 
+    .post("/api/posts", { text: post }) 
+    .then((res) => { 
+      console.log("from server:", res.data);
+    })
+    .catch((err) => {
+      console.log("error", err); 
+    })
+   }
 
   return (
     <div className="form-container">
@@ -16,19 +32,10 @@ export default function CreatePost() {
         <div>
           <input
             type="text"
-            name="description"
+            name="post"
             placeholder="description"
-            value={post}
-            onChange={(event) => setPost(event.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            type="file"
-            name="image"
-            placeholder="image"
-            value={image}
-            onChange={(event) => setImage(event.target.value)}
+            value={ post }
+            onChange={ handleChange }
           />
         </div>
         <div>
