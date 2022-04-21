@@ -3,7 +3,7 @@ import PostListItem from "./PostListItem";
 import axios from "axios";
 import CommentList from "./CommentList";
 
-const assignUserName = function (users, post) {
+const assignUserName = function(users, post) {
   for (const user of users) {
     if (user.id === post.user_id) {
       return user.name;
@@ -12,22 +12,6 @@ const assignUserName = function (users, post) {
 };
 
 export default function PostList(props) {
-  const [state, setState] = useState({
-    comments: [],
-  });
-  useEffect(() => {
-    axios
-      .get("/api/comments")
-      .then((response) => {
-        setState({
-          comments: response.data.comments,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
   const users = props.users;
   const feed = props.posts.map((post) => {
     return (
@@ -39,13 +23,13 @@ export default function PostList(props) {
           image={post.image}
           time={post.created_at}
         />
-        <CommentList comments={state.comments} />
+        <CommentList comments={post.comments} users={props.users} />
       </div>
     );
   });
   return (
-  <div className="container">
-  <ul>{feed}</ul>
-  </div>
+    <div className="container">
+      <ul>{feed}</ul>
+    </div>
   );
 }
