@@ -1,5 +1,5 @@
 /* * {
-  border: 1px solid black;
+  border: 1px solid rgb(208, 203, 203);
 } */
 
 body {
@@ -10,11 +10,26 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
+  padding-left: 10px;
 }
 
 ul {
   list-style: none;
+}
+
+ul .container {
   display: flex;
+}
+
+div .post--container {
+  flex-direction: row;
+  align-items: center;
+  border: 1px dotted black;
+  width: 50%;
+}
+
+article.post {
+  justify-content: row;
 }
 
 li {
@@ -23,9 +38,9 @@ li {
 }
 
 .avatar-image {
-  border: 1px solid black;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   object-fit: cover;
+  margin: 10px;
 }
