@@ -1,20 +1,49 @@
 class Api::UsersController < ApplicationController
   
-  def new
-  end
+  def index
+    @users = User.all
+       if @users
+          render json: {
+          users: @users
+       }
+      else
+          render json: {
+          status: 500,
+          errors: ['no users found']
+      }
+     end
+end
+
+def show
+  @user = User.find(params[:id])
+      if @user
+         render json: {
+         user: @user
+      }
+      else
+         render json: {
+         status: 500,
+         errors: ['user not found']
+       }
+      end
+ end
   
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user
+    @user = User.new(user_params)
+    if @user.save
+      # session[:user_id] = user  
+      login!
       render json: {
-        logged_in: true,
-        user: user
+        # logged_in: true,
+        status: :created,
+        user: @user
       }
     else
       render json: { 
-        status: 401,
-        errors: ['error creating user']
+        # status: 401,
+        # errors: ['error creating user']
+        status: 500,
+        errors: @user.erros.full_messages
       }
     end
   end

@@ -5,12 +5,23 @@ Rails.application.routes.draw do
 
     # get '/data', to: 'tests#index'
     get '/register' => 'users#new'
-    post '/users/' => 'users#create'
+    # post '/users/' => 'users#create'
 
-    get 'login' => 'sessions#new'
-    post 'login' => 'sessions#create'
-    get 'logout' => 'sessions#destroy'
     
+
+    #code we have before the article on April 21
+    get 'login' => 'sessions#new'
+    # post 'login' => 'sessions#create'
+    # get 'logout' => 'sessions#destroy'
+
+    post '/login',    to: 'sessions#create'
+    post '/logout',   to: 'sessions#destroy'
+    get '/logged_in', to: 'sessions#is_logged_in?'
+    
+    resources :users, only: [:create, :show, :index] do 
+      resources :items, only: [:create, :show, :index, :destroy]
+    end 
+
     resources :feed, :comments
 
     resources :posts
