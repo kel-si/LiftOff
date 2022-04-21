@@ -1,41 +1,41 @@
 import React, { useState } from 'react';
 
-export default function App() {
+export default function Quiz() {
 	const questions = [
 		{
-			questionText: '  ',
+			questionText: 'How much time does an average child (under the age of 12) spend on social media per day? (as of 2019)',
 			answerOptions: [
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: true },
-				{ answerText: '', isCorrect: false },
+				{ answerText: '1', isCorrect: false },
+				{ answerText: '3', isCorrect: false },
+				{ answerText: '6', isCorrect: true },
+				{ answerText: '5', isCorrect: false },
 			],
 		},
 		{
-			questionText: '',
+			questionText: 'What are some of the risks you can face when using social media?',
 			answerOptions: [
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: true },
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: false },
+				{ answerText: 'getting free bitcoin and beocming a billionnaire', isCorrect: false },
+				{ answerText: 'identity theft, online predators, access to personal information, cyberbullying', isCorrect: true },
+				{ answerText: 'get contacted by Elon to join the Executive Board of Tesla, Twitter, SpaceX', isCorrect: false },
+				{ answerText: 'find zen in life', isCorrect: false },
 			],
 		},
 		{
-			questionText: '',
+			questionText: 'How may social media usage negatively impact how we view ourselves?',
 			answerOptions: [
-				{ answerText: '', isCorrect: true },
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: false },
+				{ answerText: 'we increasingly base our self-worth on the likes, the followers, the reactions, the shares that we get from our social media interactions. Also, unrealistically negative comments from trolls, haters, who are anonymous.', isCorrect: true },
+				{ answerText: 'we feel like we are the king of the world because Elon retweets our message', isCorrect: false },
+				{ answerText: 'social media is evil', isCorrect: false },
+				{ answerText: 'Mark Zuckerberg is an alien', isCorrect: false },
 			],
 		},
 		{
-			questionText: '',
+			questionText: 'What are some benefits of using social media?',
 			answerOptions: [
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: false },
-				{ answerText: '', isCorrect: true },
+				{ answerText: 'climate change is a hoax', isCorrect: false },
+				{ answerText: 'Rick Roll', isCorrect: false },
+				{ answerText: 'get free bitcoins', isCorrect: false },
+				{ answerText: 'connect with others without being bounded by physical distance and national borders, especially amid a global pandemic and looming global climate catastrophe', isCorrect: true },
 			],
 		},
 	];

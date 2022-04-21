@@ -5,6 +5,7 @@ import MyPosts from "./components/MyPosts";
 import Guidelines from "./components/Guidelines";
 import Landing from "./components/Landing";
 import Register from "./components/user-management/Register";
+import Quiz from "./components/Quiz";
 import axios from "axios";
 
 export default function App() {
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
           <Route path="/register" element={<Register handleLogin={handleLogin} />} />
+          <Route path="/quiz" element={<Quiz />} />
         </Routes>
       </Router>
     </div>
