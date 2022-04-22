@@ -2,6 +2,7 @@ import React from "react";
 import CommentListItem from "./CommentListItem";
 
 export default function CommentList(props) {
+  // assigns a username to a comment
   const commentWithUsername = function(users, comment) {
     for (const user of users) {
       if (user.id === comment.user_id) {
@@ -10,7 +11,6 @@ export default function CommentList(props) {
     }
   };
 
-  // console.log("list item props", props);
   const comments = props.comments.map((comment) => {
     return (
       <div>
