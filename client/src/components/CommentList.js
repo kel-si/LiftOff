@@ -23,5 +23,10 @@ export default function CommentList(props) {
       </div>
     );
   });
-  return <div>{comments}</div>;
+  return (
+    <div>
+      <h5 className="comment--heading">Comments:</h5>
+      {comments}
+    </div>
+  );
 }
