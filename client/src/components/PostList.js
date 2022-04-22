@@ -2,6 +2,7 @@ import React from "react";
 import PostListItem from "./PostListItem";
 import CommentList from "./CommentList";
 
+// assigns username to a post
 const assignUserName = function(users, post) {
   for (const user of users) {
     if (user.id === post.user_id) {
