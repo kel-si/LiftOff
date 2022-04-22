@@ -13,9 +13,8 @@ export default function CommentList(props) {
 
   const comments = props.comments.map((comment) => {
     return (
-      <div>
+      <div key={comment.id}>
         <CommentListItem
-          key={comment.id}
           text={comment.text}
           time={comment.created_at}
           name={commentWithUsername(props.users, comment)}
