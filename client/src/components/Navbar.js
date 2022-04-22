@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/components.scss";
+import "../styles/Navbar.scss";
+import { levelName, levelAvatar } from "./helpers/navHelpers";
 
 export default function Navbar(props) {
   const [user, setUser] = useState({});
@@ -23,34 +25,6 @@ export default function Navbar(props) {
     setLogin(0);
     setUser({});
   };
-
-  const levelName = (level) => {
-    if (level === 0) {
-      return "Earthling";
-    } else if (level === 1) {
-      return "Mini Martian";
-    } else if (level === 2) {
-      return "Moon Walker";
-    } else if (level > 2) {
-      return "Supreme Leader";
-    } else {
-      return "";
-    }
-  }
-
-  const levelAvatar = (level) => {
-    if (level === 0) {
-      return "https://i.ibb.co/D5yHV1t/lvl-1.jpg";
-    } else if (level === 1) {
-      return "https://i.ibb.co/MC7dYWy/lvl-2.jpg";
-    } else if (level === 2) {
-      return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
-    } else if (level > 2) {
-      return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
-    } else {
-      return "";
-    }
-  }
 
   return (
     <nav>
