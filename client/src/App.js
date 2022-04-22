@@ -7,7 +7,9 @@ import Landing from "./components/Landing";
 import Register from "./components/user-management/Register";
 import Quiz from "./components/Quiz";
 import axios from "axios";
+import AdminLanding from "./components/admin/AdminLanding";
 import AdminFeed from "./components/admin/AdminFeed";
+import AdminUsers from "./components/admin/AdminUsers";
 
 export default function App() {
 
@@ -32,7 +34,7 @@ export default function App() {
   }
 
   const loginStatus = () => {
-    axios.get('/api/logged_in', { withCredentials: true }) //what does this mean?
+    axios.get('/api/logged_in') //what does this mean?
     .then(response => {
       if (response.data.logged_in) {
         handleLogin(response)
@@ -57,7 +59,9 @@ export default function App() {
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
           <Route path="/register" element={<Register handleLogin={handleLogin} />} />
           <Route path="/quiz" element={<Quiz />} />
-          <Route path="/admin" element={<AdminFeed />} />
+          <Route path="/admin" element={<AdminLanding />} />
+          <Route path="/admin-approvals" element={<AdminFeed />} />
+          <Route path="/admin-users" element={<AdminUsers />} />
         </Routes>
       </Router>
     </div>

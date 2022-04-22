@@ -1,6 +1,6 @@
 class Admin::FeedController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order(status: :desc)
     @users = User.all
 
     render :json => { posts: @posts, users: @users } 
