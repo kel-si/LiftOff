@@ -10,11 +10,11 @@ export default function Navbar(props) {
 
 
   useEffect(() => {
-    const user = localStorage.getItem('liftoffUser');
-    if (!user) {
+    const currentUser = localStorage.getItem('liftoffUser');
+    if (!currentUser) {
       // no user 
     } else {
-      const liftoffUser = JSON.parse(user);
+      const liftoffUser = JSON.parse(currentUser);
       setUser(liftoffUser);
       setLogin(1);
     }
@@ -24,6 +24,20 @@ export default function Navbar(props) {
     localStorage.clear();
     setLogin(0);
     setUser({});
+  }
+
+  const checkLevel = (level) => {
+    if (level === 0) {
+      return "Earthling";
+    } else if (level === 1) {
+      return "Mini Martian";
+    } else if (level === 2) {
+      return "Moon Walker";
+    } else if (level > 2) {
+      return "Supreme Leader";
+    } else {
+      return "";
+    }
   }
 
   return (
@@ -65,16 +79,16 @@ export default function Navbar(props) {
            </li>
          </button>
         )  }
-       
       </ul>
-      <div>Logged In As: { user.name }</div>
-      <div>Level:</div>
+    
       <div className="avatar-container">
         <img
           className="avatar-image"
           src="https://i.pinimg.com/originals/f3/8f/15/f38f150e6ae908a1e908597a92eb1e99.png"
           alt="shiba in the universe"
         />
+        <div>Logged In As: { user.name }</div>
+        <div> Level: { checkLevel(user.level) }</div>
       </div>
     </nav>
   );
