@@ -24,7 +24,7 @@ export default function Feed(props) {
       });
   }, []);
 
-  // helper function to create a data structure of [{postId: 1, comments: []]}
+  // helper function to create a data structure of [{postId: 1, comments: []}]
   // not an ideal solution if we have a huge data set
   const postsWithComments = state.posts.map((post) => {
     return {
@@ -32,7 +32,6 @@ export default function Feed(props) {
       comments: state.comments.filter((comment) => comment.post_id === post.id),
     };
   });
-  console.log("post with comments", postsWithComments);
   return (
     <div className="Feed">
       <CreatePost />
