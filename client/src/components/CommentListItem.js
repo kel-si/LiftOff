@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function CommentListItem(props) {
-  console.log("list props", props);
   return (
     <div className="comment--container">
       <article className="comment">
