@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PostListItem from "./PostListItem";
-import axios from "axios";
 import CommentList from "./CommentList";
 
 const assignUserName = function(users, post) {
