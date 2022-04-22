@@ -24,11 +24,17 @@ export default function Navbar(props) {
             <Link to="/guidelines">Guidelines</Link>
           </li>
         </button>
+        <button>
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
+        </button>
         <button onClick={props.logout}>
           <li>
             <Link to="/">Log Out Button</Link>
           </li>
         </button>
+        
       </ul>
       <div>{props.currentUser.name}</div>
       <div>Level: {props.currentUser.level}</div>

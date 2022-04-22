@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     get '/register' => 'users#new'
     # post '/users/' => 'users#create'
 
-    
-
     #code we have before the article on April 21
     get 'login' => 'sessions#new'
     # post 'login' => 'sessions#create'
@@ -30,6 +28,14 @@ Rails.application.routes.draw do
     post '/posts' => 'posts#create'
 
   end
+
+  namespace :admin do 
+    resources :posts
+    resources :comments
+    resources :feed 
+    resources :users
+  end
+
 
   get '*path', to: "static_pages#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?

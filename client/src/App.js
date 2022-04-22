@@ -7,6 +7,9 @@ import Landing from "./components/Landing";
 import Register from "./components/user-management/Register";
 import Quiz from "./components/Quiz";
 import axios from "axios";
+import AdminLanding from "./components/admin/AdminLanding";
+import AdminFeed from "./components/admin/AdminFeed";
+import AdminUsers from "./components/admin/AdminUsers";
 
 export default function App() {
   const [login, setLogin] = useState({
@@ -29,16 +32,15 @@ export default function App() {
   };
 
   const loginStatus = () => {
-    axios
-      .get("/api/logged_in", { withCredentials: true }) //what does this mean?
-      .then((response) => {
-        if (response.data.logged_in) {
-          handleLogin(response);
-        } else {
-          handleLogout();
-        }
-      })
-      .catch((error) => console.log("api errors:", error));
+    axios.get('/api/logged_in') //what does this mean?
+    .then(response => {
+      if (response.data.logged_in) {
+        handleLogin(response)
+      } else {
+        handleLogout()
+      }
+    })
+    .catch(error => console.log('api errors:', error))
   };
 
   useEffect(() => {
@@ -60,6 +62,9 @@ export default function App() {
             element={<Register handleLogin={handleLogin} />}
           />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/admin" element={<AdminLanding />} />
+          <Route path="/admin-approvals" element={<AdminFeed />} />
+          <Route path="/admin-users" element={<AdminUsers />} />
         </Routes>
       </Router>
     </div>
