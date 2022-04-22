@@ -26,7 +26,6 @@ export default function App() {
       status: false,
       user: {},
     });
-    console.log("Logged in? user:", login.user);
   };
 
   const loginStatus = () => {
