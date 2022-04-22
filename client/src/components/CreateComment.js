@@ -1,26 +1,33 @@
-import React, { useState } from 'react'
-import axios from "axios"; 
+import React, { useState } from "react";
+import axios from "axios";
+import Sentiment from "sentiment";
+
 export default function CreateComment() {
+  const sentiment = new Sentiment();
+  const [comment, setComment] = useState("");
 
-const [comment, setComment] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-const handleSubmit =(e) => {
-  e.preventDefault();
-  console.log("comment:", comment );
-  axios 
-  .post("/api/comments", { text: 
-comment }) 
-  .then((res) => { 
-    console.log("from server:", 
-res.data);
-  })
-  .catch((err) => {
-    console.log("error", err); 
-  })
- }
+    findSentiment({ text: comment }.text);
+    axios
+      .post("/api/comments", { text: comment })
+      .then((res) => {
+        console.log("from server:", res.data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
 
- return (
+  const findSentiment = (comment) => {
+    const result = sentiment.analyze(comment);
+    console.log("result", result);
+    console.log("result.score", result.score);
+    return result;
+  };
 
+  return (
     <div>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
