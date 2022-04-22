@@ -15,7 +15,7 @@ export default function PostList(props) {
   const users = props.users;
   const feed = props.posts.map((post) => {
     return (
-      <div>
+      <div className="post--item">
         <PostListItem
           key={post.id}
           name={assignUserName(users, post)}
