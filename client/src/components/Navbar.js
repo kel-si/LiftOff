@@ -6,7 +6,12 @@ export default function Navbar(props) {
   return (
     <nav>
       <h1>
-        <Link to="/">LiftOff🚀</Link>
+        <Link to="/">
+          LiftOff
+          <span role="img" aria-label="rocket ship emoji">
+            🚀
+          </span>
+        </Link>
       </h1>
       <ul>
         <button>
