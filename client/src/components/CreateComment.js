@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import axios from "axios"; 
+
+
 export default function CreateComment() {
 
 const [comment, setComment] = useState("");
+
+const user = localStorage.getItem("liftoffUser");
+const userData = JSON.parse(user);
+const userId = userData.user.id;
 
 const handleSubmit =(e) => {
   e.preventDefault();
   console.log("comment:", comment );
   axios 
   .post("/api/comments", { text: 
-comment }) 
+comment, user_id : userId }) 
   .then((res) => { 
     console.log("from server:", 
 res.data);
