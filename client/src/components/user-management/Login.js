@@ -23,7 +23,8 @@ export default function Login(props) {
       .then((res) => {
         if (res.data.logged_in) {
           props.handleLogin(res.data);
-          console.log("handleSubmit Login", res.data);
+          localStorage.setItem('liftoffUser', JSON.stringify(res.data.user));
+          console.log("handleSubmit Login +++", res.data.user);
           navigate("/my-posts");
         } else {
           setformValue({

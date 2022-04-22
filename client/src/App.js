@@ -37,6 +37,7 @@ export default function App() {
       .then((response) => {
         if (response.data.logged_in) {
           handleLogin(response);
+          localStorage.setItem('liftoffUser', JSON.stringify(response.data));
         } else {
           handleLogout();
         }
@@ -47,6 +48,8 @@ export default function App() {
   useEffect(() => {
     loginStatus();
   }, []);
+
+  console.log("login", login);
 
   return (
     <div className="App">

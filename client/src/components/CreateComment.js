@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"; 
 export default function CreateComment() {
 
-const [comment, setComment] = useState
-("");
+const [comment, setComment] = useState("");
 
 const handleSubmit =(e) => {
   e.preventDefault();
