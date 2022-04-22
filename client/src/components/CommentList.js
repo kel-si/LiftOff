@@ -1,5 +1,6 @@
 import React from "react";
 import CommentListItem from "./CommentListItem";
+import CreateComment from "./CreateComment";
 
 export default function CommentList(props) {
   // assigns a username to a comment
@@ -24,7 +25,8 @@ export default function CommentList(props) {
   });
   return (
     <div>
-      <h5 className="comment--heading">Comments:</h5>
+      {/* <h5 className="comment--heading"></h5> */}
+      <CreateComment />
       {comments}
     </div>
   );

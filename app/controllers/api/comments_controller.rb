@@ -5,6 +5,31 @@ class Api::CommentsController < ApplicationController
     render :json => { comments: @comments }
   end
 
-  def create
+  def new
+    @comment = Comment.new
   end
+
+  def create
+    @user = User.create({email: "dummy@fake.com"})
+    puts "params", params
+    puts "another one", params[:comment]
+    @comment = Comment.new(comment_params)
+    @comment.user = @user
+    @comment.post_id = 1
+    if @comment.save 
+      render json: {
+        comment: @comment 
+    }
+    else 
+      puts @comment.errors.inspect
+      render json: {
+      errors: ["not getting it"]
+      }
+    end 
+  end
+
+  private 
+  def comment_params 
+    params.require(:comment).permit(:text)
+  end 
 end
