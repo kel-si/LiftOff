@@ -2,6 +2,7 @@ import React from "react";
 
 export default function AdminUsersItem(props) {
   return (
+    <div className="page-container">
       <div className="post--container">
         <article className="post">
           <header className="post--header">
@@ -20,6 +21,7 @@ export default function AdminUsersItem(props) {
             <button className="btn-small">Delete User</button>
           </footer>
         </article>
+      </div>
       </div>
   );
 }

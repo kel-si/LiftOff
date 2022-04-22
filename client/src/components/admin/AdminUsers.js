@@ -9,7 +9,6 @@ export default function AdminUsers() {
   useEffect(() => {
     axios.get("/admin/users")
       .then((res) => {
-        console.log("user request", res.data.users)
         setUsers(res.data.users);
       })
       .catch((error) => {
@@ -31,11 +30,9 @@ export default function AdminUsers() {
     );
   });
   return (
-    <div className='Feed'>
-      <div className="container">
+      <div className="user-container">
         {userList}
       </div>
-    </div>
     
   )
 }
