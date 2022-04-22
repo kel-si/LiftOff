@@ -34,10 +34,9 @@ export default function Navbar(props) {
             <Link to="/">Log Out Button</Link>
           </li>
         </button>
-        
       </ul>
-      <div>{props.currentUser.name}</div>
-      <div>Level: {props.currentUser.level}</div>
+      <div>Logged In As:</div>
+      <div>Level:</div>
       <div className="avatar-container">
         <img
           className="avatar-image"

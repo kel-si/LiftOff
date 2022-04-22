@@ -20,7 +20,7 @@ export default function App() {
   const handleLogin = (data) => {
     setLogin({
       status: true,
-      user: data.data.user,
+      user: data.data,
     });
   };
 
@@ -48,12 +48,10 @@ export default function App() {
     loginStatus();
   }, []);
 
-  const currentUser = login.user;
-
   return (
     <div className="App">
       <Router>
-        <Navbar logout={handleLogout} currentUser={currentUser} />
+        <Navbar logout={handleLogout} />
         <Routes>
           <Route path="/my-posts" element={<MyPosts />} />
           <Route path="/guidelines" element={<Guidelines />} />
