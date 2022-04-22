@@ -8,15 +8,9 @@ export default function Navbar(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-<<<<<<< HEAD
-    const user = localStorage.getItem("liftoffUser");
-    if (!user) {
-      // no user
-=======
     const currentUser = localStorage.getItem('liftoffUser');
     if (!currentUser) {
       // no user 
->>>>>>> navigation-conditionals
     } else {
       const liftoffUser = JSON.parse(currentUser);
       setUser(liftoffUser);
