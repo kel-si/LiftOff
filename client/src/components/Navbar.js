@@ -24,7 +24,7 @@ export default function Navbar(props) {
     setUser({});
   };
 
-  const checkLevel = (level) => {
+  const levelName = (level) => {
     if (level === 0) {
       return "Earthling";
     } else if (level === 1) {
@@ -33,6 +33,20 @@ export default function Navbar(props) {
       return "Moon Walker";
     } else if (level > 2) {
       return "Supreme Leader";
+    } else {
+      return "";
+    }
+  }
+
+  const levelAvatar = (level) => {
+    if (level === 0) {
+      return "https://i.ibb.co/D5yHV1t/lvl-1.jpg";
+    } else if (level === 1) {
+      return "https://i.ibb.co/MC7dYWy/lvl-2.jpg";
+    } else if (level === 2) {
+      return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
+    } else if (level > 2) {
+      return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
     } else {
       return "";
     }
@@ -82,11 +96,11 @@ export default function Navbar(props) {
       <div className="avatar-container">
         <img
           className="avatar-image"
-          src="https://i.pinimg.com/originals/f3/8f/15/f38f150e6ae908a1e908597a92eb1e99.png"
-          alt="shiba in the universe"
+          src={levelAvatar(user.level)}
+          alt="avatar"
         />
-        <div>Logged In As: { user.name }</div>
-        <div> Level: { checkLevel(user.level) }</div>
+        <div><h3>{ user.name }</h3></div>
+        <div> Level: { levelName(user.level) }</div>
       </div>
     </nav>
   );
