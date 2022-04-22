@@ -59,47 +59,47 @@ level: 2
  Post.create!([
    {
   text: "My latest work of art! Meet Mr. Elephant.",
-  image: open_asset("post_1.jpg"),
+  image: "https://i.ibb.co/RDth1s2/post-1.jpg",
   user_id: 5
  },
  {
   text: "LOL",
-  image: open_asset("post_2.jpg"),
+  image: "https://i.ibb.co/GJZWMnL/post-2.jpg",
   user_id: 6
  },
  {
   text: "Morning breakfast!☀️🍓🍓🥞",
-  image: open_asset("post_3.jpg"),
+  image: "https://i.ibb.co/yyJMVhz/post-3.jpg",
   user_id: 5
  },
  {
   text: "Brothers and sisters. Miranda Priestly.",
-  image: open_asset("post_4.jpg"),
+  image: "https://i.ibb.co/s1yzHHj/post-4.jpg",
   user_id: 6
  },
  {
   text: "Fuck coffeecup",
-  image: open_asset("post_5.jpg"),
+  image: "https://i.ibb.co/Smfvf2T/post-5.jpg",
   user_id: 5
  },
  {
   text: "😜",
-  image: open_asset("post_6.jpg"),
+  image: "https://i.ibb.co/g401Gfz/post-6.jpg",
   user_id: 6
  },
  {
   text: "Becoming a photographer with my 📸",
-  image: open_asset("post_7.jpg"),
+  image: "https://i.ibb.co/199GtVf/post-7.jpg",
   user_id: 5
  },
  {
   text: "Mom and dad's anniversary🍷",
-  image: open_asset("post_8.jpg"),
+  image: "https://i.ibb.co/B6zQSgr/post-8.jpg",
   user_id: 6
  },
  {
   text: "My new best friend",
-  image: open_asset("post_9.jpg"),
+  image: "https://i.ibb.co/DbgMLhM/post-9.jpg",
   user_id: 5
  }
 ])
