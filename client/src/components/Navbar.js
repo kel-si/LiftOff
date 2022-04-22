@@ -3,28 +3,26 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/components.scss";
 
 export default function Navbar(props) {
-
   const [user, setUser] = useState({});
   const [login, setLogin] = useState(0);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    const user = localStorage.getItem('liftoffUser');
+    const user = localStorage.getItem("liftoffUser");
     if (!user) {
-      // no user 
+      // no user
     } else {
       const liftoffUser = JSON.parse(user);
       setUser(liftoffUser);
       setLogin(1);
     }
-  }, [navigate])
+  }, [navigate]);
 
   const logOut = () => {
     localStorage.clear();
     setLogin(0);
     setUser({});
-  }
+  };
 
   return (
     <nav>
@@ -52,23 +50,22 @@ export default function Navbar(props) {
             <Link to="/admin">Admin</Link>
           </li>
         </button>
-        { !login ? (
-           <button onClick={props.logout}>
-           <li>
-             <Link to="/">Log In Button</Link>
-           </li>
-         </button>
+        {!login ? (
+          <button onClick={props.logout}>
+            <li>
+              <Link to="/">Log In Button</Link>
+            </li>
+          </button>
         ) : (
-           <button onClick={logOut}>
-           <li>
-             <Link to="/">Log Out Button</Link>
-           </li>
-         </button>
-        )  }
-       
+          <button onClick={logOut}>
+            <li>
+              <Link to="/">Log Out Button</Link>
+            </li>
+          </button>
+        )}
       </ul>
-      <div>Logged In As: { user.name }</div>
-      <div>Level:</div>
+      <div>Logged In As: {user.name}</div>
+      <div>Level: {user.level} </div>
       <div className="avatar-container">
         <img
           className="avatar-image"
