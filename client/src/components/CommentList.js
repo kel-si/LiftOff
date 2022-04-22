@@ -2,7 +2,15 @@ import React from "react";
 import CommentListItem from "./CommentListItem";
 
 export default function CommentList(props) {
-  console.log("list item props", props.comments);
+  const commentWithUsername = function(users, comment) {
+    for (const user of users) {
+      if (user.id === comment.user_id) {
+        return user.name;
+      }
+    }
+  };
+
+  // console.log("list item props", props);
   const comments = props.comments.map((comment) => {
     return (
       <div>
@@ -10,6 +18,7 @@ export default function CommentList(props) {
           key={comment.id}
           text={comment.text}
           time={comment.created_at}
+          name={commentWithUsername(props.users, comment)}
         />
       </div>
     );
