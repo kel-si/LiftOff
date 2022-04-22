@@ -10,7 +10,9 @@ export default function PostListItem(props) {
 
         <div className="post--body">
           <p>{props.text}</p>
-          <img src={props.image} alt="error" />
+          <div className="img--container">
+            <img src={props.image} alt="error" className="post--img"/>
+          </div>
         </div>
         <footer className="post--footer">
           <small className="footer--age">{props.time}</small>

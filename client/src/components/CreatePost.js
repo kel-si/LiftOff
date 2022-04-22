@@ -5,12 +5,7 @@ import "../styles/CreatePost.scss";
 export default function CreatePost( ) {
 
   const [post, setPost] = useState("");
-
-  const handleChange = (e) => {
-    setPost( 
-      e.target.value
-    )
-  };
+  const [image, setImage] = useState("");
 
   const handleSubmit =(e) => {
     e.preventDefault();
@@ -34,7 +29,16 @@ export default function CreatePost( ) {
             name="post"
             placeholder="description"
             value={ post }
-            onChange={ handleChange }
+            onChange={(event) => setPost(event.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            type="file"
+            name="image"
+            placeholder="image"
+            value={ image }
+            onChange={(event) => setImage(event.target.value)}
           />
         </div>
         <div>
