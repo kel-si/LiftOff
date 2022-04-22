@@ -28,7 +28,7 @@ export default function Navbar(props) {
 
   return (
     <nav>
-      <h1>
+      <h1 className="logo">
         <Link to="/">
           LiftOff
           <span role="img" aria-label="rocket ship emoji">
