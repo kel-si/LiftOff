@@ -24,6 +24,11 @@ export default function Navbar(props) {
             <Link to="/">Log Out Button</Link>
           </li>
         </button>
+        <button>
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
+        </button>
       </ul>
       <div className="avatar-container">
         <img

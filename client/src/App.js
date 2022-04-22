@@ -7,6 +7,7 @@ import Landing from "./components/Landing";
 import Register from "./components/user-management/Register";
 import Quiz from "./components/Quiz";
 import axios from "axios";
+import AdminFeed from "./components/admin/AdminFeed";
 
 export default function App() {
 
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
           <Route path="/register" element={<Register handleLogin={handleLogin} />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/admin" element={<AdminFeed />} />
         </Routes>
       </Router>
     </div>
