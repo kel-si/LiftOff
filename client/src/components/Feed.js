@@ -7,15 +7,16 @@ export default function Feed(props) {
   const [state, setState] = useState({
     posts: [],
     users: [],
+    comments: [],
   });
 
   useEffect(() => {
-    axios
-      .get("/api/feed")
-      .then((response) => {
+    Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
+      .then((all) => {
         setState({
-          posts: response.data.posts,
-          users: response.data.users,
+          posts: all[0].data.posts,
+          users: all[0].data.users,
+          comments: all[1].data.comments,
         });
       })
       .catch((error) => {
@@ -23,10 +24,19 @@ export default function Feed(props) {
       });
   }, []);
 
+  // helper function to create a data structure of [{postId: 1, comments: []]}
+  // not an ideal solution if we have a huge data set
+  const postsWithComments = state.posts.map((post) => {
+    return {
+      ...post,
+      comments: state.comments.filter((comment) => comment.post_id === post.id),
+    };
+  });
+  console.log("post with comments", postsWithComments);
   return (
     <div className="Feed">
       <CreatePost />
-      <PostList posts={state.posts} users={state.users} />
+      <PostList posts={postsWithComments} users={state.users} />
     </div>
   );
 }

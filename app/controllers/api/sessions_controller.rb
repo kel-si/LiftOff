@@ -25,6 +25,7 @@ class Api::SessionsController < ApplicationController
   # end
 # 
 def create
+  puts "params", params
   @user = User.find_by(email: session_params[:email])
 
   if @user && @user.authenticate(session_params[:password])
@@ -62,8 +63,10 @@ end
       logged_out: true
     }
   end 
+
   private
+  
   def session_params
     params.require(:formValue).permit(:email, :password)
-end
+  end
 end 

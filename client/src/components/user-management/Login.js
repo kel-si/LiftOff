@@ -21,11 +21,11 @@ export default function Login(props) {
     event.preventDefault();
     console.log("formValue", formValue);
     axios
-      .post("/api/login", { formValue }, {withCredentials: true})
+      .post("/api/login", { formValue })
       .then((res) => {
       if (res.data.logged_in) {
         props.handleLogin(res.data)
-        console.log(res.data.user)
+        console.log("handleSubmit Login", res.data)
         navigate("/my-posts");
       } else {
         setformValue({

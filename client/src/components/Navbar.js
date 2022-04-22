@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/components.css";
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <nav>
       <h1><Link to="/">Logo</Link></h1>
@@ -13,8 +13,8 @@ export default function Navbar() {
         <button>
         <li><Link to="/guidelines">Guidelines</Link></li>
         </button>
-        <button>
-          <li>Log Out Button</li>
+        <button onClick={props.logout}>
+          <li><Link to="/">Log Out Button</Link></li>
         </button>
       </ul>
       <div className="avatar-container">

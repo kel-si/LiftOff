@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import MyPosts from "./components/MyPosts";
@@ -18,7 +18,7 @@ export default function App() {
   const handleLogin = (data) => {
     setLogin({
       status: true, 
-      user: data.user
+      user: data.data
     })
   }
 
@@ -27,10 +27,11 @@ export default function App() {
       status: false,
       user: {}
     })
+    console.log("Logged in? user:", login.user);
   }
 
   const loginStatus = () => {
-    axios.get('/api/logged_in', {withCredentials: true}) //what does this mean?
+    axios.get('/api/logged_in', { withCredentials: true }) //what does this mean?
     .then(response => {
       if (response.data.logged_in) {
         handleLogin(response)
@@ -40,16 +41,15 @@ export default function App() {
     })
     .catch(error => console.log('api errors:', error))
   };
-
-  /*
-  componentDidMount() {
-    this.loginStatus()
-  } */ 
+  
+  useEffect(() => {
+    loginStatus()
+  }, []);
   
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Navbar logout={handleLogout} />
         <Routes>
           <Route path="/my-posts" element={<MyPosts />} />
           <Route path="/guidelines" element={<Guidelines />} />
