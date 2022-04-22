@@ -9,52 +9,57 @@ import Quiz from "./components/Quiz";
 import axios from "axios";
 
 export default function App() {
-
   const [login, setLogin] = useState({
-        status: false,
-        user: {}
+    status: false,
+    user: {},
   });
 
   const handleLogin = (data) => {
     setLogin({
-      status: true, 
-      user: data.data
-    })
-  }
+      status: true,
+      user: data.data.user,
+    });
+  };
 
   const handleLogout = () => {
     setLogin({
       status: false,
-      user: {}
-    })
+      user: {},
+    });
     console.log("Logged in? user:", login.user);
-  }
+  };
 
   const loginStatus = () => {
-    axios.get('/api/logged_in', { withCredentials: true }) //what does this mean?
-    .then(response => {
-      if (response.data.logged_in) {
-        handleLogin(response)
-      } else {
-        handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
+    axios
+      .get("/api/logged_in", { withCredentials: true }) //what does this mean?
+      .then((response) => {
+        if (response.data.logged_in) {
+          handleLogin(response);
+        } else {
+          handleLogout();
+        }
+      })
+      .catch((error) => console.log("api errors:", error));
   };
-  
+
   useEffect(() => {
-    loginStatus()
+    loginStatus();
   }, []);
-  
+
+  const currentUser = login.user;
+
   return (
     <div className="App">
       <Router>
-        <Navbar logout={handleLogout} />
+        <Navbar logout={handleLogout} currentUser={currentUser} />
         <Routes>
           <Route path="/my-posts" element={<MyPosts />} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
-          <Route path="/register" element={<Register handleLogin={handleLogin} />} />
+          <Route
+            path="/register"
+            element={<Register handleLogin={handleLogin} />}
+          />
           <Route path="/quiz" element={<Quiz />} />
         </Routes>
       </Router>
