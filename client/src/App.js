@@ -32,15 +32,16 @@ export default function App() {
   };
 
   const loginStatus = () => {
-    axios.get('/api/logged_in') //what does this mean?
-    .then(response => {
-      if (response.data.logged_in) {
-        handleLogin(response)
-      } else {
-        handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
+    axios
+      .get("/api/logged_in", { withCredentials: true }) //what does this mean?
+      .then((response) => {
+        if (response.data.logged_in) {
+          handleLogin(response);
+        } else {
+          handleLogout();
+        }
+      })
+      .catch((error) => console.log("api errors:", error));
   };
 
   useEffect(() => {
