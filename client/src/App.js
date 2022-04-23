@@ -35,9 +35,10 @@ export default function App() {
     axios
       .get("/api/logged_in", { withCredentials: true }) //what does this mean?
       .then((response) => {
+        console.log("response:", response);
         if (response.data.logged_in) {
           handleLogin(response);
-          localStorage.setItem('liftoffUser', JSON.stringify(response.data));
+          localStorage.setItem("liftoffUser", JSON.stringify(response.data));
         } else {
           handleLogout();
         }
