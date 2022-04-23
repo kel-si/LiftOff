@@ -8,10 +8,13 @@ export default function AdminCommentListItem(props) {
   const handleSubmit = (event) => {
     console.log("event.target.value", event.target.value);
     event.preventDefault();
-    axios
-      .put(`/admin/comments/${props.id}`, {status: event.target.value 
-  })
-      .then((res) => {
+  if (approve = 1) {
+    axios 
+      .put(`/admin/comments/${props.id}`), {status: event.target.value}
+  } else if (approve = 2) {
+    axios 
+      .delete(`/admin/comments/${props.id}`, {status: event.target.value})
+    .then((res) => {
         console.log("from server:", res.data);
       })
       .catch((err) => {
