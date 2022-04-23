@@ -4,7 +4,7 @@ import CreateComment from "./CreateComment";
 
 export default function CommentList(props) {
   // assigns a username to a comment
-  const commentWithUsername = function(users, comment) {
+  const commentWithUsername = function (users, comment) {
     for (const user of users) {
       if (user.id === comment.user_id) {
         return user.name;
@@ -26,7 +26,11 @@ export default function CommentList(props) {
   return (
     <div>
       {/* <h5 className="comment--heading"></h5> */}
-      <CreateComment />
+      <CreateComment
+        postId={props.postId}
+        state={props.state}
+        setState={props.setState}
+      />
       {comments}
     </div>
   );
