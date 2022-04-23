@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Register(props) {
   const [formValue, setformValue] = useState({
@@ -44,6 +44,13 @@ export default function Register(props) {
 
   return (
     <div>
+      <div className="page-container">
+      <h1 className="logo">
+          LiftOff
+          <span role="img" aria-label="rocket ship emoji">
+            🚀
+          </span>
+      </h1>
       <form onSubmit={handleSubmit} className="form-container">
         <h2>Register to Get Started</h2>
         <input
@@ -90,6 +97,8 @@ export default function Register(props) {
           Register
         </button>
       </form>
+      <Link to="/login">Login with your existing account</Link>
+      </div>
     </div>
   );
 }
