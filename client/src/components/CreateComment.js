@@ -31,7 +31,7 @@ export default function CreateComment(props) {
       - 🐝 Is it necessary?
       - ✅ Is it true?
 
-      Press 'Csancel' if you have changed your mind!
+      Press 'Cancel' if you have changed your mind!
       `
     );
 
