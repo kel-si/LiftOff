@@ -88,13 +88,13 @@ export default function Quiz() {
 }
 
 const handleChange = (e) => {
-  setUserLevel();
+  setUserLevel(userLevel + 1);
 };
 
 const handleSubmit =(e) => {
   e.preventDefault();
   axios 
-  .put("/api/users/", {level: 1 }) 
+  .put("/api/users/", {level: userLevel}) 
   .then((res) => { 
     console.log("from server:", res.data);
     /*navigate('/my-posts'); */
@@ -111,7 +111,10 @@ const handleSubmit =(e) => {
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
-				<div className='score-section'>You scored {score} out of {questions.length}</div>
+				<div className='score-section'>You scored {score} out of {questions.length}
+        <form onSubmit={ handleSubmit }>
+        <button><input type="submit" name="level" className="set-user-level-one-button" value={ userLevel } onChange={ handleChange } />LiftOff Starts Here</button>
+        </form></div>
 			) : (
 				<>
 					<div className='question-section'>
