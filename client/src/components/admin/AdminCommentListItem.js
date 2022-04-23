@@ -6,7 +6,6 @@ export default function AdminCommentListItem(props) {
   const [approve, setApprove] = useState(0);
   console.log(props.id);
 
-
   const handleSubmit = (event) => {
     console.log("event.target.value", event.target.value);
     event.preventDefault();
@@ -36,7 +35,7 @@ export default function AdminCommentListItem(props) {
         </header>
         <div className="comment--body">
           <p>{props.text}</p>
-          <span className="footer-status">Approval Status:{props.status}</span>
+          <span className="footer-status">Approval Status:<strong>pending approval</strong></span>
           <button
             type="submit"
             className="btn-small"
