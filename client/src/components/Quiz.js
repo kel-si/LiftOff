@@ -85,8 +85,12 @@ export default function Quiz() {
     } else {
       setShowScore(true);
   }
-
 }
+
+const handleChange = (e) => {
+  setUserLevel();
+};
+
 
 	return (
     <div className='quiz-container'>
