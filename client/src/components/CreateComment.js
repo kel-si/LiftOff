@@ -4,7 +4,9 @@ import Sentiment from "sentiment";
 
 export default function CreateComment(props) {
   const sentiment = new Sentiment();
+
   const [comment, setComment] = useState("");
+
   const user = localStorage.getItem("liftoffUser");
   const userData = JSON.parse(user);
   const userId = userData.user.id;
@@ -21,22 +23,30 @@ export default function CreateComment(props) {
     e.preventDefault();
 
     findSentiment(comment);
+    const answer = window.confirm(
+      "are you sure you want to post this comment?"
+    );
 
-    axios
-      .post("/api/comments", {
-        text: comment,
-        user_id: userId,
-        post_id: postId,
-      })
-      //setComment to update state
-      .then((res) => {
-        const newCommentState = [...props.state.comments, res.data.comment];
-        props.setState({ ...props.state, comments: newCommentState });
-        console.log("from server:", res.data);
-      })
-      .catch((err) => {
-        console.log("error", err);
-      });
+    if (answer) {
+      axios
+        .post("/api/comments", {
+          text: comment,
+          user_id: userId,
+          post_id: postId,
+        })
+        //setComment to update state
+        .then((res) => {
+          const newCommentState = [...props.state.comments, res.data.comment];
+          props.setState({ ...props.state, comments: newCommentState });
+          console.log("from server:", res.data);
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+    } else {
+      e = "";
+      console.log("Did not post comment.");
+    }
   };
 
   //add id/class to buttons that contain post_id
