@@ -2,29 +2,58 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function AdminCommentListItem(props) {
-  //approve -> trigger put route in the backend to update comment status to 1 - equals to approved
-  const [approve, setApprove] = useState(0);
+  // approve -> trigger put route in the backend to update comment status to 1 - equals to approved
+  // const [approve, setApprove] = useState(0);
   console.log(props.id);
 
-  const handleSubmit = (event) => {
-    console.log("event.target.value", event.target.value);
+  // const handleSubmit = (event) => {
+    // event.preventDefault();
+    // if (event.target.value = 1) {
+      //  axios 
+      // .put(`/admin/comments/${props.id}`, {status: event.target.value})
+      // .then((res) => {
+        // console.log("from server:", res.data);
+      // })
+      // .catch((err) => {
+        // console.log("admin errors:", err)
+      // })
+    // } else if (event.target.value = 2) {
+      // axios 
+      // .delete(`/admin/comments/${props.id}`, {status: event.target.value})
+      // .then((res) => {
+        //  console.log("from server:", res.data)
+      //  })
+      //  .catch((err) => {
+        //  console.log("admin errors:", err);
+      //  });
+    // }
+    // };
+
+  const handleApprove = (event) => {
     event.preventDefault();
-      if (event.target.value = 1) {
-      axios 
-        .put(`/admin/comments/${props.id}`)
-    } else if (event.target.value = 2) {
-      axios 
-    .delete(`/admin/comments/${props.id}`
-    )
-    .then((res) => {
-        console.log("from server:", res.data);
-      })
-      .catch((err) => {
-        console.log("admin errors:", err);
-      });
-    }
+    axios
+    .put(`/admin/comments/${props.id}`, {status: event.target.value})
+  .then((res) => {
+  console.log("from server:", res.data);
+})
+  .catch((err) => {
+  console.log("admin errors:", err)
+})
   };
 
+  const handleReject = (event) => {
+    event.preventDefault();
+    axios
+    .delete(`/admin/comments/${props.id}`)
+.then((res) => {
+  console.log("from server:", res.data);
+})
+.catch((err) => {
+  console.log("admin errors:", err)
+  })
+  };
+
+  
   return (
     <div>
     <div className="comment--container">
@@ -38,7 +67,7 @@ export default function AdminCommentListItem(props) {
           <button
             type="submit"
             className="btn-small"
-            onClick={handleSubmit}
+            onClick={handleApprove}
             name="approve"
             value={1}
             // onChange={(event) => setApprove(event.target.value)}
@@ -48,7 +77,7 @@ export default function AdminCommentListItem(props) {
           <button
             type="submit"
             className="btn-small"
-            onClick={handleSubmit}
+            onClick={handleReject}
             name="reject"
             value={2}
             // onChange={(event) => setApprove(event.target.value)}
