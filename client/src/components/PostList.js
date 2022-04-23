@@ -3,7 +3,7 @@ import PostListItem from "./PostListItem";
 import CommentList from "./CommentList";
 
 // assigns username to a post
-const assignUserName = function(users, post) {
+const assignUserName = function (users, post) {
   for (const user of users) {
     if (user.id === post.user_id) {
       return user.name;
@@ -22,7 +22,13 @@ export default function PostList(props) {
           image={post.image}
           time={post.created_at}
         />
-        <CommentList comments={post.comments} users={props.users} />
+        <CommentList
+          comments={post.comments}
+          users={props.users}
+          postId={post.id}
+          state={props.state}
+          setState={props.setState}
+        />
       </div>
     );
   });
