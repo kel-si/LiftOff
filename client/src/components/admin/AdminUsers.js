@@ -21,10 +21,13 @@ export default function AdminUsers() {
       <div className="post--item">
         <AdminUsersItem
           key={user.id}
+          id={user.id}
           name={user.name}
           email={user.email}
           level={user.level}
           time={user.created_at}
+          usersState={users}
+          setUsers={setUsers} 
         />
       </div>
     );

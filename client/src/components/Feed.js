@@ -14,10 +14,11 @@ export default function Feed(props) {
   const navigate = useNavigate();
   const currentUser = localStorage.getItem("liftoffUser");
   const liftoffUser = JSON.parse(currentUser);
+ 
 
 
   useEffect(() => {
-    setUser(liftoffUser.user);
+    setUser(liftoffUser);
     if (!liftoffUser) {
       navigate("/");
     } else {

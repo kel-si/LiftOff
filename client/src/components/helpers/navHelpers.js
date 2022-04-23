@@ -6,9 +6,9 @@ export function levelAvatar(level) {
   } else if (level === 2) {
     return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
   } else if (level > 2) {
-    return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
+    return "https://i.ibb.co/BPrr6fn/lvl-admin.jpg";
   } else {
-    return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
+    return "https://i.ibb.co/BPrr6fn/lvl-admin.jpg";
   }
 }
 
