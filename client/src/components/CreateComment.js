@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Sentiment from "sentiment";
 
-export default function CreateComment() {
+export default function CreateComment(props) {
   const sentiment = new Sentiment();
   const [comment, setComment] = useState("");
   const user = localStorage.getItem("liftoffUser");
@@ -12,17 +12,26 @@ export default function CreateComment() {
   const findSentiment = (comment) => {
     const result = sentiment.analyze(comment);
     console.log("result", result);
-    console.log("result.score", result.score);
     return result;
   };
 
+  const postId = props.postId;
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     findSentiment(comment);
-    console.log("comment:", comment);
+
     axios
-      .post("/api/comments", { text: comment, user_id: userId })
+      .post("/api/comments", {
+        text: comment,
+        user_id: userId,
+        post_id: postId,
+      })
+      //setComment to update state
       .then((res) => {
+        const newCommentState = [...props.state.comments, res.data.comment];
+        props.setState({ ...props.state, comments: newCommentState });
         console.log("from server:", res.data);
       })
       .catch((err) => {
@@ -30,6 +39,8 @@ export default function CreateComment() {
       });
   };
 
+  //add id/class to buttons that contain post_id
+  //have access to postId from props
   return (
     <div>
       <div className="form-container">
