@@ -35,7 +35,12 @@ export default function Feed(props) {
   return (
     <div className="Feed">
       <CreatePost />
-      <PostList posts={postsWithComments} users={state.users} />
+      <PostList
+        posts={postsWithComments}
+        users={state.users}
+        state={state}
+        setState={setState}
+      />
     </div>
   );
 }
