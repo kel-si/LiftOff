@@ -91,6 +91,19 @@ const handleChange = (e) => {
   setUserLevel();
 };
 
+const handleSubmit =(e) => {
+  e.preventDefault();
+  axios 
+  .put("/api/users/", {level: 1 }) 
+  .then((res) => { 
+    console.log("from server:", res.data);
+    /*navigate('/my-posts'); */
+  })
+  .catch((err) => {
+    console.log("error", err); 
+  })
+ }
+
 
 	return (
     <div className='quiz-container'>
