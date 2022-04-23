@@ -24,7 +24,15 @@ export default function CreateComment(props) {
 
     findSentiment(comment);
     const answer = window.confirm(
-      "are you sure you want to post this comment?"
+      `✋You are about to comment "${comment}" on someone's post.
+
+      How will it make the owner of this post feel?
+      - 💛 Is it kind?
+      - 🐝 Is it necessary?
+      - ✅ Is it true?
+
+      Press 'Csancel' if you have changed your mind!
+      `
     );
 
     if (answer) {
