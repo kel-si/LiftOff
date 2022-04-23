@@ -38,14 +38,13 @@ export default function CreateComment(props) {
         .then((res) => {
           const newCommentState = [...props.state.comments, res.data.comment];
           props.setState({ ...props.state, comments: newCommentState });
-          console.log("from server:", res.data);
+          setComment("");
         })
         .catch((err) => {
           console.log("error", err);
         });
     } else {
-      e = "";
-      console.log("Did not post comment.");
+      setComment("");
     }
   };
 
