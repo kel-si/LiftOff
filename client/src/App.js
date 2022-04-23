@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Login from "./components/user-management/Login";
 import Feed from "./components/Feed";
 import Guidelines from "./components/Guidelines";
 import Landing from "./components/Landing";
@@ -14,7 +15,7 @@ import AdminUsers from "./components/admin/AdminUsers";
 export default function App() {
   const [login, setLogin] = useState({
     status: false,
-    user: {},
+    user: {}
   });
 
   const handleLogin = (data) => {
@@ -35,7 +36,7 @@ export default function App() {
     axios
       .get("/api/logged_in", { withCredentials: true }) //what does this mean?
       .then((response) => {
-        console.log("response:", response);
+        console.log("response:", response.data);
         if (response.data.logged_in) {
           handleLogin(response);
           localStorage.setItem("liftoffUser", JSON.stringify(response.data));
@@ -55,19 +56,17 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar logout={handleLogout} />
+        { login.status ? ( <> <Navbar login={login} setLogin={setLogin} logout={handleLogout}/> </>) : (<></>) }
         <Routes>
-          <Route path="/my-posts" element={<Feed />} />
-          <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
-          <Route
-            path="/register"
-            element={<Register handleLogin={handleLogin} />}
-          />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/admin" element={<AdminLanding />} />
-          <Route path="/admin-approvals" element={<AdminFeed />} />
-          <Route path="/admin-users" element={<AdminUsers />} />
+            <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+            <Route path="/register" element={<Register handleLogin={handleLogin} />} />
+            <Route path="/my-posts" element={<Feed />} />
+            <Route path="/guidelines" element={<Guidelines />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/admin" element={<AdminLanding />} />
+            <Route path="/admin-approvals" element={<AdminFeed />} />
+            <Route path="/admin-users" element={<AdminUsers />} />
         </Routes>
       </Router>
     </div>

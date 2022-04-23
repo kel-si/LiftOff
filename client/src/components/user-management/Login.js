@@ -37,6 +37,9 @@ export default function Login(props) {
   };
 
   return (
+    <div className="page-container">
+    <h1>Get ready for LiftOff!</h1>
+      <h3>A training camp that will set you up to explore the social media universe successfully.</h3>
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Login to Get Started</h2>
       <input
@@ -59,5 +62,6 @@ export default function Login(props) {
         Login
       </button>
     </form>
+    </div>
   );
 }
