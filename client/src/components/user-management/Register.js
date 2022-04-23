@@ -27,8 +27,8 @@ export default function Register(props) {
       .then((res) => {
         console.log("initial res from server", res.data);
         if (res.data.logged_in) {
-          props.handleLogin(res.data);
-          localStorage.setItem('liftoffUser', JSON.stringify(res.data.user));
+          props.handleLogin(res);
+          localStorage.setItem('liftoffUser', JSON.stringify(res.data));
           console.log("handleSubmit Register +++", res.data.user);
           redirect("/my-posts");
         } else {
