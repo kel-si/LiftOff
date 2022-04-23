@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/components.scss";
@@ -23,9 +24,17 @@ export default function Navbar(props) {
   const logOut = () => {
     //need to call backend to destroy user
     //post logout to destroy session
-    localStorage.clear();
-    setLogin(0);
-    setUser({});
+  axios
+    .post("/api/logout", { withCredentials: true }) //what does this mean?
+      .then((response) => {
+        console.log("response:", response);
+        localStorage.clear();
+        setLogin(0);
+        setUser({});
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   };
 
   return (
