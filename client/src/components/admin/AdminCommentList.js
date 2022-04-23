@@ -18,6 +18,7 @@ export default function AdminCommentList(props) {
           key={comment.id}
           text={comment.text}
           time={comment.created_at}
+          status={comment.status}
           name={commentWithUsername(props.users, comment)}
         />
       </div>
