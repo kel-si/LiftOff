@@ -9,8 +9,12 @@ export default function Feed(props) {
     users: [],
     comments: [],
   });
-
+  const [user, setUser] = useState({});
+  
   useEffect(() => {
+    const currentUser = localStorage.getItem('liftoffUser');
+    const liftoffUser = JSON.parse(currentUser);
+    setUser(liftoffUser);
     Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
       .then((all) => {
         setState({
@@ -34,8 +38,11 @@ export default function Feed(props) {
   });
   return (
     <div className="Feed">
+      { user.level >= 2 ? (
+      <>
       <CreatePost />
-      <PostList posts={postsWithComments} users={state.users} />
+      <PostList posts={postsWithComments} users={state.users} /></>
+      ) : (<PostList posts={postsWithComments} users={state.users} />) }
     </div>
   );
 }

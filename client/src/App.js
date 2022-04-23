@@ -20,7 +20,7 @@ export default function App() {
   const handleLogin = (data) => {
     setLogin({
       status: true,
-      user: data.data,
+      user: data.user,
     });
   };
 
@@ -36,8 +36,8 @@ export default function App() {
       .get("/api/logged_in", { withCredentials: true }) //what does this mean?
       .then((response) => {
         if (response.data.logged_in) {
-          handleLogin(response);
-          localStorage.setItem('liftoffUser', JSON.stringify(response.data));
+          handleLogin(response.data);
+          localStorage.setItem('liftoffUser', JSON.stringify(response.data.user));
         } else {
           handleLogout();
         }
