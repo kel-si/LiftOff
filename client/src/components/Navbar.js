@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/components.scss";
+import "../styles/Navbar.scss";
+import { levelName, levelAvatar } from "./helpers/navHelpers";
 
 export default function Navbar(props) {
   const [user, setUser] = useState({});
@@ -26,23 +28,9 @@ export default function Navbar(props) {
     setUser({});
   };
 
-  const checkLevel = (level) => {
-    if (level === 0) {
-      return "Earthling";
-    } else if (level === 1) {
-      return "Mini Martian";
-    } else if (level === 2) {
-      return "Moon Walker";
-    } else if (level > 2) {
-      return "Supreme Leader";
-    } else {
-      return "";
-    }
-  };
-
   return (
     <nav>
-      <h1>
+      <h1 className="logo">
         <Link to="/">
           LiftOff
           <span role="img" aria-label="rocket ship emoji">
@@ -84,11 +72,13 @@ export default function Navbar(props) {
       <div className="avatar-container">
         <img
           className="avatar-image"
-          src="https://i.pinimg.com/originals/f3/8f/15/f38f150e6ae908a1e908597a92eb1e99.png"
-          alt="shiba in the universe"
+          src={levelAvatar(user.level)}
+          alt="avatar"
         />
-        <div>Logged In As: {user.name}</div>
-        <div> Level: {checkLevel(user.level)}</div>
+        <div>
+          <h3>{user.name}</h3>
+        </div>
+        <div> Level: {levelName(user.level)}</div>
       </div>
     </nav>
   );

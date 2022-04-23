@@ -20,7 +20,7 @@ export default function App() {
   const handleLogin = (data) => {
     setLogin({
       status: true,
-      user: data.data,
+      user: data.user,
     });
   };
 
