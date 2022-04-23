@@ -45,7 +45,7 @@ export default function AdminCommentListItem(props) {
             value={1}
             // onChange={(event) => setApprove(event.target.value)}
           >
-            Level Up
+            Approve
           </button>
           <button
             type="submit"
@@ -55,7 +55,7 @@ export default function AdminCommentListItem(props) {
             value={2}
             // onChange={(event) => setApprove(event.target.value)}
           >
-            Level Down
+            Reject
           </button>
         </div>
         <footer className="comment--footer">
