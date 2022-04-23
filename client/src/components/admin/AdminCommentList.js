@@ -16,6 +16,7 @@ export default function AdminCommentList(props) {
       <div>
         <AdminCommentListItem
           key={comment.id}
+          id={comment.id}
           text={comment.text}
           time={comment.created_at}
           status={comment.status}
