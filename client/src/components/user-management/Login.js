@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../../styles/components.scss";
 
 export default function Login(props) {
   const [formValue, setformValue] = useState({
@@ -38,6 +39,12 @@ export default function Login(props) {
 
   return (
     <div className="page-container">
+      <h1 className="logo">
+          LiftOff
+          <span role="img" aria-label="rocket ship emoji">
+            🚀
+          </span>
+      </h1>
     <h1>Get ready for LiftOff!</h1>
       <h3>A training camp that will set you up to explore the social media universe successfully.</h3>
     <form onSubmit={handleSubmit} className="form-container">

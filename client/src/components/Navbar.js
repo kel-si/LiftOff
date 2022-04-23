@@ -18,9 +18,6 @@ export default function Navbar(props) {
       setUser(liftoffUser.user);
       setLogin(1);
     }
-    return () => {
-      setLogin(0);
-    }
   }, []);
 
   const logOut = () => {
