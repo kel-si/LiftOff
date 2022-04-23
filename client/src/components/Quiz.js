@@ -62,16 +62,13 @@ export default function Quiz() {
     // }
 	];
 
-   const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const [showScore, setShowScore] = useState(false);
   
   const [score, setScore] = useState(0);
-
-  const [userLevel, setUserLevel] = useState(0);
 
   const user = localStorage.getItem
 ("liftoffUser");
@@ -92,17 +89,13 @@ const userId = userData.user.id;
   }
 }
 
-// const handleChange = (e) => {
-  // setUserLevel(1);
-// };
-
 const handleSubmit =(event) => {
   event.preventDefault();
   axios 
   .put(`/api/users/${userId}`, {level: event.target.value}) 
   .then((res) => { 
     console.log("from server:", res.data);
-    /*navigate('/my-posts'); */
+    navigate('/my-posts');
   })
   .catch((err) => {
     console.log("error", err); 
