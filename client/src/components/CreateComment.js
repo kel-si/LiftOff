@@ -49,7 +49,7 @@ export default function CreateComment(props) {
   //have access to postId from props
   return (
     <div>
-      <div className="form-container">
+      <div className="comment-container">
         <form onSubmit={handleSubmit}>
           {isConfirming ? (
             <Confirm
