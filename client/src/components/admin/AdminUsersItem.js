@@ -20,7 +20,6 @@ export default function AdminUsersItem(props) {
       });
     };
   
-  
   return (
     <div className="page-container">
       <div className="post--container">
