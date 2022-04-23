@@ -23,8 +23,7 @@ export default function Login(props) {
       .then((res) => {
         if (res.data.logged_in) {
           props.handleLogin(res.data);
-          localStorage.setItem('liftoffUser', JSON.stringify(res.data.user));
-          console.log("handleSubmit Login +++", res.data.user);
+          localStorage.setItem("liftoffUser", JSON.stringify(res.data));
           navigate("/my-posts");
         } else {
           setformValue({
@@ -36,17 +35,6 @@ export default function Login(props) {
         console.log("api errors:", err);
       });
   };
-
-  // const handleErrors = () => {
-  // return (
-  // <div>
-  //{/* {/* <ul>{formValue.errors.map((error) => { */}
-  // // return <li key={error}>{error}</li>
-  // })}
-  //{/* </ul>  */}
-  //{/* </div> */}
-  // )
-  // };
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
