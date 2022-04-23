@@ -1,7 +1,7 @@
 class Admin::CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @comments = Comment.where(status: 0)
 
     render :json => { comments: @comments }
   end
