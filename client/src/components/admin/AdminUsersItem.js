@@ -3,11 +3,10 @@ import axios from "axios";
 
 export default function AdminUsersItem(props) {
   
-  // set the state of the update to determine level up or down
+  // set the state to render current level
   const [level, setLevel] = useState(props.level);
 
   const handleSubmit = (event) => {
-    console.log("event.target.value", event.target.value);
     event.preventDefault();
     axios
       .put(`/admin/users/${props.id}`, {level: event.target.value })
