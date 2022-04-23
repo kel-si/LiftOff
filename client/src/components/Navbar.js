@@ -8,17 +8,19 @@ export default function Navbar(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const currentUser = localStorage.getItem('liftoffUser');
+    const currentUser = localStorage.getItem("liftoffUser");
     if (!currentUser) {
-      // no user 
+      // no user
     } else {
       const liftoffUser = JSON.parse(currentUser);
-      setUser(liftoffUser);
+      setUser(liftoffUser.user);
       setLogin(1);
     }
   }, [navigate]);
 
   const logOut = () => {
+    //need to call backend to destroy user
+    //post logout to destroy session
     localStorage.clear();
     setLogin(0);
     setUser({});
@@ -36,7 +38,7 @@ export default function Navbar(props) {
     } else {
       return "";
     }
-  }
+  };
 
   return (
     <nav>
@@ -71,22 +73,22 @@ export default function Navbar(props) {
             </li>
           </button>
         ) : (
-           <button onClick={logOut}>
-           <li>
-             <Link to="/">Log Out Button</Link>
-           </li>
-         </button>
-        )  }
+          <button onClick={logOut}>
+            <li>
+              <Link to="/">Log Out Button</Link>
+            </li>
+          </button>
+        )}
       </ul>
-    
+
       <div className="avatar-container">
         <img
           className="avatar-image"
           src="https://i.pinimg.com/originals/f3/8f/15/f38f150e6ae908a1e908597a92eb1e99.png"
           alt="shiba in the universe"
         />
-        <div>Logged In As: { user.name }</div>
-        <div> Level: { checkLevel(user.level) }</div>
+        <div>Logged In As: {user.name}</div>
+        <div> Level: {checkLevel(user.level)}</div>
       </div>
     </nav>
   );
