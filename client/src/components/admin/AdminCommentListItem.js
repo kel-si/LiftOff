@@ -12,7 +12,6 @@ export default function AdminCommentListItem(props) {
       if (event.target.value = 1) {
       axios 
         .put(`/admin/comments/${props.id}`)
-      // console.log("event.target.value2", event.target.value);
     } else if (event.target.value = 2) {
       axios 
     .delete(`/admin/comments/${props.id}`

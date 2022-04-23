@@ -64,10 +64,4 @@ def show
     params.require(:formValue).permit(:name, :email, :parent_email, :password, :password_confirmation)
   end
 
-  private 
-
-  # def user_quiz_params
-    # params.require(:id)permit(:level)
-  # end 
-
 end
