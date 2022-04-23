@@ -30,7 +30,7 @@ export default function Register(props) {
           props.handleLogin(res);
           localStorage.setItem('liftoffUser', JSON.stringify(res.data));
           console.log("handleSubmit Register +++", res.data.user);
-          redirect("/my-posts");
+          redirect("/quiz");
         } else {
           setformValue({
             errors: res.data.errors,

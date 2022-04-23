@@ -49,9 +49,19 @@ def show
     end
   end
 
+  def update 
+    @user = User.find params[:id]
+    @level = @user[:level] + params[:level].to_i
+    @user.update(:level => @level)
+    render json: {
+      level: @level
+    }
+  end
+
   private
 
   def user_params
     params.require(:formValue).permit(:name, :email, :parent_email, :password, :password_confirmation)
   end
+
 end
