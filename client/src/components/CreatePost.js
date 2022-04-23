@@ -7,11 +7,16 @@ export default function CreatePost( ) {
   const [post, setPost] = useState("");
   const [image, setImage] = useState("");
 
+  const user = localStorage.getItem
+("liftoffUser");
+  const userData = JSON.parse(user);
+  const userId = userData.user.id;
+
   const handleSubmit =(e) => {
     e.preventDefault();
     console.log("post:", post );
     axios 
-    .post("/api/posts", { text: post }) 
+    .post("/api/posts", { text: post, user_id: userId }) 
     .then((res) => { 
       console.log("from server:", res.data);
     })

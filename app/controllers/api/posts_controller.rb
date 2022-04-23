@@ -5,11 +5,11 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    @user = User.create({email: "dummy@fake.com"})
+    # @user = User.create({email: "dummy@fake.com"})
     puts "params", params
     puts "another one", params[:post]
     @post = Post.new(post_params)
-    @post.user = @user
+    # @post.user = @user
     if @post.save 
       render json: {
         post: @post 
@@ -25,6 +25,6 @@ class Api::PostsController < ApplicationController
   private 
 
   def post_params 
-    params.require(:post).permit(:text)
+    params.require(:post).permit(:text, :user_id)
   end 
 end 
