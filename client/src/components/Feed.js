@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PostList from "./PostList";
 import CreatePost from "./CreatePost";
+import { useNavigate } from "react-router-dom";
 
 export default function Feed(props) {
   const [state, setState] = useState({
@@ -10,11 +11,16 @@ export default function Feed(props) {
     comments: [],
   });
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
+  const currentUser = localStorage.getItem("liftoffUser");
+  const liftoffUser = JSON.parse(currentUser);
+
 
   useEffect(() => {
-    const currentUser = localStorage.getItem("liftoffUser");
-    const liftoffUser = JSON.parse(currentUser);
-    setUser(liftoffUser);
+    setUser(liftoffUser.user);
+    if (!liftoffUser) {
+      navigate("/");
+    } else {
     Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
       .then((all) => {
         setState({
@@ -26,6 +32,7 @@ export default function Feed(props) {
       .catch((error) => {
         console.log(error);
       });
+    }
   }, []);
 
   // helper function to create a data structure of [{postId: 1, comments: []}]

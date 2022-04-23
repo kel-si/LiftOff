@@ -22,10 +22,8 @@ export default function Navbar(props) {
   }, [navigate]);
 
   const logOut = () => {
-    //need to call backend to destroy user
-    //post logout to destroy session
   axios
-    .post("/api/logout", { withCredentials: true }) //what does this mean?
+    .post("/api/logout", { withCredentials: true }) // sends credentials to server
       .then((response) => {
         console.log("response:", response);
         localStorage.clear();
