@@ -72,6 +72,11 @@ export default function Quiz() {
   const [score, setScore] = useState(0);
 
   const [userLevel, setUserLevel] = useState(0);
+
+  const user = localStorage.getItem
+("liftoffUser");
+const userData = JSON.parse(user);
+const userId = userData.user.id;
   
   //move to the next question once the button is clicked
   const handleAnswerButtonClick = (isCorrect) => {
@@ -87,14 +92,14 @@ export default function Quiz() {
   }
 }
 
-const handleChange = (e) => {
-  setUserLevel(userLevel + 1);
-};
+// const handleChange = (e) => {
+  // setUserLevel(1);
+// };
 
-const handleSubmit =(e) => {
-  e.preventDefault();
+const handleSubmit =(event) => {
+  event.preventDefault();
   axios 
-  .put("/api/users/", {level: userLevel}) 
+  .put(`/api/users/${userId}`, {level: event.target.value}) 
   .then((res) => { 
     console.log("from server:", res.data);
     /*navigate('/my-posts'); */
@@ -112,9 +117,8 @@ const handleSubmit =(e) => {
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>You scored {score} out of {questions.length}
-        <form onSubmit={ handleSubmit }>
-        <button><input type="submit" name="level" className="set-user-level-one-button" value={ userLevel } onChange={ handleChange } />LiftOff Starts Here</button>
-        </form></div>
+        <button type="submit" name="level" className="set-user-level-one-button" onClick={handleSubmit} value={1} >LiftOff Starts Here</button>
+        </div>
 			) : (
 				<>
 					<div className='question-section'>
