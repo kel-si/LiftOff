@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_203917) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "post_id"
-    t.integer "status", default: 0
+    t.boolean "approved", default: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_203917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.integer "status", default: 0
+    t.boolean "approved", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
