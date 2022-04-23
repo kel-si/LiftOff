@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/components.scss";
 import "../styles/Navbar.scss";
 import { levelName, levelAvatar } from "./helpers/navHelpers";
@@ -8,7 +8,6 @@ import { levelName, levelAvatar } from "./helpers/navHelpers";
 export default function Navbar(props) {
   const [user, setUser] = useState({});
   const [login, setLogin] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const currentUser = localStorage.getItem("liftoffUser");
@@ -19,15 +18,17 @@ export default function Navbar(props) {
       setUser(liftoffUser.user);
       setLogin(1);
     }
-  }, [navigate]);
+  }, []);
 
   const logOut = () => {
   axios
     .post("/api/logout", { withCredentials: true }) // sends credentials to server
       .then((response) => {
-        console.log("response:", response);
+        console.log("response:", response.data);
         localStorage.clear();
+        console.log("props.login", props.login);
         setLogin(0);
+        props.setLogin({...props.login, status: response.logged_in});
         setUser({});
       })
       .catch((err) => {
@@ -62,7 +63,7 @@ export default function Navbar(props) {
           </li>
         </button>
         {!login ? (
-          <button onClick={props.logout}>
+          <button onClick={logOut}>
             <li>
               <Link to="/">Log In Button</Link>
             </li>
