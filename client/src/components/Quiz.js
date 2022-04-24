@@ -7,12 +7,13 @@ export default function Quiz() {
 
   const questions = [
     {
-      questionText: 'screenshot of sample post for user tutorial to be displayed here. Remember to let the audience know that we intend to include 5 questions as part of onboarding, but we are only showing 1 sample question for the sake of time on demo day.',
+      // questionText: 'screenshot of sample post for user tutorial to be displayed here. Remember to let the audience know that we intend to include 5 questions as part of onboarding, but we are only showing 1 sample question for the sake of time on demo day.',
+			questionText: 'Select the most appropriate comment for this post. Remember to think about how the person sharing this might feel when they read your comment.',
       answerOptions: [
-        { answerText: 'wrong comment#1', isCorrect: false },
-        { answerText: 'wrong comment#2', isCorrect: false },
-        { answerText: 'wrong comment#3', isCorrect: false },
-        { answerText: 'correct response#1', isCorrect: true },
+        { answerText: "Cats are stupid.", isCorrect: false },
+        { answerText: "Ummmmmm no.", isCorrect: false },
+        { answerText: "🙄", isCorrect: false },
+        { answerText: "I like your positive outlook!", isCorrect: true },
       ],
     },
 		// {
@@ -120,6 +121,21 @@ const handleSubmit =(event) => {
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
 						</div>
 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
+						<div className="post--container">
+							<article className="post">
+								<header className="post--header">
+									<img src="https://i.ibb.co/BPrr6fn/lvl-admin.jpg"className="post-avatar" />
+									<h2 className="post--name">Quizcat</h2>
+								</header>
+
+								<div className="post--body">
+									<p>Things are looking up! 😺 </p>
+									<div className="img--container">
+										<img src="https://i.ibb.co/HFHFZKb/quiz-cat.jpg" alt="error" className="post--img"/>
+									</div>
+								</div>
+							</article>
+						</div>
 					</div>
 					<div className='answer-section'>
             {questions[currentQuestion].answerOptions.map((answerOption) => (
