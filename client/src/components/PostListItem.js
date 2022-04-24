@@ -1,11 +1,21 @@
 import React from "react";
+import "../styles/Posts.scss";
+import Moment from 'moment';
+
 
 export default function PostListItem(props) {
+  
+  console.log("props.user: postListItem",  props.user);
+  const time = Moment(props.time).startOf('hour').fromNow();;
+
+
   return (
     <div className="post--container">
       <article className="post">
         <header className="post--header">
+          {/* <img src={props.avatar} className="post-avatar" /> */}
           <h2 className="post--name">{props.name}</h2>
+          <h2 className="post--name">{props.level}</h2>
         </header>
 
         <div className="post--body">
@@ -15,7 +25,7 @@ export default function PostListItem(props) {
           </div>
         </div>
         <footer className="post--footer">
-          <small className="footer--age">{props.time}</small>
+          <small className="footer--age">Posted {time} </small>
         </footer>
       </article>
     </div>
