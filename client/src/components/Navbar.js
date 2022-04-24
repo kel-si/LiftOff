@@ -47,7 +47,13 @@ export default function Navbar(props) {
     <div className="timer-container">
       { time === 1 ? (<p>You've been browsing for {time} minute </p>) : ( <p>You've been browsing for {time} minutes</p> ) }
     {status === 'RUNNING'}
+    <ul className="nav-menu">
+          <li><Link to="/my-posts">My Posts</Link></li>
+          <li><Link to="/guidelines">Guidelines</Link></li>
+        {user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
+      </ul>
     </div>
+      
     <nav>
       <h1 className="logo">
         <Link to="/">
@@ -57,14 +63,6 @@ export default function Navbar(props) {
           </span>
         </Link>
       </h1>
-      
-      <ul>
-          <li><Link to="/my-posts">My Posts</Link></li>
-          <li><Link to="/guidelines">Guidelines</Link></li>
-
-        {user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
-
-      </ul>
 
       <div className="avatar-container">
         <div className="avatar-left">

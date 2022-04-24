@@ -1,23 +1,38 @@
 nav {
-  // background-image: url("https://i.ibb.co/Lkpyzty/bg-2.jpg"), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));;
-  // background-position: center;
-  // background-size: cover;
-  // background-blend-mode: overlay;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 10px;
 }
 
-nav ul {
+.timer-container {
   display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to top left, #f77062 0%, #fe5196 100%);
+  text-align: left;
+  color: #310047;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  height: 50px;
 }
-nav li a {
+
+.timer-container p {
+  margin-left: 20px;
+}
+
+.nav-menu {
+  display: flex;
+  padding: 0;
+  justify-content: right;
+  padding: 0;
+}
+
+.nav-menu li a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 16px;
   font-family: "Jura", sans-serif;
   text-transform: uppercase;
+  color: #310047;
 }
 
 .avatar-image {
@@ -67,8 +82,5 @@ div.avatar-right {
   text-decoration: none;
 }
 
-.timer-container {
-  background-image: linear-gradient(to top left, #f77062 0%, #fe5196 100%);
-  text-align: center;
-}
+
 
