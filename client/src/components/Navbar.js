@@ -48,7 +48,7 @@ export default function Navbar(props) {
       </h1>
       
       <ul>
-          <li><Link to="/my-posts">My Posts Button</Link></li>
+          <li><Link to="/my-posts">My Posts</Link></li>
           <li><Link to="/guidelines">Guidelines</Link></li>
 
         {user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
