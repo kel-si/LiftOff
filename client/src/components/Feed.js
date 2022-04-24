@@ -15,6 +15,8 @@ export default function Feed(props) {
   const currentUser = localStorage.getItem("liftoffUser");
   const liftoffUser = JSON.parse(currentUser);
 
+
+  
   useEffect(() => { 
     setUser(liftoffUser.user); 
     if (!liftoffUser) {
