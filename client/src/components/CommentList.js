@@ -36,6 +36,7 @@ export default function CommentList(props) {
         <CommentListItem
           text={comment.text}
           time={comment.created_at}
+          status={comment.status}
           name={commentWithUsername(props.users, comment)}
           avatar={assignAvatar(props.users, comment)}
         />

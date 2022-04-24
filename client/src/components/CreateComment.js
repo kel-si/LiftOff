@@ -11,7 +11,6 @@ export default function CreateComment(props) {
   const userId = userData.user.id;
   const postId = props.postId;
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -20,6 +19,7 @@ export default function CreateComment(props) {
         text: comment,
         user_id: userId,
         post_id: postId,
+        status: 0
       })
       //setComment to update state
       .then((res) => {
@@ -40,7 +40,7 @@ export default function CreateComment(props) {
   return (
     <div>
       <div className="comment-container">
-        <form onSubmit={handleSubmit} autocomplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off">
           {isConfirming ? (
             <Confirm
               onCancel={() => setIsConfirming(false)}

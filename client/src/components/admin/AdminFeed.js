@@ -9,6 +9,11 @@ export default function AdminFeed(props) {
     comments: [],
   });
 
+  const removePendingComment = (id) => {
+  const updatedComments = state.comments.filter(comment => comment.id !== id)
+  setState({...state, comments: updatedComments})
+  }
+
   useEffect(() => {
     Promise.all([axios.get("/admin/feed"), axios.get("/admin/comments")])
       .then((all) => {
@@ -34,7 +39,7 @@ export default function AdminFeed(props) {
   });
   return (
     <div className="Feed">
-      <AdminPostList posts={postsWithComments} users={state.users} state={state} setState={setState} />
+      <AdminPostList handleRemovePendingComment={removePendingComment} posts={postsWithComments} users={state.users} state={state} setState={setState} />
     </div>
   );
 }
