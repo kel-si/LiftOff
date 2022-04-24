@@ -27,7 +27,7 @@ export default function CreatePost( ) {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete='off'>
         <div>
           <input className="form--input"
             type="text"

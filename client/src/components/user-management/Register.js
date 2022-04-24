@@ -51,7 +51,7 @@ export default function Register(props) {
             🚀
           </span>
       </h1>
-      <form onSubmit={handleSubmit} className="form-container">
+      <form onSubmit={handleSubmit} className="form-container" autoComplete="off">
         <h2>Register to Get Started</h2>
         <input
           className="form--input"

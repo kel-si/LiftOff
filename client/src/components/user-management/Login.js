@@ -47,7 +47,7 @@ export default function Login(props) {
       </h1>
     <h1>Get ready for LiftOff!</h1>
       <h3>A training camp that will set you up to explore the social media universe successfully.</h3>
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={handleSubmit} className="form-container" autoComplete="off">
       <h2>Login to Get Started</h2>
       <input
         className="form--input"
