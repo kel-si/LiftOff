@@ -2,6 +2,7 @@ import React from "react";
 import AdminCommentListItem from "./AdminCommentListItem";
 
 export default function AdminCommentList(props) {
+  
   // assigns a username to a comment
   const commentWithUsername = function(users, comment) {
     for (const user of users) {
@@ -17,10 +18,13 @@ export default function AdminCommentList(props) {
         <AdminCommentListItem
           key={comment.id}
           id={comment.id}
+          postId={props.postId}
           text={comment.text}
           time={comment.created_at}
           status={comment.status}
           name={commentWithUsername(props.users, comment)}
+          state={props.state}
+          setState={props.setState}
         />
       </div>
     );

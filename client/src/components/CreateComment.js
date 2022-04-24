@@ -11,6 +11,7 @@ export default function CreateComment(props) {
   const userId = userData.user.id;
   const postId = props.postId;
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,6 +24,8 @@ export default function CreateComment(props) {
       //setComment to update state
       .then((res) => {
         const newCommentState = [...props.state.comments, res.data.comment];
+        console.log("comment", comment);
+        console.log("res", res);
         props.setState({ ...props.state, comments: newCommentState });
         setIsConfirming(false);
         setComment("");

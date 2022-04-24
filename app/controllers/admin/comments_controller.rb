@@ -18,7 +18,8 @@ class Admin::CommentsController < ApplicationController
     # @comment.increment!(:status)
     puts "new status", @comment
     render json: {
-      status: @status
+      # status: @status
+      comment: @comment
     }
   end 
 

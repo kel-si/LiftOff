@@ -8,7 +8,6 @@ export default function PostListItem(props) {
   console.log("props.user: postListItem",  props.user);
   const time = Moment(props.time).startOf('hour').fromNow();;
 
-
   return (
     <div className="post--container">
       <article className="post">
