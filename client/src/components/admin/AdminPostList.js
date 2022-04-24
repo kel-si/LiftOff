@@ -23,6 +23,7 @@ export default function AdminPostList(props) {
           time={post.created_at}
         />
         <AdminCommentList
+          handleRemovePendingComment={props.handleRemovePendingComment}
           comments={post.comments}
           users={props.users}
           postId={post.id}

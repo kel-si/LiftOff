@@ -14,8 +14,8 @@ export default function AdminCommentList(props) {
 
   const comments = props.comments.map((comment) => {
     return (
-      <div>
         <AdminCommentListItem
+          handleRemovePendingComment={props.handleRemovePendingComment}
           key={comment.id}
           id={comment.id}
           postId={props.postId}
@@ -26,7 +26,6 @@ export default function AdminCommentList(props) {
           state={props.state}
           setState={props.setState}
         />
-      </div>
     );
   });
   return (
