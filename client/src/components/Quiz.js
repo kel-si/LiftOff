@@ -105,6 +105,7 @@ const handleSubmit =(event) => {
 
 	return (
     <div className='quiz-container'>
+			<h1>Complete the quiz to activate your account</h1>
 		<div className='quiz'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}

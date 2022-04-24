@@ -1,13 +1,15 @@
+@import "components.scss";
+
 .quiz-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
 }
 
 
 .quiz {
-  background-color: #8448b8;
+  background-color: $purple-accent;
   width: 80%;
   min-height: 240px;
   height: min-content;
@@ -15,6 +17,7 @@
   padding: 20px;
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 

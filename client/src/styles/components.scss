@@ -1,3 +1,5 @@
+$purple-accent: #660094;
+
 * {
   box-sizing: border-box;
 }
@@ -131,7 +133,7 @@ article.post {
 
 article.comment {
   // border-bottom: 1px solid rgb(159, 127, 188);
-  border-bottom: 1px solid #660094;
+  border-bottom: 1px solid $purple-accent;
   width: 80%;
   margin: 0 auto;
   // border-radius: 5px;
