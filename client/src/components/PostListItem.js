@@ -1,10 +1,13 @@
 import React from "react";
 import "../styles/Posts.scss";
-import ReactTimeAgo from 'react-time-ago';
+import Moment from 'moment';
+
 
 export default function PostListItem(props) {
   
   console.log("props.user: postListItem",  props.user);
+  // const time = Moment.parseZone(props.time).format('dddd');
+  const time = Moment(props.time).startOf('hour').fromNow();;
 
 
   return (
@@ -13,6 +16,7 @@ export default function PostListItem(props) {
         <header className="post--header">
           {/* <img src={props.avatar} className="post-avatar" /> */}
           <h2 className="post--name">{props.name}</h2>
+          <h2 className="post--name">{props.level}</h2>
         </header>
 
         <div className="post--body">
@@ -22,7 +26,7 @@ export default function PostListItem(props) {
           </div>
         </div>
         <footer className="post--footer">
-          <small className="footer--age">Posted: <ReactTimeAgo date={props.time} locale="en-US"/></small>
+          <small className="footer--age">Posted {time} </small>
         </footer>
       </article>
     </div>

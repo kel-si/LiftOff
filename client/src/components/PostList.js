@@ -34,10 +34,10 @@ const assignUserName = function (users, post) {
 //     }
 // };
 
-const getUser = (users, post) => {
+const getLevel = (users, post) => {
   for (const user of users) {
     if (user.id === post.user_id) {
-      return user;
+      return user.level;
     }
   }
 }
@@ -49,7 +49,7 @@ export default function PostList(props) {
       <div className="post--item" key={post.id}>
         <PostListItem
           id={post.id}
-          user={getUser(users, post)}
+          level={getLevel(users, post)}
           name={assignUserName(users, post)}
           text={post.text}
           image={post.image}
