@@ -35,6 +35,7 @@ export default function AdminCommentListItem(props) {
     .put(`/admin/comments/${props.id}`, {status: event.target.value})
   .then((res) => {
   console.log("from server:", res.data);
+  alert(`you have approved ${props.name}'s comment successfully!`)
 })
   .catch((err) => {
   console.log("admin errors:", err)
@@ -47,6 +48,7 @@ export default function AdminCommentListItem(props) {
     .delete(`/admin/comments/${props.id}`)
 .then((res) => {
   console.log("from server:", res.data);
+  alert(`you have deleted ${props.name}'s comment successfully!`)
 })
 .catch((err) => {
   console.log("admin errors:", err)

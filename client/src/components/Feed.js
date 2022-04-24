@@ -18,7 +18,7 @@ export default function Feed(props) {
 
 
   useEffect(() => {
-    setUser(liftoffUser);
+    setUser(liftoffUser.user); 
     if (!liftoffUser) {
       navigate("/");
     } else {
