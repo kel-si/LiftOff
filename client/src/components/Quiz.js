@@ -106,16 +106,20 @@ const handleSubmit =(event) => {
 
 	return (
     <div className='quiz-container'>
-			<h1>Complete the quiz to activate your account</h1>
 		<div className='quiz'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
-				<div className='score-section'>You scored {score} out of {questions.length}
-        <button type="submit" name="level" className="set-user-level-one-button" onClick={handleSubmit} value={1} >LiftOff Starts Here</button>
-        </div>
+				<div className='score-section'>
+					<img src="https://i.ibb.co/273DF24/confetti-flat.gif" className='confetti'/>
+					<div>
+						<h2>Congrats! You've leveled up to Mini Martian!!</h2>
+					<button type="submit" name="level" className="set-user-level-one-button" onClick={handleSubmit} value={1} >Proceed to LiftOff</button>
+					</div>
+				</div>
 			) : (
 				<>
+				<h1>Complete the quiz to activate your account</h1>
 					<div className='question-section'>
 						<div className='question-count'>
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
