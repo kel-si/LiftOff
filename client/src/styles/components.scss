@@ -4,6 +4,13 @@
 input {
   border: none;
 }
+
+input[type=text], textarea {
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+}
+
 a.button {
   text-decoration: none;
 }
@@ -74,6 +81,7 @@ div .post--container {
   margin-top: 25px;;
   flex-direction: row;
   align-items: center;
+  padding: 10px;
   // border-top: 5px solid rgb(159, 127, 188);
   background-color: #0E0015;
   width: 100%;
