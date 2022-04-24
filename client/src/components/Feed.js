@@ -18,7 +18,7 @@ export default function Feed(props) {
 
 
   useEffect(() => {
-    setUser(liftoffUser.user); 
+    setUser(liftoffUser.user); //need to seek mentor's help regarding this line of code, along with the memory leak issue 
     if (!liftoffUser) {
       navigate("/");
     } else {
