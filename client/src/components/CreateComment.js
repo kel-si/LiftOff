@@ -40,7 +40,7 @@ export default function CreateComment(props) {
   return (
     <div>
       <div className="comment-container">
-        <form onSubmit={handleSubmit} autocomplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off">
           {isConfirming ? (
             <Confirm
               onCancel={() => setIsConfirming(false)}

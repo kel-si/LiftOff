@@ -3,6 +3,21 @@
 }
 input {
   border: none;
+  font-weight: bold;
+}
+input {
+  border: none;
+  font-weight: bold;
+}
+
+.form-container input {
+  font-weight: 300;
+}
+
+.intro-text {
+  font-weight: 300;
+  width: 50%;
+  text-align: center;
 }
 
 input,
