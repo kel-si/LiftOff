@@ -2,18 +2,13 @@ import React from "react";
 import Sentiment from "sentiment";
 
 export default function Confirm(props) {
-  console.log("confirm props", props);
-
   const sentiment = new Sentiment();
 
   const findSentiment = (comment) => {
-    const result = sentiment.analyze(comment);
-    console.log("result", result);
-    return result;
+    return sentiment.analyze(comment);
   };
 
   const commentScore = findSentiment(props.comment);
-  console.log("commentScore", commentScore);
 
   return (
     <div>
