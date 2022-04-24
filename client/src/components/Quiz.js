@@ -119,8 +119,8 @@ const handleSubmit =(event) => {
 				</div>
 			) : (
 				<>
-				<h1>Complete the quiz to activate your account</h1>
 					<div className='question-section'>
+						<h1>Complete the quiz to activate your account</h1>
 						<div className='question-count'>
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
 						</div>
