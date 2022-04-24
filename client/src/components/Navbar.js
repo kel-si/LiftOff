@@ -56,16 +56,18 @@ export default function Navbar(props) {
       </ul>
 
       <div className="avatar-container">
+        <div className="avatar-left">
         <img
           className="avatar-image"
           src={levelAvatar(user.level)}
           alt="avatar"
         />
-        <div>
-          <h3>{user.name}</h3>
         </div>
-        <div> Level: {levelName(user.level)}</div>
-        <p><Link to="/" onClick={logOut}>Log Out</Link></p>
+            <div className="avatar-right">
+                <h3>{user.name}</h3>
+                <p>Level: {levelName(user.level)}</p>
+                <p><Link to="/" onClick={logOut}>Log Out</Link></p>
+            </div>
       </div>
     </nav>
   );

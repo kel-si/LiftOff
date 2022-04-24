@@ -1,16 +1,44 @@
+nav {
+  // background-image: url("https://i.ibb.co/Lkpyzty/bg-2.jpg"), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));;
+  // background-position: center;
+  // background-size: cover;
+  // background-blend-mode: overlay;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+nav ul {
+  display: flex;
+}
+nav li a {
+  text-decoration: none;
+  font-size: 24px;
+  font-family: "Jura", sans-serif;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
 .avatar-image {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   margin: 10px;
 }
 
 .avatar-container {
   display: flex;
+  margin-right: 25px;
+}
+
+div.avatar-right {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  text-align: left;
+  border: 1px solid white;
 }
 
 .avatar-container h3 {
@@ -22,6 +50,11 @@
   font-family: "Jura";
   font-size: 50px;
   color: #fe5196;
+  margin-left: 25px;
+}
+
+.logo {
+  margin-left: 25px;
 }
 
 .logo a {

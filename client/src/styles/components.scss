@@ -30,6 +30,10 @@ body {
     rgba(27, 24, 31, 1) 21.2%,
     rgb(27, 5, 46) 84.8%
   );
+  // background-image: url("https://i.ibb.co/v49cfx9/bg-2.jpg"),  linear-gradient(rgba(27, 24, 31, 0.8),rgba(27, 5, 46,0.8));
+  // background-size: fit;
+  // background-blend-mode: overlay;
+
   /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
   margin: 0;
   padding: 0;
@@ -37,11 +41,7 @@ body {
   color: #fff;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10px;
-}
+
 
 ul {
   list-style: none;
@@ -71,11 +71,14 @@ ul {
 }
 
 div .post--container {
+  margin-top: 25px;;
   flex-direction: row;
   align-items: center;
-  border: 1px solid rgb(159, 127, 188);
+  // border-top: 5px solid rgb(159, 127, 188);
+  background-color: #0E0015;
   width: 100%;
-  border-radius: 5px;
+  
+  // border-radius: 5px;
 }
 
 div .post--item {
@@ -97,8 +100,11 @@ article.post {
 }
 
 article.comment {
-  border: 1px solid rgb(159, 127, 188);
-  border-radius: 5px;
+  // border-bottom: 1px solid rgb(159, 127, 188);
+  border-bottom: 1px solid #fff;
+  width: 80%;
+  margin: 0 auto;
+  // border-radius: 5px;
   padding: 10px;
 }
 
@@ -108,13 +114,13 @@ li {
 }
 
 div .post--item {
-  border: 1px solid #fe5196;
-  border-radius: 10px;
+  // border-bottom: 1px solid #fe5196;
+  // border-radius: 10px;
   margin: 20px;
 }
 
 .comment-container {
-  border: 1px solid rgb(159, 127, 188);
+  // border-bottom: 1px solid rgb(159, 127, 188);
   background-color: #0b0312;
   border-radius: 5px;
   padding: 20px;
