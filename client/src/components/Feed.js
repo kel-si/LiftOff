@@ -14,25 +14,23 @@ export default function Feed(props) {
   const navigate = useNavigate();
   const currentUser = localStorage.getItem("liftoffUser");
   const liftoffUser = JSON.parse(currentUser);
- 
-
 
   useEffect(() => {
-    setUser(liftoffUser);
+    setUser(liftoffUser.user);
     if (!liftoffUser) {
       navigate("/");
     } else {
-    Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
-      .then((all) => {
-        setState({
-          posts: all[0].data.posts,
-          users: all[0].data.users,
-          comments: all[1].data.comments,
+      Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
+        .then((all) => {
+          setState({
+            posts: all[0].data.posts,
+            users: all[0].data.users,
+            comments: all[1].data.comments,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
         });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
     }
   }, []);
 
