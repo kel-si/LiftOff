@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import "../styles/components.scss";
 import "../styles/Navbar.scss";
 import { levelName, levelAvatar } from "./helpers/navHelpers";
+import { useTimer } from "use-timer";
 
 export default function Navbar(props) {
+  
   const [user, setUser] = useState({});
   const [login, setLogin] = useState(0);
+  const { time, start, pause, reset, status } = useTimer({
+    interval: 60000
+  });
 
   useEffect(() => {
+    start();
     const currentUser = localStorage.getItem("liftoffUser");
     if (!currentUser) {
       // no user
@@ -37,6 +43,11 @@ export default function Navbar(props) {
   };
 
   return (
+    <>
+    <div>
+    <p>You've been browsing for: {time}</p>
+    {status === 'RUNNING'}
+    </div>
     <nav>
       <h1 className="logo">
         <Link to="/">
@@ -70,5 +81,6 @@ export default function Navbar(props) {
             </div>
       </div>
     </nav>
+    </>
   );
 }

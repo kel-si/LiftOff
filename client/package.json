@@ -10,7 +10,8 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
-    "sentiment": "^5.0.2"
+    "sentiment": "^5.0.2",
+    "use-timer": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
