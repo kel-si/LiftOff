@@ -12,35 +12,24 @@ const assignUserName = function (users, post) {
 };
 
 // assigns avatar to a post
-// const assignAvatar = function (users, post) {
-//   let level = 0;
-//   for (const user of users) {
-//     if (user.id === post.user_id) {
-//      level = user.level;
-//      console.log("user id", user.id);
-//      console.log("level", level);
-//     }
-//   }
-//     if (level === 0) {
-//       return "https://i.ibb.co/D5yHV1t/lvl-1.jpg";
-//     } else if (level === 1) {
-//       return "https://i.ibb.co/MC7dYWy/lvl-2.jpg";
-//     } else if (level === 2) {
-//       return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
-//     } else if (level > 2) {
-//       return "https://i.ibb.co/BPrr6fn/lvl-admin.jpg";
-//     } else {
-//       return "https://i.ibb.co/BPrr6fn/lvl-admin.jpg";
-//     }
-// };
-
-const getLevel = (users, post) => {
+const assignAvatar = function (users, post) {
   for (const user of users) {
     if (user.id === post.user_id) {
-      return user.level;
+      if (user.level === 0) {
+        return "https://i.ibb.co/D5yHV1t/lvl-1.jpg";
+      } else if (user.level === 1) {
+        return "https://i.ibb.co/MC7dYWy/lvl-2.jpg";
+      } else if (user.level === 2) {
+        return "https://i.ibb.co/zGHmsk0/lvl-3.jpg";
+      } else if (user.level > 2) {
+        return "https://i.ibb.co/BPrr6fn/lvl-admin.jpg";
+      } else {
+        return "https://i.ibb.co/BPrr6fn/lvl-admin.jpg";
+      }
     }
   }
-}
+};
+
 
 export default function PostList(props) {
   const users = props.users;
@@ -49,7 +38,7 @@ export default function PostList(props) {
       <div className="post--item" key={post.id}>
         <PostListItem
           id={post.id}
-          level={getLevel(users, post)}
+          avatar={assignAvatar(users, post)}
           name={assignUserName(users, post)}
           text={post.text}
           image={post.image}

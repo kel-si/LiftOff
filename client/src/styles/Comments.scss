@@ -1,0 +1,28 @@
+.comment-avatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.comment--name {
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.comment--header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.comment--body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment--body p{
+  margin: 5px;
+  font-size: 20px;
+}
