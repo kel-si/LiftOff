@@ -5,3 +5,13 @@
   object-fit: cover;
 }
 
+.post--header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post--name {
+  margin-left: 15px;
+}
+
