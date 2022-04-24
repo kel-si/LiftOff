@@ -18,9 +18,8 @@ export default function AdminUsers() {
 
   const userList = users.map((user) => {
     return (
-      <div className="post--item">
+      <div className="post--item" key={user.id}>
         <AdminUsersItem
-          key={user.id}
           id={user.id}
           name={user.name}
           email={user.email}

@@ -59,7 +59,7 @@ level: 2
  Post.create!([
    {
   text: "My latest work of art! Meet Mr. Elephant.",
-  image: "https://i.ibb.co/RDth1s2/post-1.jpg",
+  image: "https://i.ibb.co/Kb6QcwS/post-1.jpg",
   user_id: 5
  },
  {
@@ -69,17 +69,17 @@ level: 2
  },
  {
   text: "Morning breakfast!☀️🍓🍓🥞",
-  image: "https://i.ibb.co/yyJMVhz/post-3.jpg",
+  image: "https://i.ibb.co/3FDRdgM/post-3.jpg",
   user_id: 5
  },
  {
-  text: "Brothers and sisters. Miranda Priestly.",
-  image: "https://i.ibb.co/s1yzHHj/post-4.jpg",
+  text: "Brothers and sisters.",
+  image: "https://i.ibb.co/6FVFKMj/post-4.jpg",
   user_id: 6
  },
  {
-  text: "Fuck coffeecup",
-  image: "https://i.ibb.co/Smfvf2T/post-5.jpg",
+  text: "Pool Party! 😎 🦖 🦕 ",
+  image: "https://i.ibb.co/1q8f1GB/post-5.jpg",
   user_id: 5
  },
  {
@@ -89,17 +89,17 @@ level: 2
  },
  {
   text: "Becoming a photographer with my 📸",
-  image: "https://i.ibb.co/199GtVf/post-7.jpg",
+  image: "https://i.ibb.co/7bKN66j/post-6.jpg",
   user_id: 5
  },
  {
-  text: "Mom and dad's anniversary🍷",
-  image: "https://i.ibb.co/B6zQSgr/post-8.jpg",
+  text: "Yummmmmmmmmmm",
+  image: "https://i.ibb.co/D5dJMfT/post-8.jpg",
   user_id: 6
  },
  {
   text: "My new best friend",
-  image: "https://i.ibb.co/DbgMLhM/post-9.jpg",
+  image: "https://i.ibb.co/pbwzPSV/post-9.jpg",
   user_id: 5
  }
 ])
@@ -108,12 +108,12 @@ puts "Post.count", Post.count
 
 Comment.create!([
   {
-  text: "Buy my art at my parent's Etsy store www.etsy.com",
+  text: "👨‍🎨 👏",
   post_id: 1,
   user_id: 5
 },
 {
-  text: "I think this elephant is evil",
+  text: "Looks amazing!",
   post_id: 1,
   user_id: 1
 },
@@ -128,12 +128,12 @@ Comment.create!([
   user_id: 6
 },
 {
-  text: "So fcking cute!!",
+  text: "So cute!!",
   post_id: 9,
   user_id: 4
 },
 {
-  text: "You are so ugly 🤢",
+  text: "Puppies are my favourite!",
   post_id: 2,
   user_id: 2
 },
@@ -142,46 +142,7 @@ Comment.create!([
   post_id: 7,
   user_id: 3
 },
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-},
-{
-  text: "Hi",
-  post_id: 7,
-  user_id: 3
-}
+
 ])
 
 puts "Comment.count", Comment.count

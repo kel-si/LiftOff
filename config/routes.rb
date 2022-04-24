@@ -16,12 +16,11 @@ Rails.application.routes.draw do
     post '/logout',   to: 'sessions#destroy'
     get '/logged_in', to: 'sessions#is_logged_in?'
     
-    resources :users, only: [:create, :show, :index] do 
+    resources :users, only: [:create, :show, :index, :update] do 
       resources :items, only: [:create, :show, :index, :destroy]
     end 
 
     resources :feed, :comments
-
     resources :posts
 
     get '/posts' => 'posts#new'
