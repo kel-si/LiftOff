@@ -16,9 +16,6 @@ export default function Feed(props) {
   const liftoffUser = JSON.parse(currentUser);
 
   useEffect(() => { 
-
-
-    
     setUser(liftoffUser.user); 
     if (!liftoffUser) {
       navigate("/");
