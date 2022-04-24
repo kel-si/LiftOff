@@ -4,7 +4,7 @@ import axios from "axios";
 export default function AdminCommentListItem(props) {
   // approve -> trigger put route in the backend to update comment status to 1 - equals to approved
   // const [approve, setApprove] = useState(0);
-  console.log(props.id);
+  // console.log(props.id);
 
   // const handleSubmit = (event) => {
     // event.preventDefault();
@@ -28,6 +28,11 @@ export default function AdminCommentListItem(props) {
       //  });
     // }
     // };
+  // const postId = props.postId;
+  // console.log(postId);
+  const [adminComment, setAdminComment] = useState(0);
+  // console.log(props.key); //do not use
+  console.log(props.id);
 
   const handleApprove = (event) => {
     event.preventDefault();
@@ -35,11 +40,18 @@ export default function AdminCommentListItem(props) {
     .put(`/admin/comments/${props.id}`, {status: event.target.value})
   .then((res) => {
   console.log("from server:", res.data);
-  alert(`you have approved ${props.name}'s comment successfully!`)
+  console.log("res.data.comment",res.data.comment);
+  // const newAdminCommentState = [...props.state.comments];
+  // console.log("newAdminCommentState", newAdminCommentState);
+  //  props.setState({...props.state, comments: newAdminCommentState})
+  // setAdminComment("")
+  alert(`you have approved ${props.name}'s comment 
+successfully!`)
 })
   .catch((err) => {
   console.log("admin errors:", err)
 })
+  window.location.reload(); 
   };
 
   const handleReject = (event) => {
@@ -48,11 +60,17 @@ export default function AdminCommentListItem(props) {
     .delete(`/admin/comments/${props.id}`)
 .then((res) => {
   console.log("from server:", res.data);
+  console.log("res.data.comment",res.data.comment);
+  // const newAdminCommentState = [...props.state.comments];
+    // props.setState({...props.state, comments: 
+    // newAdminCommentState})
+    // setAdminComment("")
   alert(`you have deleted ${props.name}'s comment successfully!`)
 })
 .catch((err) => {
   console.log("admin errors:", err)
   })
+  window.location.reload(); 
   };
 
   
@@ -71,8 +89,8 @@ export default function AdminCommentListItem(props) {
             className="btn-small"
             onClick={handleApprove}
             name="approve"
-            value={1}
-            // onChange={(event) => setApprove(event.target.value)}
+            value={adminComment + 1}
+             onChange={(event) => setAdminComment(event.target.value)}
           >
             Approve
           </button>
@@ -81,8 +99,8 @@ export default function AdminCommentListItem(props) {
             className="btn-small"
             onClick={handleReject}
             name="reject"
-            value={2}
-            // onChange={(event) => setApprove(event.target.value)}
+            value={adminComment + 2}
+             onChange={(event) => setAdminComment(event.target.value)}
           >
             Reject
           </button>

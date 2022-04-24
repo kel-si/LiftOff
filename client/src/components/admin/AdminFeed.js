@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import AdminPostList from "./AdminPostList";
 
-export default function AdminFeed() {
+export default function AdminFeed(props) {
   const [state, setState] = useState({
     posts: [],
     users: [],
@@ -23,7 +23,7 @@ export default function AdminFeed() {
         console.log(error);
       });
   }, []);
-
+  
   // helper function to create a data structure of [{postId: 1, comments: []}]
   // not an ideal solution if we have a huge data set
   const postsWithComments = state.posts.map((post) => {
@@ -34,7 +34,7 @@ export default function AdminFeed() {
   });
   return (
     <div className="Feed">
-      <AdminPostList posts={postsWithComments} users={state.users} />
+      <AdminPostList posts={postsWithComments} users={state.users} state={state} setState={setState} />
     </div>
   );
 }
