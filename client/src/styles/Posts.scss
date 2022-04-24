@@ -9,9 +9,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 70px;
 }
 
 .post--name {
+  font-size: 36px;
   margin-left: 15px;
+}
+
+.footer--age {
+  display: flex;
+  justify-content: end;
 }
 
