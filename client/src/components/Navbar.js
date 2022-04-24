@@ -44,7 +44,7 @@ export default function Navbar(props) {
 
   return (
     <>
-    <div>
+    <div className="timer-container">
       { time === 1 ? (<p>You've been browsing for {time} minute </p>) : ( <p>You've been browsing for {time} minutes</p> ) }
     {status === 'RUNNING'}
     </div>
