@@ -1,31 +1,18 @@
 import React, { useState } from "react";
-
 import axios from "axios";
-import Sentiment from "sentiment";
-import Confirm from "./Confim";
+import Confirm from "./Confirm";
 
 export default function CreateComment(props) {
-  const sentiment = new Sentiment();
-
   const [comment, setComment] = useState("");
   const [isConfirming, setIsConfirming] = useState(false);
 
   const user = localStorage.getItem("liftoffUser");
   const userData = JSON.parse(user);
   const userId = userData.user.id;
-
-  const findSentiment = (comment) => {
-    const result = sentiment.analyze(comment);
-    console.log("result", result);
-    return result;
-  };
-
   const postId = props.postId;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    findSentiment(comment);
 
     axios
       .post("/api/comments", {
@@ -55,6 +42,7 @@ export default function CreateComment(props) {
             <Confirm
               onCancel={() => setIsConfirming(false)}
               onSubmit={handleSubmit}
+              comment={comment}
             />
           ) : (
             <div>
