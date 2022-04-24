@@ -46,35 +46,13 @@ export default function Navbar(props) {
           </span>
         </Link>
       </h1>
+      
       <ul>
-        <button>
-          <li>
-            <Link to="/my-posts">My Posts Button</Link>
-          </li>
-        </button>
-        <button>
-          <li>
-            <Link to="/guidelines">Guidelines</Link>
-          </li>
-        </button>
-        <button>
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
-        </button>
-        {!login ? (
-          <button onClick={logOut}>
-            <li>
-              <Link to="/">Log In Button</Link>
-            </li>
-          </button>
-        ) : (
-          <button onClick={logOut}>
-            <li>
-              <Link to="/">Log Out Button</Link>
-            </li>
-          </button>
-        )}
+          <li><Link to="/my-posts">My Posts Button</Link></li>
+          <li><Link to="/guidelines">Guidelines</Link></li>
+
+        {user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
+
       </ul>
 
       <div className="avatar-container">
@@ -87,6 +65,7 @@ export default function Navbar(props) {
           <h3>{user.name}</h3>
         </div>
         <div> Level: {levelName(user.level)}</div>
+        <p><Link to="/" onClick={logOut}>Log Out</Link></p>
       </div>
     </nav>
   );
