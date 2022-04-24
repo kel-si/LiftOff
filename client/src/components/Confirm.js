@@ -22,8 +22,12 @@ export default function Confirm(props) {
             <li>🐝 Is it necessary?</li>
           </ul>
           <section>
-            <button onClick={props.onCancel}>I want to go back</button>
-            <button onClick={props.onSubmit}>Post my comment</button>
+            <button className="confirm--back" onClick={props.onCancel}>
+              I want to go back
+            </button>
+            <button className="confirm--post" onClick={props.onSubmit}>
+              Post my comment
+            </button>
           </section>
         </div>
       ) : (
@@ -36,7 +40,9 @@ export default function Confirm(props) {
             <li>🐝 Is it necessary?</li>
           </ul>
           <section>
-            <button onClick={props.onCancel}>Edit my comment</button>
+            <button className="confirm--back" onClick={props.onCancel}>
+              Edit my comment
+            </button>
           </section>
         </div>
       )}
