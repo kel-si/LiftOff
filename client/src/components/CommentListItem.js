@@ -1,6 +1,10 @@
 import React from "react";
+import Moment from 'moment';
 
 export default function CommentListItem(props) {
+
+  const time = Moment(props.time).startOf('hour').fromNow();
+
   return (
     <div className="comment--container">
       <article className="comment">
@@ -12,7 +16,7 @@ export default function CommentListItem(props) {
           <p>{props.text}</p>
         </div>
         <footer className="comment--footer">
-          <small className="footer--age">{props.time}</small>
+          <small className="footer--age">{time}</small>
         </footer>
       </article>
     </div>

@@ -6,7 +6,6 @@ import Moment from 'moment';
 export default function PostListItem(props) {
   
   console.log("props.user: postListItem",  props.user);
-  // const time = Moment.parseZone(props.time).format('dddd');
   const time = Moment(props.time).startOf('hour').fromNow();;
 
 
