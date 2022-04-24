@@ -1,6 +1,10 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    #showing all comments regardless of status.
+    # @comments = Comment.all
+
+    #only showing approved comments
+    @comments = Comment.where(status: 1)
 
     render :json => { comments: @comments }
   end

@@ -11,7 +11,6 @@ export default function CreateComment(props) {
   const userId = userData.user.id;
   const postId = props.postId;
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
