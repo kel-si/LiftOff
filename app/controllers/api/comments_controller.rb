@@ -5,17 +5,6 @@ class Api::CommentsController < ApplicationController
       render json: {
         comments: @comments
       }
-    # if  @user.where(level: 1) 
-      # # @comments = Comment.where(status: 1) + Comment.where(user_id: @user[:id])
-    # render json: {
-      # comments: @commments
-    # } 
-  # else 
-    # @comments = Comment.where(status: 1)
-    # render json: {
-      # comments: @comments
-    # }
-  # end 
 end 
 
 
