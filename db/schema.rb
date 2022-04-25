@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_182659) do
+ActiveRecord::Schema.define(version: 2022_04_25_231021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2022_04_24_182659) do
     t.integer "level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comment_approval", default: 0
+    t.integer "comment_rejection", default: 0
   end
 
   add_foreign_key "comments", "posts"
