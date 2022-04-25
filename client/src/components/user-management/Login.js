@@ -15,8 +15,9 @@ export default function Login(props) {
     });
   };
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
+  // sends login form info to server 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios

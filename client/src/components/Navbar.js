@@ -4,15 +4,23 @@ import { Link } from "react-router-dom";
 import "../styles/components.scss";
 import "../styles/Navbar.scss";
 import { levelName, levelAvatar } from "./helpers/navHelpers";
-import { useTimer } from "use-timer";
+import { useStopwatch } from 'react-timer-hook';
 
 export default function Navbar(props) {
-  const { time, start, pause, reset, status } = useTimer({
-    interval: 60000,
-  });
 
+  const {
+    seconds,
+    minutes,
+    // hours,
+    // days,
+    // isRunning,
+    // start,
+    // pause,
+    // reset,
+  } = useStopwatch({ autoStart: true });
+  
   useEffect(() => {
-    start();
+    // start();
   }, []);
 
   const logOut = () => {
@@ -29,34 +37,16 @@ export default function Navbar(props) {
   };
 
   return (
-    <>
-      <div className="timer-container">
-        {time === 1 ? (
-          <p>You've been browsing for {time} minute </p>
-        ) : (
-          <p>You've been browsing for {time} minutes</p>
-        )}
-        {status === "RUNNING"}
-        <ul className="nav-menu">
-          <li>
-            <Link to="/my-posts">My Posts</Link>
-          </li>
-          <li>
-            <Link to="/guidelines">Guidelines</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          {props.user.level > 2 ? (
-            <li>
-              <Link to="/admin">Admin</Link>
-            </li>
-          ) : (
-            <></>
-          )}
-        </ul>
-      </div>
-
+    <div>
+    <div className="timer-container">
+      <p>You've been browsing for {minutes} m {seconds} s</p>
+    <ul className="nav-menu">
+          <li><Link to="/my-posts">My Posts</Link></li>
+          <li><Link to="/guidelines">Guidelines</Link></li>
+        {props.user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
+      </ul>
+    </div>
+    
       <nav>
         <h1 className="logo">
           <Link to="/">
@@ -86,6 +76,6 @@ export default function Navbar(props) {
           </div>
         </div>
       </nav>
-    </>
+      </div>
   );
 }

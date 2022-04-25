@@ -10,12 +10,13 @@ export default function Feed(props) {
     users: [],
     comments: [],
   });
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(props.user);
   const navigate = useNavigate();
-  const currentUser = localStorage.getItem("liftoffUser");
-  const liftoffUser = JSON.parse(currentUser);
+
 
   useEffect(() => {
+    const currentUser = localStorage.getItem("liftoffUser");
+    const liftoffUser = JSON.parse(currentUser);
     setUser(liftoffUser.user);
     if (!liftoffUser) {
       navigate("/");
@@ -46,7 +47,7 @@ export default function Feed(props) {
     <div className="Feed">
       {user.level >= 2 ? (
         <>
-          <CreatePost />
+          <CreatePost user={props.user}/>
           <PostList
             posts={postsWithComments}
             users={state.users}

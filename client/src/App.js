@@ -39,6 +39,7 @@ export default function App() {
       .then((response) => {
         if (response.data.logged_in) {
           handleLogin(response.data);
+          console.log("loginStatus", response.data);
           localStorage.setItem("liftoffUser", JSON.stringify(response.data));
         } else {
           handleLogout();
@@ -54,7 +55,7 @@ export default function App() {
 
   useEffect(() => {
     loginStatus();
-    console.log("login", login);
+    console.log("useEffect loginStatus", login);
   }, []);
 
   return (
@@ -75,19 +76,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route
-            path="/register"
-            element={<Register handleLogin={handleLogin} />}
-          />
-          <Route path="/my-posts" element={<Feed />} />
+          <Route path="/register" element={<Register handleLogin={handleLogin} />}/>
+          <Route path="/my-posts" element={<Feed user={login.user}/>} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/about" element={<About />} />
-          <Route
-            path="/quiz"
-            element={
-              <Quiz updateLevel={handleQuizCompletion} user={login.user} />
-            }
-          />
+          <Route path="/quiz" element={<Quiz updateLevel={handleQuizCompletion} user={login.user} />}/>
           <Route path="/admin" element={<AdminLanding />} />
           <Route path="/admin-approvals" element={<AdminFeed />} />
           <Route path="/admin-users" element={<AdminUsers />} />
