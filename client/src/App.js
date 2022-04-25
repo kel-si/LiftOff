@@ -36,9 +36,10 @@ export default function App() {
     axios
       .get("/api/logged_in", { withCredentials: true }) //what does this mean?
       .then((response) => {
-        console.log("response:", response.data);
+        console.log("loginStatus server response:", response.data);
         if (response.data.logged_in) {
-          handleLogin(response);
+          handleLogin(response.data);
+          console.log("loginStatus response", response.data);
           localStorage.setItem("liftoffUser", JSON.stringify(response.data));
         } else {
           handleLogout();
@@ -54,9 +55,10 @@ export default function App() {
 
   useEffect(() => {
     loginStatus();
+    console.log("login", login);
   }, []);
 
-  console.log("login", login);
+
 
   return (
     <div className="App">
@@ -68,7 +70,7 @@ export default function App() {
             <Route path="/register" element={<Register handleLogin={handleLogin} />} />
             <Route path="/my-posts" element={<Feed />} />
             <Route path="/guidelines" element={<Guidelines />} />
-            <Route path="/quiz" element={<Quiz updateLevel={handleQuizCompletion}/>} />
+            <Route path="/quiz" element={<Quiz updateLevel={handleQuizCompletion} user={login.user}/>} />
             <Route path="/admin" element={<AdminLanding />} />
             <Route path="/admin-approvals" element={<AdminFeed />} />
             <Route path="/admin-users" element={<AdminUsers />} />

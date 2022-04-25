@@ -22,17 +22,19 @@ export default function Quiz(props) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(props.user);
 	const userId = user.id;
 
 	useEffect(() => {
-    const currentUser = localStorage.getItem("liftoffUser")
-		if (!currentUser) {
-      // no user
-    } else {
-				const liftoffUser = JSON.parse(currentUser);
-        setUser(liftoffUser.user);
-		}
+		console.log("props from App", props.user);
+    // const currentUser = localStorage.getItem("liftoffUser");
+		// if (!currentUser) {
+    //   // no user
+    // } else {
+		// 		const liftoffUser = JSON.parse(currentUser);
+    //     setUser(liftoffUser.user);
+				console.log("quiz user", user);
+		// }
   }, []);
   
   //move to the next question once the button is clicked
@@ -50,7 +52,7 @@ export default function Quiz(props) {
 
 	const handleSubmit =(event) => {
 		event.preventDefault();
-		console.log("complete quiz, userID", userId);
+		console.log("complete quiz, userID", user);
 		axios 
 		.put(`/api/users/${userId}`, {level: event.target.value}) 
 		.then((res) => { 

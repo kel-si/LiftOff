@@ -8,28 +8,13 @@ import { useTimer } from "use-timer";
 
 export default function Navbar(props) {
   
-  // const [user, setUser] = useState({});
-  // const [login, setLogin] = useState(0);
   const { time, start, pause, reset, status } = useTimer({
     interval: 60000
   });
 
   useEffect(() => {
     start();
-    const currentUser = localStorage.getItem("liftoffUser");
-    if (!currentUser) {
-      // no user
-    } else {
-      const liftoffUser = JSON.parse(currentUser);
-      // setUser(liftoffUser.user);
-      console.log("liftoffUser from nav", liftoffUser.user)
-      // console.log("user from nav", user);
-      // props.setLogin(1);
-      
-    }
   }, []);
-
-  
 
   const logOut = () => {
   axios
@@ -37,9 +22,7 @@ export default function Navbar(props) {
       .then((response) => {
         console.log("response:", response.data);
         localStorage.clear();
-        // setLogin(0);
-        // props.setLogin({...props.login, status: response.logged_in});
-        // setUser({});
+        props.logout();
       })
       .catch((err) => {
         console.log(err);
