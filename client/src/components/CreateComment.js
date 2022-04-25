@@ -5,21 +5,20 @@ import Confirm from "./Confirm";
 export default function CreateComment(props) {
   const [comment, setComment] = useState("");
   const [isConfirming, setIsConfirming] = useState(false);
-
   const user = localStorage.getItem("liftoffUser");
   const userData = JSON.parse(user);
   const userId = userData.user.id;
+  
   const postId = props.postId;
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-
     axios
       .post("/api/comments", {
         text: comment,
         user_id: userId,
         post_id: postId,
-        status: 0
+        status: 0,
       })
       //setComment to update state
       .then((res) => {

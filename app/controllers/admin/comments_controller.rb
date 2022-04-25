@@ -1,5 +1,4 @@
 class Admin::CommentsController < ApplicationController
-
   def index
     @comments = Comment.where(status: 0)
 
