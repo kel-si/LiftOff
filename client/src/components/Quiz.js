@@ -25,17 +25,6 @@ export default function Quiz(props) {
 	const [user, setUser] = useState(props.user);
 	const userId = user.id;
 
-	useEffect(() => {
-		console.log("props from App", props.user);
-    // const currentUser = localStorage.getItem("liftoffUser");
-		// if (!currentUser) {
-    //   // no user
-    // } else {
-		// 		const liftoffUser = JSON.parse(currentUser);
-    //     setUser(liftoffUser.user);
-				console.log("quiz user", user);
-		// }
-  }, []);
   
   //move to the next question once the button is clicked
   const handleAnswerButtonClick = (isCorrect) => {
@@ -52,11 +41,9 @@ export default function Quiz(props) {
 
 	const handleSubmit =(event) => {
 		event.preventDefault();
-		console.log("complete quiz, userID", user);
 		axios 
 		.put(`/api/users/${userId}`, {level: event.target.value}) 
 		.then((res) => { 
-			console.log("complete quiz, from server:", res.data);
 			props.updateLevel(res.data.level);
 			navigate('/my-posts');
 		})
