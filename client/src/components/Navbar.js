@@ -1,10 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/components.scss";
 import "../styles/Navbar.scss";
 import { levelName, levelAvatar } from "./helpers/navHelpers";
-import { useTimer } from "use-timer";
 import { useStopwatch } from 'react-timer-hook';
 
 export default function Navbar(props) {
@@ -20,10 +19,6 @@ export default function Navbar(props) {
     reset,
   } = useStopwatch({ autoStart: true });
   
-  // const { time, start, pause, reset, status } = useTimer({
-  //   interval: 60000
-  // });
-
   useEffect(() => {
     // start();
   }, []);
@@ -45,8 +40,6 @@ export default function Navbar(props) {
     <>
     <div className="timer-container">
       <p>You've been browsing for {minutes} m {seconds} s</p>
-      {/* { time === 1 ? (<p>You've been browsing for {time} minute </p>) : ( <p>You've been browsing for {time} minutes</p> ) }
-    {status === 'RUNNING'} */}
     <ul className="nav-menu">
           <li><Link to="/my-posts">My Posts</Link></li>
           <li><Link to="/guidelines">Guidelines</Link></li>
