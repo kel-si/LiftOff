@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "../styles/Quiz.scss";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 export default function Quiz() {
 
   const questions = [
@@ -110,7 +109,7 @@ const handleSubmit =(event) => {
       score when the user has answered all the questions */}
 			{showScore ? (
 				<div className='score-section'>You scored {score} out of {questions.length}
-        <button type="submit" name="level" className="set-user-level-one-button" onClick={handleSubmit} value={1} >LiftOff Starts Here</button>
+        <button type="submit" name="level" className="primary--btn" onClick={handleSubmit} value={1} >LiftOff Starts Here</button>
         </div>
 			) : (
 				<>
