@@ -10,6 +10,7 @@ export default function Feed(props) {
     users: [],
     comments: [],
   });
+  
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const currentUser = localStorage.getItem("liftoffUser");
