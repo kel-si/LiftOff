@@ -161,11 +161,25 @@ div .post--item {
 }
 
 .accept--comment {
+  background-image: linear-gradient(
+    to top,
+    rgb(117, 196, 126) 10%,
+    rgb(85, 166, 95) 90%
+  );
+  border-radius: 7px;
+  padding: 5px;
   background-color: rgb(118, 213, 129);
+  border-radius: 5px;
 }
 
 .reject--comment {
-  background-color: rgb(134, 68, 170);
+  background-image: linear-gradient(
+    to top,
+    rgb(101, 43, 133) 10%,
+    rgb(61, 16, 85) 90%
+  );
+  border-radius: 7px;
+  padding: 5px;
 }
 
 .confirm--post {
