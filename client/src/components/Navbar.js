@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/components.scss";
 import "../styles/Navbar.scss";
@@ -11,12 +11,12 @@ export default function Navbar(props) {
   const {
     seconds,
     minutes,
-    hours,
-    days,
-    isRunning,
-    start,
-    pause,
-    reset,
+    // hours,
+    // days,
+    // isRunning,
+    // start,
+    // pause,
+    // reset,
   } = useStopwatch({ autoStart: true });
   
   useEffect(() => {

@@ -12,6 +12,7 @@ export default function Register(props) {
   });
   const redirect = useNavigate();
 
+  // sets state with the form values
   const handleChange = (event) => {
     setformValue({
       ...formValue,
@@ -19,6 +20,7 @@ export default function Register(props) {
     });
   };
 
+  // sends form into to server to create user
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -29,7 +31,7 @@ export default function Register(props) {
         if (res.data.logged_in) {
           props.handleLogin(res.data);
           localStorage.setItem('liftoffUser', JSON.stringify(res.data));
-          // console.log("handleSubmit Register +++", res.data.user);
+          console.log("handleSubmit Register +++", res.data.user);
           redirect("/quiz");
         } else {
           setformValue({

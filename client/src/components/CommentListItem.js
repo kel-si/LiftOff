@@ -4,8 +4,10 @@ import "../styles/Comments.scss";
 
 export default function CommentListItem(props) {
 
+  // defines the timestamp formatter
   const time = Moment(props.time).startOf('hour').fromNow();
   const approval = props.status;
+
   return (
     <>
     { approval === 0 ? (

@@ -5,7 +5,7 @@ export default function MyPosts(props) {
 
   return (
     <div>
-      <Feed />
+      {/* <Feed /> */}
     </div>
   );
 }

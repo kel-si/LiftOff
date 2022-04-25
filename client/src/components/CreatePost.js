@@ -2,15 +2,16 @@ import React, { useState }  from 'react';
 import axios from "axios"; 
 import "../styles/CreatePost.scss";
 
-export default function CreatePost( ) {
+export default function CreatePost(props) {
 
   const [post, setPost] = useState("");
   const [image, setImage] = useState("");
 
-  const user = localStorage.getItem
-("liftoffUser");
-  const userData = JSON.parse(user);
-  const userId = userData.user.id;
+  //const user = localStorage.getItem("liftoffUser");
+  const user = props.user;
+  console.log("create post props", props.user);
+  // const userData = JSON.parse(user);
+  const userId = user.id;
 
   const handleSubmit =(e) => {
     e.preventDefault();
