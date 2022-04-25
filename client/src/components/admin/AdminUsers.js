@@ -5,11 +5,13 @@ import AdminUsersItem from './AdminUsersItem';
 export default function AdminUsers() {
 
   const [users, setUsers] = useState([]);
+  const [userCount, setUserCount] = useState();
 
   useEffect(() => {
     axios.get("/admin/users")
       .then((res) => {
         setUsers(res.data.users);
+        setUserCount(res.data.users.length);
       })
       .catch((error) => {
         console.log(error);
@@ -33,6 +35,7 @@ export default function AdminUsers() {
   });
   return (
       <div className="user-container">
+        <span># of Registered Users: {userCount} </span>
         {userList}
       </div>
     

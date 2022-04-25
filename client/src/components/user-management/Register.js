@@ -10,7 +10,8 @@ export default function Register(props) {
     password_confirmation: "",
     parent_email: "",
   });
-  const redirect = useNavigate();
+  const navigate = useNavigate(); 
+
 
   // sets state with the form values
   const handleChange = (event) => {
@@ -32,7 +33,7 @@ export default function Register(props) {
           props.handleLogin(res.data);
           localStorage.setItem('liftoffUser', JSON.stringify(res.data));
           console.log("handleSubmit Register +++", res.data.user);
-          redirect("/quiz");
+          navigate("/quiz");
         } else {
           setformValue({
             errors: res.data.errors,

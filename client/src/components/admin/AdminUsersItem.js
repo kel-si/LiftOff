@@ -21,6 +21,7 @@ export default function AdminUsersItem(props) {
     
   
   return (
+<>
     <div className="page-container">
       <div className="post--container">
         <article className="post">
@@ -43,5 +44,6 @@ export default function AdminUsersItem(props) {
         </article>
       </div>
       </div>
+      </>
   );
 }
