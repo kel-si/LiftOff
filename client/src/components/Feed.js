@@ -20,7 +20,8 @@ export default function Feed(props) {
     if (!liftoffUser) {
       navigate("/");
     } else {
-      Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
+      Promise.all([
+      axios.get("/api/feed"), axios.get("/api/comments")])
         .then((all) => {
           setState({
             posts: all[0].data.posts,
