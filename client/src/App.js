@@ -55,7 +55,6 @@ export default function App() {
 
   useEffect(() => {
     loginStatus();
-    console.log("useEffect loginStatus", login);
   }, []);
 
   return (
@@ -82,7 +81,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/quiz" element={<Quiz updateLevel={handleQuizCompletion} user={login.user} />}/>
           <Route path="/admin" element={<AdminLanding />} />
-          <Route path="/admin-approvals" element={<AdminFeed />} />
+          <Route path="/admin-approvals" element={<AdminFeed user={login.user}/>} />
           <Route path="/admin-users" element={<AdminUsers />} />
         </Routes>
       </Router>
