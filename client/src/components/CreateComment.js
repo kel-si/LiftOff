@@ -62,7 +62,7 @@ export default function CreateComment(props) {
   //have access to postId from props
   return (
     <div>
-    { userLevel === 0 ? (
+    { userLevel === 1 ? (
     <div>
     <div className="comment-container">
       <form onSubmit={handleSubmit} autoComplete="off">
