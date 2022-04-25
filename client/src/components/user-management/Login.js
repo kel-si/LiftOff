@@ -39,14 +39,16 @@ export default function Login(props) {
 
   return (
     <div className="page-container">
+      <h1>3, 2, 1...</h1>
+      
       <h1 className="logo">
           LiftOff
           <span role="img" aria-label="rocket ship emoji">
             🚀
           </span>
       </h1>
-    <h1>Get ready for LiftOff!</h1>
-      <h3>A training camp that will set you up to explore the social media universe successfully.</h3>
+    
+      <h3 className="intro-text">A training camp that will set you up to explore the social media universe.</h3>
     <form onSubmit={handleSubmit} className="form-container" autoComplete="off">
       <h2>Login to Get Started</h2>
       <input

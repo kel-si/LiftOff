@@ -27,9 +27,9 @@ export default function Register(props) {
       .then((res) => {
         console.log("initial res from server", res.data);
         if (res.data.logged_in) {
-          props.handleLogin(res);
+          props.handleLogin(res.data);
           localStorage.setItem('liftoffUser', JSON.stringify(res.data));
-          console.log("handleSubmit Register +++", res.data.user);
+          // console.log("handleSubmit Register +++", res.data.user);
           redirect("/quiz");
         } else {
           setformValue({

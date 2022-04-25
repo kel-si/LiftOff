@@ -36,9 +36,8 @@ export default function App() {
     axios
       .get("/api/logged_in", { withCredentials: true }) //what does this mean?
       .then((response) => {
-        console.log("response:", response.data);
         if (response.data.logged_in) {
-          handleLogin(response);
+          handleLogin(response.data);
           localStorage.setItem("liftoffUser", JSON.stringify(response.data));
         } else {
           handleLogout();
@@ -47,23 +46,29 @@ export default function App() {
       .catch((error) => console.log("api errors:", error));
   };
 
+  const handleQuizCompletion = (level) => {
+    const newUserState = {...login.user, level: level}
+    setLogin(prev => ({...prev, user: newUserState}));
+  }
+
   useEffect(() => {
     loginStatus();
+    console.log("login", login);
   }, []);
 
-  console.log("login", login);
+
 
   return (
     <div className="App">
       <Router>
-        { login.status ? ( <> <Navbar login={login} setLogin={setLogin} logout={handleLogout}/> </>) : (<></>) }
+        { login.status ? ( <> <Navbar user={login.user} setLogin={setLogin} logout={handleLogout}/> </>) : (<></>) }
         <Routes>
           <Route path="/" element={<Landing handleLogin={handleLogin} />} />
             <Route path="/login" element={<Login handleLogin={handleLogin} />} />
             <Route path="/register" element={<Register handleLogin={handleLogin} />} />
             <Route path="/my-posts" element={<Feed />} />
             <Route path="/guidelines" element={<Guidelines />} />
-            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/quiz" element={<Quiz updateLevel={handleQuizCompletion} user={login.user}/>} />
             <Route path="/admin" element={<AdminLanding />} />
             <Route path="/admin-approvals" element={<AdminFeed />} />
             <Route path="/admin-users" element={<AdminUsers />} />

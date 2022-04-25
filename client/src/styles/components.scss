@@ -1,8 +1,26 @@
+$purple-accent: #660094;
+$pink-gradient: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+
 * {
   box-sizing: border-box;
 }
 input {
   border: none;
+  font-weight: bold;
+}
+input {
+  border: none;
+  font-weight: bold;
+}
+
+.form-container input {
+  font-weight: 300;
+}
+
+.intro-text {
+  font-weight: 300;
+  width: 50%;
+  text-align: center;
 }
 
 input,
@@ -116,7 +134,7 @@ article.post {
 
 article.comment {
   // border-bottom: 1px solid rgb(159, 127, 188);
-  border-bottom: 1px solid #660094;
+  border-bottom: 1px solid $purple-accent;
   width: 80%;
   margin: 0 auto;
   // border-radius: 5px;

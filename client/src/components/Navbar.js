@@ -8,22 +8,12 @@ import { useTimer } from "use-timer";
 
 export default function Navbar(props) {
   
-  const [user, setUser] = useState({});
-  const [login, setLogin] = useState(0);
   const { time, start, pause, reset, status } = useTimer({
     interval: 60000
   });
 
   useEffect(() => {
     start();
-    const currentUser = localStorage.getItem("liftoffUser");
-    if (!currentUser) {
-      // no user
-    } else {
-      const liftoffUser = JSON.parse(currentUser);
-      setUser(liftoffUser.user);
-      setLogin(1);
-    }
   }, []);
 
   const logOut = () => {
@@ -32,10 +22,7 @@ export default function Navbar(props) {
       .then((response) => {
         console.log("response:", response.data);
         localStorage.clear();
-        console.log("props.login", props.login);
-        setLogin(0);
-        props.setLogin({...props.login, status: response.logged_in});
-        setUser({});
+        props.logout();
       })
       .catch((err) => {
         console.log(err);
@@ -50,7 +37,7 @@ export default function Navbar(props) {
     <ul className="nav-menu">
           <li><Link to="/my-posts">My Posts</Link></li>
           <li><Link to="/guidelines">Guidelines</Link></li>
-        {user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
+        {props.user.level > 2 ? (<li><Link to="/admin">Admin</Link></li>) : (<></>)}
       </ul>
     </div>
       
@@ -68,13 +55,13 @@ export default function Navbar(props) {
         <div className="avatar-left">
         <img
           className="avatar-image"
-          src={levelAvatar(user.level)}
+          src={levelAvatar(props.user.level)}
           alt="avatar"
         />
         </div>
             <div className="avatar-right">
-                <h3>{user.name}</h3>
-                <p>Level: {levelName(user.level)}</p>
+                <h3>{props.user.name}</h3>
+                <p>Level: {levelName(props.user.level)}</p>
                 <p><Link to="/" onClick={logOut}>Log Out</Link></p>
             </div>
       </div>
