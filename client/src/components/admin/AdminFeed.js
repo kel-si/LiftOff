@@ -17,6 +17,7 @@ export default function AdminFeed(props) {
   }
 
   useEffect(() => {
+    // gets user info from local storage to persist login
     const currentUser = localStorage.getItem("liftoffUser");
     const liftoffUser = JSON.parse(currentUser);
     setUser(liftoffUser.user);
