@@ -32,8 +32,8 @@ def show
     puts "user params", params
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user  
-      # login!
+      # session[:user_id] = @user  
+      login!
       render json: {
         logged_in: true,
         status: :created,
@@ -61,7 +61,7 @@ def show
   private
 
   def user_params
-    params.require(:formValue).permit(:name, :email, :parent_email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :parent_email, :password, :password_confirmation)
   end
 
 end
