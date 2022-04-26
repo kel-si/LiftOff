@@ -3,7 +3,7 @@ import React from "react";
 export default function Guidelines(props) {
   return (
     <div className="info--page">
-      <h1 className="text--title">Guidelines</h1>
+      <h1 className="page--title">Guidelines</h1>
       <div className="text--info">
         <h2 className="text--title">Safety First!</h2>
         <ul>
@@ -27,7 +27,7 @@ export default function Guidelines(props) {
           Post a photo of a place after you leave (you don't want to show your
           current location!)
         </li>
-        <p>
+        <p className="highlight--text">
           Make sure to communicate with a parent or guardian about your social
           media use! If something is making you feel uncomfortable, tell a
           trusted adult right away!
@@ -55,7 +55,6 @@ export default function Guidelines(props) {
           How much time are you on your phone, tablet, or computer? Set a
           timelimit for yourself and stick to it!
         </li>
-        <li>Think about why you are posting or commenting.</li>
       </div>
     </div>
   );
