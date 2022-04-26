@@ -5,10 +5,12 @@ export default function AdminCommentListItem(props) {
 
   // const [adminComment, setAdminComment] = useState(0);
 
+  // console.log("props.userIdForApproval", props.userIdForApproval);
+
   const handleApprove = (event) => {
     event.preventDefault();
     axios
-      .put(`/admin/comments/${props.id}`, { status: 1 })
+      .put(`/admin/comments/${props.id}`, { status: 1, user_id: props.userIdForApproval})
       .then((res) => {
         props.handleRemovePendingComment(props.id);
       })
@@ -17,10 +19,14 @@ export default function AdminCommentListItem(props) {
       });
   };
 
+  // console.log("props.userIdForRejection", props.userIdForRejection);
+  const rejectionID = props.userIdForRejection;
+  console.log("rejectionID", rejectionID);
+
   const handleReject = (event) => {
     event.preventDefault();
     axios
-      .delete(`/admin/comments/${props.id}`)
+      .put(`/admin/comments/${props.id}`, { status: 2, user_id: rejectionID})
       .then((res) => {
         props.handleRemovePendingComment(props.id);
       })

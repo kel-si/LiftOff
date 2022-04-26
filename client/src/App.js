@@ -19,7 +19,9 @@ export default function App() {
     user: {},
   });
 
+
   const handleLogin = (data) => {
+    console.log("data at app.js", data); 
     setLogin({
       status: true,
       user: data.user,
