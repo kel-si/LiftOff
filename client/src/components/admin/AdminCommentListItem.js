@@ -3,6 +3,15 @@ import axios from "axios";
 
 export default function AdminCommentListItem(props) {
 
+
+const statusHelper = (status) =>  {
+    if (status === 0) {
+      return "needing review";
+    } else if (status === 1) {
+      return "approved atm";
+    }
+  }
+
   const handleApprove = (event) => {
     event.preventDefault();
     axios
@@ -40,7 +49,7 @@ export default function AdminCommentListItem(props) {
           <div className="comment--body">
             <p>{props.text}</p>
             <span className="footer-status">
-              Approval Status:<strong>pending approval</strong>
+              Approval Status:<strong>{statusHelper(props.status)}</strong>
             </span>
             <button
               className="btn-small"
