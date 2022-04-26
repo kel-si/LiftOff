@@ -6,11 +6,12 @@ export default function AdminUsers() {
 
   const [users, setUsers] = useState([]);
   const [userCount, setUserCount] = useState();
-
+  
   useEffect(() => {
     axios.get("/admin/users")
       .then((res) => {
         setUsers(res.data.users);
+        console.log(res.data.users);
         setUserCount(res.data.users.length);
       })
       .catch((error) => {
