@@ -23,7 +23,7 @@ export default function AdminUsersItem(props) {
     const numOfRejection = props.handleCommentRejection; 
     const approvalRate = function(numOfApproval, numOfRejection) { 
       const numOfTotalComments = numOfApproval + numOfRejection;
-      let result = (100 * numOfApproval / numOfTotalComments);
+      let result = Math.round(100 * numOfApproval / numOfTotalComments);
       if (!isNaN(result)) {
         return result;
       } 

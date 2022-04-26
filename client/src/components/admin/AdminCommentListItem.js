@@ -11,7 +11,7 @@ const statusHelper = (status, userLevel) =>  {
       return "accepted";  //need to grab the user level and then display auto-accepted for level 2 and 3 users
     } else if (status === 1 && userLevel > 1) {
       return "auto-accepted";
-    }
+    } 
   }
 
   const handleApprove = (event) => {
