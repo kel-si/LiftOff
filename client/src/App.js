@@ -21,7 +21,6 @@ export default function App() {
 
 
   const handleLogin = (data) => {
-    console.log("data at app.js", data); 
     setLogin({
       status: true,
       user: data.user,
@@ -41,7 +40,6 @@ export default function App() {
       .then((response) => {
         if (response.data.logged_in) {
           handleLogin(response.data);
-          console.log("loginStatus", response.data);
           localStorage.setItem("liftoffUser", JSON.stringify(response.data));
         } else {
           handleLogout();

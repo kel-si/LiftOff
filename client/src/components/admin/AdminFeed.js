@@ -12,18 +12,18 @@ export default function AdminFeed(props) {
   const [user, setUser] = useState(props.user);
 
   const removePendingComment = (id) => {
-  const updatedComments = state.comments.filter(comment => comment.id !== id)
-  setState({...state, comments: updatedComments})
+    const updatedComments = state.comments.filter(comment => comment.id !== id)
+    setState({...state, comments: updatedComments})
   }
 
   useEffect(() => {
     // gets user info from local storage to persist login
     const currentUser = localStorage.getItem("liftoffUser");
     const liftoffUser = JSON.parse(currentUser);
-    setUser(liftoffUser.user);
+    setUser(liftoffUser);
+    console.log("current user", user);
     Promise.all([axios.get("/admin/feed"), axios.get("/admin/comments")])
       .then((all) => {
-        console.log(all[0])
         setState({
           posts: all[0].data.posts,
           users: all[0].data.users, 
