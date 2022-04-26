@@ -51,7 +51,7 @@ export default function CreatePost(props) {
           />
         </div>
         <div className="file-upload-container">
-        <label class="file-upload">
+        <label className="file-upload">
           <TiImage />
           <input
             type="file"
