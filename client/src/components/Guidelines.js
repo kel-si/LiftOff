@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Guidelines(props) {
   return (
-    <div>
+    <div className="info--page">
       <h1 className="text--title">Guidelines</h1>
       <div className="text--info">
         <h2 className="text--title">Safety First!</h2>

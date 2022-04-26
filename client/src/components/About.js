@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About() {
   return (
-    <div>
+    <div className="info--page">
       <h1>Get ready for LiftOff!</h1>
       <p>
         LiftOff is a social media app designed for children, between the ages of
@@ -18,18 +18,18 @@ export default function About() {
         We hope that once users are ready for other social media sites, they
         will be prepared to participate appropriately wherever they go.
       </p>{" "}
-      <h3>
+      <h3 className="highlight--text">
         In order to gain these skills, users will move through the following
         levels:
       </h3>{" "}
-      <h4>Earthling</h4>{" "}
+      <h4>Earthling👩‍🚀</h4>{" "}
       <p>
         Immediately after registering, earthlings will be prompted to complete a
         quiz to unlock the app. Users will need to select the most appropriate
         comment from a list based on the photo. This is to get earthlings
         thinking about appropriate comments!
       </p>{" "}
-      <h4>Mini Martian</h4>{" "}
+      <h4>Mini Martian👽</h4>{" "}
       <p>
         Upon registering, users will begin with limited capabilities as a Mini
         Martian. Mini Martians are able to view posts created by other users,
@@ -42,7 +42,7 @@ export default function About() {
         earthling creates 10 approved comments, they will level up to “Moon
         Walker”
       </p>{" "}
-      <h4>Moon Walker</h4>{" "}
+      <h4>Moon Walker🌛</h4>{" "}
       <p>
         Moon Walkers have full commenting privileges! They also have the ability
         to create a post, which will need to be approved by the Supreme Leader
@@ -51,7 +51,7 @@ export default function About() {
         they may be leveled down to a Mini Martian.
       </p>{" "}
       <h4>Are you ready?</h4>
-      T-Minus 3, 2, 1… LiftOff!
+      <h4 className="highlight--text">T-Minus 3, 2, 1… LiftOff!</h4>
     </div>
   );
 }
