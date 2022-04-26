@@ -60,14 +60,15 @@ a {
 // }
 
 body {
-  background-image: linear-gradient(
+  background-image: url("../../public/assets/bg-3.jpg"), linear-gradient(
     99.9deg,
-    rgba(27, 24, 31, 1) 21.2%,
-    rgb(27, 5, 46) 84.8%
+    rgba(27, 24, 31, .8) 21.2%,
+    rgba(53, 14, 87, 0.8) 84.8%
   );
+  background-position: center;
   // background-image: url("https://i.ibb.co/v49cfx9/bg-2.jpg"),  linear-gradient(rgba(27, 24, 31, 0.8),rgba(27, 5, 46,0.8));
-  // background-size: fit;
-  // background-blend-mode: overlay;
+  background-size: scale-down;
+  background-blend-mode: multiply;
 
   /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
   margin: 0;
