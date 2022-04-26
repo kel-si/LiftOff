@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { AiOutlineCheckSquare, AiOutlineCloseSquare } from 'react-icons/ai'
 
 export default function AdminCommentListItem(props) {
 
@@ -43,34 +44,32 @@ const statusHelper = (status, userLevel) =>  {
 
   return (
     <div>
-      <div className="comment--container">
-        <article className="comment">
-          <header className="comment--header">
-            <h6 className="comment--name">{props.name}</h6>
+      <div className="admin-comment-container">
+        <article className="admin-comment">
+          <header className="admin-comment-header">
+            <h6 className="admin-comment-name">Comment from: <span className="comment-user"> {props.name} </span></h6>
           </header>
-          <div className="comment--body">
-            <p>{props.text}</p>
-            <span className="footer-status">
-              Approval Status:<strong>{statusHelper(props.status, props.userLevel)}</strong>
-            </span>
-            <button
-              className="btn-small"
-              onClick={handleApprove}
-              name="approve"
-            >
-              Approve
-            </button>
-            <button
-              className="btn-small"
-              onClick={handleReject}
-              name="reject"
-            >
-              Reject
-            </button>
+          <div className="admin-comment-body">
+            <p>"{props.text}"</p>
+            <div className="approval-status">
+              <span className="admin-footer-status">
+                Approval Status:  
+                <br /><strong>{statusHelper(props.status)}</strong>
+              </span>
+              <div className="approval-buttons">
+              <AiOutlineCheckSquare 
+                className="approval-btn"
+                onClick={handleApprove}
+                name="approve"
+              />
+              <AiOutlineCloseSquare
+                className="approval-btn"
+                onClick={handleReject}
+                name="reject"
+              />
+              </div>
+            </div>
           </div>
-          <footer className="comment--footer">
-            <small className="footer--age">{props.time}</small>
-          </footer>
         </article>
       </div>
     </div>

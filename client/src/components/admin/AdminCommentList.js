@@ -41,7 +41,6 @@ export default function AdminCommentList(props) {
   });
   return (
     <div>
-      <h5 className="comment--heading">Comments:</h5>
       {comments}
     </div>
   );

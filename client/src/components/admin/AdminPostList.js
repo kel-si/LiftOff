@@ -15,7 +15,7 @@ export default function AdminPostList(props) {
   const users = props.users;
   const feed = props.posts.map((post) => {
     return (
-      <div className="post--item" key={post.id}>
+      <div className="post-item" key={post.id}>
         <AdminPostListItem
           name={assignUserName(users, post)}
           text={post.text}
@@ -35,7 +35,7 @@ export default function AdminPostList(props) {
   });
   return (
     <div className="container">
-      <ul>{feed}</ul>
+      <ul className="admin-feed">{feed}</ul>
     </div>
   );
 }
