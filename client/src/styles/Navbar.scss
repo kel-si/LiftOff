@@ -36,6 +36,7 @@ nav {
   font-family: "Jura", sans-serif;
   text-transform: uppercase;
   color: #fff;
+  transition: all 0.5s ease;
 }
 
 .nav-menu li :hover {
@@ -67,6 +68,7 @@ div.avatar-right {
 
 .avatar-right a {
   text-decoration: none;
+  transition: all 0.5s ease;
 }
 
 .avatar-right a:hover {
