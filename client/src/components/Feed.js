@@ -18,7 +18,8 @@ export default function Feed(props) {
     // gets user info from local storage to persist login
     const currentUser = localStorage.getItem("liftoffUser");
     const liftoffUser = JSON.parse(currentUser);
-    setUser(liftoffUser);
+    setUser(liftoffUser.user);
+    console.log("user", user);
     if (!liftoffUser) {
       navigate("/");
     } else {

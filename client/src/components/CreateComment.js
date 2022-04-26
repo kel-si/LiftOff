@@ -11,7 +11,6 @@ export default function CreateComment(props) {
   console.log("userLevel", userLevel);
   const userLevel = userData.user.level;
   
-  console.log("user props", props);
   const postId = props.postId;
 
   const handleSubmit = (e) => {

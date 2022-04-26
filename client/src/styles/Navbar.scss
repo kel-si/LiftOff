@@ -10,9 +10,10 @@ nav {
 .timer-container {
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(to top left, #f77062 0%, #fe5196 100%);
+  // background-image: linear-gradient(to top left, #f77062 0%, #fe5196 100%);
+  border-bottom: 1px solid $purple-accent;
   text-align: left;
-  color: #310047;
+  color: $pink;
   align-items: center;
   padding: 0 10px 0 10px;
   height: 50px;
@@ -34,11 +35,11 @@ nav {
   font-size: 16px;
   font-family: "Jura", sans-serif;
   text-transform: uppercase;
-  color: #310047;
+  color: #fff;
 }
 
 .nav-menu li :hover {
-  color: #fff;
+  color: $pink;
 }
 
 .avatar-image {
