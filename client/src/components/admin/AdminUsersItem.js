@@ -32,6 +32,8 @@ export default function AdminUsersItem(props) {
           <div className="post--body">
             <p>{props.email}</p>
             <p>Level: {level}</p>
+            <span># of Comments Approved: {props.handleCommentApproval}</span>
+            <span># of Comments Rejected: {props.handleCommentRejection}</span>
             <button 
               type="submit" className="btn-small" onClick={handleSubmit} value={1}>Level Up</button>
             <button type="submit" className="btn-small" onClick={handleSubmit} value={-1}>Level Down</button>

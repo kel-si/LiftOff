@@ -3,9 +3,14 @@ import axios from "axios";
 
 export default function AdminCommentListItem(props) {
 
-  // const [adminComment, setAdminComment] = useState(0);
 
-  // console.log("props.userIdForApproval", props.userIdForApproval);
+const statusHelper = (status) =>  {
+    if (status === 0) {
+      return "needing review";
+    } else if (status === 1) {
+      return "approved atm";
+    }
+  }
 
   const handleApprove = (event) => {
     event.preventDefault();
@@ -19,7 +24,6 @@ export default function AdminCommentListItem(props) {
       });
   };
 
-  // console.log("props.userIdForRejection", props.userIdForRejection);
   const rejectionID = props.userIdForRejection;
   console.log("rejectionID", rejectionID);
 
@@ -45,7 +49,7 @@ export default function AdminCommentListItem(props) {
           <div className="comment--body">
             <p>{props.text}</p>
             <span className="footer-status">
-              Approval Status:<strong>pending approval</strong>
+              Approval Status:<strong>{statusHelper(props.status)}</strong>
             </span>
             <button
               className="btn-small"
