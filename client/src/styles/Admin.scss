@@ -9,20 +9,27 @@
 
 .admin-menu-container {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  background-color: $post-bg;
   border-radius: 10px;
   padding-left: 20px;
-  margin: 15px 0;
+  margin: 10px 0 0 0;
   width: 50%;
   height: 60px;
   font-size: 24px;
+  transition: all 0.5s ease;
+  color: #fff;
 }
 
 .admin-menu-container a{
-color: #fff;
 text-decoration: none;
 margin-left: 10px;
+color: #fff;
 }
+
+.admin-menu-container:hover {
+color: $pink;
+}
+
+
 
