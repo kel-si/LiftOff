@@ -6,7 +6,7 @@ class Admin::CommentsController < ApplicationController
   # end
 
   def index 
-    @comments = Comment.where(status: 0, status: 1).order(status: :asc)
+    @comments = Comment.where(status: 0) + Comment.where(status: 1)
 
       render :json => { comments: @comments }
   end 
