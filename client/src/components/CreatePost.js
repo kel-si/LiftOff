@@ -2,6 +2,7 @@ import React, { useState }  from 'react';
 import axios from "axios"; 
 import "../styles/CreatePost.scss";
 import FormData from 'form-data'; 
+import { TiImage } from "react-icons/ti";
 
 export default function CreatePost(props) {
 
@@ -39,16 +40,19 @@ export default function CreatePost(props) {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} autoComplete='off'>
-        <div>
+        <div className="post-form-buttons">
+        <div className="text-container">
           <input className="form--input"
             type="text"
             name="post"
-            placeholder="description"
+            placeholder="Create a new post"
             value={ post }
             onChange={(event) => setPost(event.target.value)}
           />
         </div>
-        <div>
+        <div className="file-upload-container">
+        <label class="file-upload">
+          <TiImage />
           <input
             type="file"
             name="image"
@@ -57,6 +61,8 @@ export default function CreatePost(props) {
             onChange={(event) => setImage(event.target.value)}
             accept ="image/*"
           />
+          </label>
+        </div>
         </div>
         <div>
           <button type="submit" value="Add Post" className="primary--btn">

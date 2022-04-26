@@ -30,13 +30,14 @@ textarea {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   font-family: $primary-font;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 ::placeholder {
-  font-size: 20px;
+  font-size: 24px;
   font-family: $primary-font;
   font-weight: 300;
+  color: #fff;
 }
 
 // a.button {
