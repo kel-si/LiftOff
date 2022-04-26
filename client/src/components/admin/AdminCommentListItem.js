@@ -3,10 +3,6 @@ import axios from "axios";
 
 export default function AdminCommentListItem(props) {
 
-  // const [adminComment, setAdminComment] = useState(0);
-
-  // console.log("props.userIdForApproval", props.userIdForApproval);
-
   const handleApprove = (event) => {
     event.preventDefault();
     axios
@@ -19,7 +15,6 @@ export default function AdminCommentListItem(props) {
       });
   };
 
-  // console.log("props.userIdForRejection", props.userIdForRejection);
   const rejectionID = props.userIdForRejection;
   console.log("rejectionID", rejectionID);
 
