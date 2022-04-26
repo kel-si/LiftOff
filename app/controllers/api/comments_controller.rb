@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
     def index
       @current_user = User.find(session[:user_id])
-      @comments = Comment.where(status: 1).or(Comment.where(user_id: @current_user[:id]))
+      @comments = Comment.where(status: 1).or(Comment.where(user_id: @current_user[:id], status: 0))
       render json: {
         comments: @comments
       }
