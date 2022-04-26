@@ -54,6 +54,68 @@ article.admin-post {
   margin-left: 20px;
 }
 
+.comment--heading {
+  font-size: 20px;
+  border: 1px solid white;
+}
+
+.admin-feed {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+article.admin-comment{
+  padding: 10px;
+  border: 1px solid $purple-accent;
+  margin: 10px 0;
+  width: 90%;
+}
+.admin-comment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-comment-name {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 5px 0;
+  color: $pink;
+}
+
+.admin-comment-header {
+ border-bottom: 1px solid $purple-accent;
+}
+
+.comment-user {
+  font-weight: 700;
+}
+
+.admin-comment-body p {
+  font-size: 18px;
+  height: auto;
+}
+
+.approval-btn {
+  font-size: 36px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.approval-btn:hover {
+  color: $pink;
+}
+
+.approval-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+
 
 
 
