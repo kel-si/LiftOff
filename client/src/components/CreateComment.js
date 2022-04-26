@@ -8,10 +8,10 @@ export default function CreateComment(props) {
   const user = localStorage.getItem("liftoffUser");
   const userData = JSON.parse(user);
   const userId = userData.user.id;
-  const userLevel = userData.user.level;
-  console.log(userLevel);
+  const commentStatus = userData.user.level;
+  console.log("commentStatus", commentStatus);
   const postId = props.postId;
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -64,82 +64,81 @@ export default function CreateComment(props) {
   //have access to postId from props
   return (
     <div>
-    { userLevel === 1 ? (
-    <div>
-    <div className="comment-container">
-      <form onSubmit={handleSubmit} autoComplete="off">
-        {isConfirming ? (
-          <Confirm
-            onCancel={() => setIsConfirming(false)}
-            onSubmit={handleSubmit}
-            comment={comment}
-          />
-        ) : (
-          <div>
-            <div>
-              <input
-                className="form--input"
-                type="text"
-                name="comment"
-                placeholder="add new comment"
-                value={comment}
-                onChange={(event) => setComment(event.target.value)}
-              />
-            </div>
-            <div>
-              <button
-                type="submit"
-                value="Add Post"
-                className="primary--btn"
-                onClick={() => setIsConfirming(true)}
-              >
-                Comment
-              </button>
-            </div>
-          </div>
-        )}
-      </form>
-    </div>
-  </div>
-    ) : (
-      <div>
-      <div className="comment-container">
-        <form onSubmit={handleSubmitWithApproval} autoComplete="off">
-          {isConfirming ? (
-            <Confirm
-              onCancel={() => setIsConfirming(false)}
-              onSubmit={handleSubmitWithApproval}
-              comment={comment}
-            />
-          ) : (
-            <div>
-              <div>
-                <input
-                  className="form--input"
-                  type="text"
-                  name="comment"
-                  placeholder="add new comment"
-                  value={comment}
-                  onChange={(event) => setComment(event.target.value)}
+      {commentStatus === 1 ? (
+        <div>
+          <div className="comment-container">
+            <form onSubmit={handleSubmit} autoComplete="off">
+              {isConfirming ? (
+                <Confirm
+                  onCancel={() => setIsConfirming(false)}
+                  onSubmit={handleSubmit}
+                  comment={comment}
                 />
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  value="Add Post"
-                  className="primary--btn"
-                  onClick={() => setIsConfirming(true)}
-                >
-                  Comment
-                </button>
-              </div>
-            </div>
-          )}
-        </form>
-      </div>
-    </div>
-    )
-    }
+              ) : (
+                <div>
+                  <div>
+                    <input
+                      className="form--input"
+                      type="text"
+                      name="comment"
+                      placeholder="add new comment"
+                      value={comment}
+                      onChange={(event) => setComment(event.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      value="Add Post"
+                      className="primary--btn"
+                      onClick={() => setIsConfirming(true)}
+                    >
+                      Comment
+                    </button>
+                  </div>
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="comment-container">
+            <form onSubmit={handleSubmitWithApproval} autoComplete="off">
+              {isConfirming ? (
+                <Confirm
+                  onCancel={() => setIsConfirming(false)}
+                  onSubmit={handleSubmitWithApproval}
+                  comment={comment}
+                />
+              ) : (
+                <div>
+                  <div>
+                    <input
+                      className="form--input"
+                      type="text"
+                      name="comment"
+                      placeholder="add new comment"
+                      value={comment}
+                      onChange={(event) => setComment(event.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      value="Add Post"
+                      className="primary--btn"
+                      onClick={() => setIsConfirming(true)}
+                    >
+                      Comment
+                    </button>
+                  </div>
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
