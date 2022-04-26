@@ -8,8 +8,10 @@ export default function CreateComment(props) {
   const user = localStorage.getItem("liftoffUser");
   const userData = JSON.parse(user);
   const userId = userData.user.id;
-  const commentStatus = userData.user.level;
-  console.log("commentStatus", commentStatus);
+  console.log("userLevel", userLevel);
+  const userLevel = userData.user.level;
+  
+  console.log("user props", props);
   const postId = props.postId;
 
   const handleSubmit = (e) => {
@@ -64,7 +66,7 @@ export default function CreateComment(props) {
   //have access to postId from props
   return (
     <div>
-      {commentStatus === 1 ? (
+      {userLevel <= 1 ? (
         <div>
           <div className="comment-container">
             <form onSubmit={handleSubmit} autoComplete="off">

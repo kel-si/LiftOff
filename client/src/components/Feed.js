@@ -18,7 +18,7 @@ export default function Feed(props) {
     // gets user info from local storage to persist login
     const currentUser = localStorage.getItem("liftoffUser");
     const liftoffUser = JSON.parse(currentUser);
-    setUser(liftoffUser.user);
+    setUser(liftoffUser);
     if (!liftoffUser) {
       navigate("/");
     } else {
@@ -55,6 +55,7 @@ export default function Feed(props) {
             users={state.users}
             state={state}
             setState={setState}
+            user={user}
           />
         </>
       ) : (
@@ -63,6 +64,7 @@ export default function Feed(props) {
           users={state.users}
           state={state}
           setState={setState}
+          user={user}
         />
       )}
     </div>

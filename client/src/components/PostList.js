@@ -50,6 +50,7 @@ export default function PostList(props) {
           postId={post.id}
           state={props.state}
           setState={props.setState}
+          user={props.user}
         />
       </div>
     );
