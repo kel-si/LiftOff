@@ -18,7 +18,35 @@ export default function AdminUsersItem(props) {
         console.log("admin errors:", err);
       });
     };
-    
+  
+    const numOfApproval = props.handleCommentApproval;
+    const numOfRejection = props.handleCommentRejection; 
+    const approvalRate = function(numOfApproval, numOfRejection) { 
+      const numOfTotalComments = numOfApproval + numOfRejection;
+      let result = (100 * numOfApproval / numOfTotalComments);
+      if (!isNaN(result)) {
+        return result;
+      } 
+    };
+
+    const userScore = function(numOfApproval, numOfRejection) { 
+      const numOfTotalComments = numOfApproval + numOfRejection; 
+      const approvalRate = (100 * numOfApproval / numOfTotalComments);
+      if (approvalRate >= 98) {
+        return "User Score: Excellent";
+      } else if (approvalRate >= 95) {
+        return "User Score: Satisfactory";
+      } else if (approvalRate >= 90) {
+        return "User Score: Fair";
+      } else if (approvalRate >= 85) {
+        return "User Score: Need Improvement";
+      } else if (isNaN(approvalRate)) {
+        return "not available";
+      } else {
+        return "User Score: !!immediate review!!";
+      }
+     }
+
   
   return (
 <>
@@ -34,6 +62,8 @@ export default function AdminUsersItem(props) {
             <p>Level: {level}</p>
             <span># of Comments Approved: {props.handleCommentApproval}</span>
             <span># of Comments Rejected: {props.handleCommentRejection}</span>
+            <span>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </span>
+            <span>{userScore(numOfApproval, numOfRejection)}</span>
             <button 
               type="submit" className="btn-small" onClick={handleSubmit} value={1}>Level Up</button>
             <button type="submit" className="btn-small" onClick={handleSubmit} value={-1}>Level Down</button>
