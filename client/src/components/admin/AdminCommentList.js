@@ -18,6 +18,8 @@ export default function AdminCommentList(props) {
           handleRemovePendingComment={props.handleRemovePendingComment}
           key={comment.id}
           id={comment.id}
+          userIdForApproval={comment.user_id}
+          userIdForRejection={comment.user_id}
           postId={props.postId}
           text={comment.text}
           time={comment.created_at}

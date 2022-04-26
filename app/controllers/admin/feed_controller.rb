@@ -7,7 +7,6 @@ class Admin::FeedController < ApplicationController
   end
 
   def create
-    
   end
 
 end
