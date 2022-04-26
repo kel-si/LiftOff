@@ -31,5 +31,29 @@ color: #fff;
 color: $pink;
 }
 
+.admin-post-container {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: $post-bg;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.admin-img-container {
+  width: 150px;
+  height: auto;
+}
+
+article.admin-post {
+  display: flex;
+  align-items: start;
+  flex-direction: row;
+}
+
+.admin-post-body {
+  margin-left: 20px;
+}
+
+
 
 
