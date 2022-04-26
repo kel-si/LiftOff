@@ -1,9 +1,15 @@
 class Admin::CommentsController < ApplicationController
-  def index
-    @comments = Comment.where(status: 0)
+  # def index
+    # @comments = Comment.where(status: 0)
 
-    render :json => { comments: @comments }
-  end
+    # render :json => { comments: @comments }
+  # end
+
+  def index 
+    @comments = Comment.all.order(status: :asc)
+
+      render :json => { comments: @comments }
+  end 
 
   def create
   end
