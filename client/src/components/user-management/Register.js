@@ -30,7 +30,7 @@ export default function Register(props) {
         console.log("initial res from server", res.data);
         if (res.data.logged_in) {
           props.handleLogin(res.data);
-          localStorage.setItem('liftoffUser', JSON.stringify(res.data));
+          localStorage.setItem("liftoffUser", JSON.stringify(res.data));
           console.log("handleSubmit Register +++", res.data.user);
           redirect("/quiz");
         } else {
@@ -47,59 +47,67 @@ export default function Register(props) {
   return (
     <div>
       <div className="page-container">
-      <h1 className="logo">
+        <h1 className="logo">
           LiftOff
           <span role="img" aria-label="rocket ship emoji">
             🚀
           </span>
-      </h1>
-      <form onSubmit={handleSubmit} className="form-container" autoComplete="off">
-        <h2>Register to Get Started</h2>
-        <input
-          className="form--input"
-          type="name"
-          name="name"
-          placeholder="Choose a username"
-          value={formValue.name || ""}
-          onChange={handleChange}
-        />
-        <input
-          className="form--input"
-          type="email"
-          name="email"
-          placeholder="enter an email"
-          value={formValue.email || ""}
-          onChange={handleChange}
-        />
-        <input
-          className="form--input"
-          type="password"
-          name="password"
-          placeholder="enter a password"
-          value={formValue.password || ""}
-          onChange={handleChange}
-        />
-        <input
-          className="form--input"
-          type="password"
-          name="password_confirmation"
-          placeholder="confirm your password"
-          value={formValue.password_confirmation || ""}
-          onChange={handleChange}
-        />
-        <input
-          className="form--input"
-          type="email"
-          name="parent_email"
-          placeholder="enter your parent's email"
-          value={formValue.parent_email || ""}
-          onChange={handleChange}
-        />
-        <button color="primary" type="submit" className="primary--btn">
-          Register
-        </button>
-      </form>
-      <Link to="/login">Login with your existing account</Link>
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="form-container"
+          autoComplete="off"
+        >
+          <h2>Register to Get Started</h2>
+          <input
+            className="form--input"
+            type="name"
+            name="name"
+            placeholder="choose a username"
+            value={formValue.name || ""}
+            onChange={handleChange}
+          />
+          <input
+            className="form--input"
+            type="email"
+            name="email"
+            placeholder="enter an email"
+            value={formValue.email || ""}
+            onChange={handleChange}
+          />
+          <input
+            className="form--input"
+            type="password"
+            name="password"
+            placeholder="enter a password"
+            value={formValue.password || ""}
+            onChange={handleChange}
+          />
+          <input
+            className="form--input"
+            type="password"
+            name="password_confirmation"
+            placeholder="confirm your password"
+            value={formValue.password_confirmation || ""}
+            onChange={handleChange}
+          />
+          <input
+            className="form--input"
+            type="email"
+            name="parent_email"
+            placeholder="enter your parent's email*"
+            value={formValue.parent_email || ""}
+            onChange={handleChange}
+          />
+          <aside>
+            *make sure to get your parent or guardian's permission before
+            creating your account!
+          </aside>
+          <button color="primary" type="submit" className="primary--btn">
+            Register
+          </button>
+        </form>
+        <Link to="/login">Login with your existing account</Link>
       </div>
     </div>
   );
