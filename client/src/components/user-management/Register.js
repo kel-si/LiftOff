@@ -27,13 +27,9 @@ export default function Register(props) {
       .post("/api/users", { user })
         .then((res) => {
           console.log("server responding to new user", res.data)
-          // axios.post("/api/login", res.data)
-          // .then((res) => {
-          //   console.log("server creates new session", res.data);
           if (res.data.logged_in) {
             props.handleLogin(res.data);
             localStorage.setItem('liftoffUser', JSON.stringify(res.data));
-            console.log("handleSubmit Register +++", res.data.user);
             redirect("/quiz");
           } else {
             setUser({
