@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/components.scss";
 
 export default function Login(props) {
-  const [formValue, setformValue] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
   const handleChange = (event) => {
-    setformValue({
-      ...formValue,
+    setUser({
+      ...user,
       [event.target.name]: event.target.value,
     });
   };
@@ -21,14 +21,14 @@ export default function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/api/login", { formValue })
+      .post("/api/login", { user })
       .then((res) => {
         if (res.data.logged_in) {
           props.handleLogin(res.data);
           localStorage.setItem("liftoffUser", JSON.stringify(res.data));
           navigate("/my-posts");
         } else {
-          setformValue({
+          setUser({
             errors: res.data.errors,
           });
         }
@@ -57,7 +57,7 @@ export default function Login(props) {
         type="email"
         name="email"
         placeholder="enter an email"
-        value={formValue.email}
+        value={user.email}
         onChange={handleChange}
       />
       <input
@@ -65,7 +65,7 @@ export default function Login(props) {
         type="password"
         name="password"
         placeholder="enter a password"
-        value={formValue.password}
+        value={user.password}
         onChange={handleChange}
       />
       <button color="primary" type="submit" className="primary--btn">

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function Register(props) {
-  const [formValue, setformValue] = useState({
+  const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
@@ -15,8 +15,8 @@ export default function Register(props) {
 
   // sets state with the form values
   const handleChange = (event) => {
-    setformValue({
-      ...formValue,
+    setUser({
+      ...user,
       [event.target.name]: event.target.value,
     });
   };
@@ -24,31 +24,30 @@ export default function Register(props) {
   // sends form into to server to create user
   const handleSubmit = (event) => {
     event.preventDefault();
-    Promise.all([
-      axios.post("/api/users/", { formValue }), axios.post("/api/login", { formValue })
-    ])
-      .then((res) => {
-        console.log("initial res from server", res[0].data);
-        if (res[0].data.logged_in) {
-          props.handleLogin(res[0].data);
-          localStorage.setItem('liftoffUser', JSON.stringify(res[0].data));
-          console.log("handleSubmit Register +++", res[0].data.user);
-          navigate("/quiz");
-        } else {
-          setformValue({
-            errors: res[0].data.errors,
-          });
-        }
-      })
-      .catch((err) => {
-        console.log("api errors:", err);
-      });
+      axios
+      .post("/api/users", { user })
+        .then((res) => {
+          console.log("server responding to new user", res.data)
+          if (res.data.logged_in) {
+            props.handleLogin(res.data);
+            localStorage.setItem('liftoffUser', JSON.stringify(res.data));
+            navigate("/quiz");
+          } else {
+            setUser({
+              errors: res.data.errors,
+            });
+            }
+          })
+        // })
+        .catch((err) => {
+          console.log("api errors:", err);
+        });
   };
 
   return (
     <div>
       <div className="page-container">
-      <h1 className="logo">
+        <h1 className="logo">
           LiftOff
           <span role="img" aria-label="rocket ship emoji">
             🚀
@@ -61,7 +60,7 @@ export default function Register(props) {
           type="name"
           name="name"
           placeholder="Choose a username"
-          value={formValue.name || ""}
+          value={user.name || ""}
           onChange={handleChange}
         />
         <input
@@ -69,7 +68,7 @@ export default function Register(props) {
           type="email"
           name="email"
           placeholder="enter an email"
-          value={formValue.email || ""}
+          value={user.email || ""}
           onChange={handleChange}
         />
         <input
@@ -77,7 +76,7 @@ export default function Register(props) {
           type="password"
           name="password"
           placeholder="enter a password"
-          value={formValue.password || ""}
+          value={user.password || ""}
           onChange={handleChange}
         />
         <input
@@ -85,7 +84,7 @@ export default function Register(props) {
           type="password"
           name="password_confirmation"
           placeholder="confirm your password"
-          value={formValue.password_confirmation || ""}
+          value={user.password_confirmation || ""}
           onChange={handleChange}
         />
         <input
@@ -93,7 +92,7 @@ export default function Register(props) {
           type="email"
           name="parent_email"
           placeholder="enter your parent's email"
-          value={formValue.parent_email || ""}
+          value={user.parent_email || ""}
           onChange={handleChange}
         />
         <button color="primary" type="submit" className="primary--btn">

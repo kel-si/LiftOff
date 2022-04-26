@@ -7,7 +7,6 @@
   min-height: 100vh;
 }
 
-
 .quiz {
   background-color: $purple-accent;
   width: 80%;
@@ -65,7 +64,7 @@
   margin-bottom: 20px;
 }
 
-.question-count span {
+.question-count {
   font-size: 28px;
 }
 
@@ -119,5 +118,3 @@
 .incorrect {
   background-color: #ff3333;
 }
-
-
