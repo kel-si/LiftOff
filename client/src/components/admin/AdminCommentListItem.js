@@ -4,11 +4,13 @@ import axios from "axios";
 export default function AdminCommentListItem(props) {
 
 
-const statusHelper = (status) =>  {
+const statusHelper = (status, userLevel) =>  {
     if (status === 0) {
-      return "needing review";
-    } else if (status === 1) {
-      return "approved atm";
+      return "pending approval";
+    } else if (status === 1 && userLevel === 1) {
+      return "accepted";  //need to grab the user level and then display auto-accepted for level 2 and 3 users
+    } else if (status === 1 && userLevel > 1) {
+      return "auto-accepted";
     }
   }
 
@@ -49,7 +51,7 @@ const statusHelper = (status) =>  {
           <div className="comment--body">
             <p>{props.text}</p>
             <span className="footer-status">
-              Approval Status:<strong>{statusHelper(props.status)}</strong>
+              Approval Status:<strong>{statusHelper(props.status, props.userLevel)}</strong>
             </span>
             <button
               className="btn-small"

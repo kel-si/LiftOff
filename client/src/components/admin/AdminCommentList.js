@@ -12,6 +12,14 @@ export default function AdminCommentList(props) {
     }
   };
 
+  const commentWithUserLevel = function(users, comment) {
+    for (const user of users) {
+      if (user.id === comment.user_id) {
+        return user.level;
+      }
+    }
+  };
+
   const comments = props.comments.map((comment) => {
     return (
         <AdminCommentListItem
@@ -25,6 +33,7 @@ export default function AdminCommentList(props) {
           time={comment.created_at}
           status={comment.status}
           name={commentWithUsername(props.users, comment)}
+          userLevel={commentWithUserLevel(props.users, comment)}
           state={props.state}
           setState={props.setState}
         />
