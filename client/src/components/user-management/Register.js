@@ -24,19 +24,19 @@ export default function Register(props) {
   // sends form into to server to create user
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    axios
-      .post("/api/users/", { formValue })
+    Promise.all([
+      axios.post("/api/users/", { formValue }), axios.post("/api/login", { formValue })
+    ])
       .then((res) => {
-        console.log("initial res from server", res.data);
-        if (res.data.logged_in) {
-          props.handleLogin(res.data);
-          localStorage.setItem('liftoffUser', JSON.stringify(res.data));
-          console.log("handleSubmit Register +++", res.data.user);
+        console.log("initial res from server", res[0].data);
+        if (res[0].data.logged_in) {
+          props.handleLogin(res[0].data);
+          localStorage.setItem('liftoffUser', JSON.stringify(res[0].data));
+          console.log("handleSubmit Register +++", res[0].data.user);
           navigate("/quiz");
         } else {
           setformValue({
-            errors: res.data.errors,
+            errors: res[0].data.errors,
           });
         }
       })
