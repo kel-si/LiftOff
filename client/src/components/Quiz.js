@@ -8,7 +8,7 @@ export default function Quiz(props) {
     {
       // questionText: 'screenshot of sample post for user tutorial to be displayed here. Remember to let the audience know that we intend to include 5 questions as part of onboarding, but we are only showing 1 sample question for the sake of time on demo day.',
       questionText:
-        "Select the most appropriate comment for this post. Remember to think about how the person sharing this might feel when they read your comment.",
+        "In order to advance to the next level, select the most appropriate comment for this post. Remember to think about how the person sharing this might feel when they read your comment.",
       answerOptions: [
         { answerText: "Cats are stupid.", isCorrect: false, id: 1 },
         { answerText: "Ummmmmm no.", isCorrect: false, id: 2 },
@@ -52,78 +52,77 @@ export default function Quiz(props) {
   };
 
   return (
-    <div className="page-container"> 
-    <div className="quiz-container">
-      <div className="quiz">
-        {showScore ? (
-          <div className="score-section">
-            <img
-              src="https://i.ibb.co/273DF24/confetti-flat.gif"
-              className="confetti"
-            />
-            <div>
-              <h2>Congrats! You've leveled up to Mini Martian!!👽</h2>
-              <button
-                type="submit"
-                name="level"
-                className="set-user-level-one-button"
-                onClick={handleSubmit}
-                value={1}
-              >
-                Proceed to LiftOff
-              </button>
-            </div>
-          </div>
-        ) : (
-          <>
-            <div className="question-section">
-              <h1>Complete the quiz to activate your account</h1>
-              <div className="question-count">
-                <span>Question {currentQuestion + 1}</span>/{questions.length}
-              </div>
-              <div className="question-text">
-                {questions[currentQuestion].questionText}
-              </div>
-              <div className="post--container">
-                <article className="post">
-                  <header className="post--header">
-                    <img
-                      src="https://i.ibb.co/BPrr6fn/lvl-admin.jpg"
-                      className="post-avatar"
-                    />
-                    <h2 className="post--name">Quizcat</h2>
-                  </header>
-
-                  <div className="post--body">
-                    <p>Things are looking up! 😺 </p>
-                    <div className="img--container">
-                      <img
-                        src="https://i.ibb.co/HFHFZKb/quiz-cat.jpg"
-                        alt="error"
-                        className="post--img"
-                      />
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div className="answer-section">
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
+    <div className="page-container">
+      <div className="quiz-container">
+        <div className="quiz">
+          {showScore ? (
+            <div className="score-section">
+              <img
+                src="https://i.ibb.co/273DF24/confetti-flat.gif"
+                className="confetti"
+              />
+              <div>
+                <h2>Congrats! You've leveled up to Mini Martian!!👽</h2>
                 <button
-                  key={answerOption.answerText.id}
-                  className="quiz-button"
-                  onClick={() =>
-                    handleAnswerButtonClick(answerOption.isCorrect)
-                  }
+                  type="submit"
+                  name="level"
+                  className="set-user-level-one-button"
+                  onClick={handleSubmit}
+                  value={1}
                 >
-                  {answerOption.answerText}
+                  Proceed to LiftOff
                 </button>
-              ))}
+              </div>
             </div>
-          </>
-        )}
+          ) : (
+            <>
+              <div className="question-section">
+                <h1>Greetings, Earthling!👩‍🚀</h1>
+                <div className="question-text">
+                  {questions[currentQuestion].questionText}
+                </div>
+                <div className="post--container">
+                  <article className="post">
+                    <header className="post--header">
+                      <img
+                        src="https://i.ibb.co/BPrr6fn/lvl-admin.jpg"
+                        className="post-avatar"
+                      />
+                      <h2 className="post--name">Quizcat</h2>
+                    </header>
+
+                    <div className="post--body">
+                      <p>Things are looking up! 😺 </p>
+                      <div className="img--container">
+                        <img
+                          src="https://i.ibb.co/HFHFZKb/quiz-cat.jpg"
+                          alt="error"
+                          className="post--img"
+                        />
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div className="answer-section">
+                {questions[currentQuestion].answerOptions.map(
+                  (answerOption) => (
+                    <button
+                      key={answerOption.answerText.id}
+                      className="quiz-button"
+                      onClick={() =>
+                        handleAnswerButtonClick(answerOption.isCorrect)
+                      }
+                    >
+                      {answerOption.answerText}
+                    </button>
+                  )
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 }
