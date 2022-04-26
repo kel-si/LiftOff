@@ -52,6 +52,7 @@ export default function Quiz(props) {
   };
 
   return (
+    <div className="page-container"> 
     <div className="quiz-container">
       <div className="quiz">
         {showScore ? (
@@ -122,6 +123,7 @@ export default function Quiz(props) {
           </>
         )}
       </div>
+    </div>
     </div>
   );
 }

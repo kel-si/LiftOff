@@ -1,5 +1,6 @@
 $purple-accent: #660094;
 $pink-gradient: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+$primary-font: "Space Grotesk", sans-serif;
 
 * {
   box-sizing: border-box;
@@ -28,50 +29,52 @@ textarea {
   outline: none;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
+  font-family: $primary-font;
+  font-size: 24px;
 }
 
 ::placeholder {
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-family: $primary-font;
   font-weight: 300;
+  color: #fff;
 }
 
-a.button {
-  text-decoration: none;
-}
+// a.button {
+//   text-decoration: none;
+// }
 
 a {
   color: #fe5196;
 }
 
-button.button {
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-  padding: 0;
-  cursor: pointer;
+// button.button {
+//   border: none;
+//   background-color: transparent;
+//   font-family: inherit;
+//   padding: 0;
+//   cursor: pointer;
 
-  @media screen and (-ms-high-contrast: active) {
-    border: 2px solid currentcolor;
-  }
-}
+//   @media screen and (-ms-high-contrast: active) {
+//     border: 2px solid currentcolor;
+//   }
+// }
 
 body {
-  background-image: linear-gradient(
+  background-image: url("../../public/assets/bg-3.jpg"), linear-gradient(
     99.9deg,
-    rgba(27, 24, 31, 1) 21.2%,
-    rgb(27, 5, 46) 84.8%
+    rgba(27, 24, 31, .8) 21.2%,
+    rgba(53, 14, 87, 0.8) 84.8%
   );
+  background-position: center;
   // background-image: url("https://i.ibb.co/v49cfx9/bg-2.jpg"),  linear-gradient(rgba(27, 24, 31, 0.8),rgba(27, 5, 46,0.8));
-  // background-size: fit;
-  // background-blend-mode: overlay;
+  background-size: scale-down;
+  background-blend-mode: multiply;
 
   /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: $primary-font;
   color: #fff;
 }
 
@@ -108,7 +111,7 @@ div .post--container {
   align-items: center;
   padding: 10px;
   // border-top: 5px solid rgb(159, 127, 188);
-  background-color: #0e0015;
+  background-color: #280639;
   width: 100%;
 
   // border-radius: 5px;
@@ -154,7 +157,8 @@ div .post--item {
 
 .comment-container {
   // border-bottom: 1px solid rgb(159, 127, 188);
-  background-color: #0b0312;
+  // background-color: #0b0312;
+  background-color: #280639;
   border-radius: 5px;
   padding: 20px;
   text-align: center;

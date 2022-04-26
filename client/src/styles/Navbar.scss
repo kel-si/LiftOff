@@ -1,3 +1,5 @@
+@import "components.scss";
+
 nav {
   display: flex;
   align-items: center;
@@ -35,6 +37,10 @@ nav {
   color: #310047;
 }
 
+.nav-menu li :hover {
+  color: #fff;
+}
+
 .avatar-image {
   border-radius: 50%;
   width: 80px;
@@ -60,6 +66,10 @@ div.avatar-right {
 
 .avatar-right a {
   text-decoration: none;
+}
+
+.avatar-right a:hover {
+  color: #fff;
 }
 
 .avatar-container h3 {

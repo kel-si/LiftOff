@@ -5,6 +5,8 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .quiz {
@@ -42,7 +44,7 @@
 
 .set-user-level-one-button {
   font-size: 18px;
-  font-family: "Poppins", sans-serif;
+  font-family: $primary-font;
   color: #ffffff;
   background: $pink-gradient;
   border-radius: 30px;
@@ -95,7 +97,7 @@
   width: 100%;
   height: 50px;
   font-size: 18px;
-  font-family: "Poppins", sans-serif;
+  font-family: $primary-font;
   color: #ffffff;
   background: $pink-gradient;
   border-radius: 30px;
@@ -106,7 +108,7 @@
   margin: 5px 0 5px 0;
 }
 
-.quiz-button :hover {
+.quiz-button:hover {
   background-image: none;
   background-color: #2f922f;
 }

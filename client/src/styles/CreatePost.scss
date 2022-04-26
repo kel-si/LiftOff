@@ -1,3 +1,5 @@
+@import "components.scss";
+
 .form-container {
   margin: 0 auto;
   width: 50%;
@@ -11,9 +13,16 @@
   color: #fff;
   box-shadow: none;
   margin-bottom: 20px;
+  font-family: $primary-font;
   font-weight: 700;
   font-size: 20px;
   cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.primary--btn:hover {
+  background-image: linear-gradient(to bottom, #f77062 0%, #fe5196 100%);
+  transform: scale(1.1);
 }
 
 .form--input {
@@ -22,7 +31,35 @@
   border-bottom: 2px solid #fe5196;
   margin-bottom: 20px;
   height: 50px;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 100;
   color: #fff;
 }
+
+input[type="file"] {
+  display: none;
+}
+
+.file-upload {
+ color:#fe5196;
+ font-size: 42px; 
+ cursor: pointer;
+ transition: all 0.3s ease;
+ margin-left: 10px;
+}
+
+.file-upload:hover {
+  color:#f77062; 
+  cursor: pointer;
+  font-size: 45px;
+ }
+
+ .post-form-buttons {
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-end;
+ }
+
+ .text-container {
+   width: 90%;
+ }
