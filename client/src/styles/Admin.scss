@@ -1,1 +1,28 @@
 @import "components.scss";
+
+.admin-landing {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+}
+
+.admin-menu-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: $post-bg;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin: 15px 0;
+  width: 50%;
+  height: 60px;
+  font-size: 24px;
+}
+
+.admin-menu-container a{
+color: #fff;
+text-decoration: none;
+margin-left: 10px;
+}
+
