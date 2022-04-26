@@ -29,6 +29,8 @@ export default function AdminUsers() {
           time={user.created_at}
           usersState={users}
           setUsers={setUsers} 
+          handleCommentApproval={user.comment_approval}
+          handleCommentRejection={user.comment_rejection}
         />
       </div>
     );
