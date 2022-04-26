@@ -1,0 +1,53 @@
+.confirm--header {
+  font-size: 28px;
+}
+
+.confirm--body {
+  font-size: 22px;
+}
+
+.confirm--post {
+  background-image: linear-gradient(to top, #39c375 0%, #40a4a2 100%);
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: none;
+  margin: 10px;
+  font-weight: 50;
+  font-size: 20px;
+}
+
+.confirm--back {
+  background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: none;
+  margin: 10px;
+  font-weight: 50;
+  font-size: 20px;
+}
+
+.accept--comment {
+  background-image: linear-gradient(
+    to top,
+    rgb(117, 196, 126) 10%,
+    rgb(85, 166, 95) 90%
+  );
+  border-radius: 7px;
+  padding: 5px;
+  background-color: rgb(118, 213, 129);
+  border-radius: 5px;
+}
+
+.reject--comment {
+  background-image: linear-gradient(
+    to top,
+    rgb(101, 43, 133) 10%,
+    rgb(61, 16, 85) 90%
+  );
+  border-radius: 7px;
+  padding: 5px;
+}
