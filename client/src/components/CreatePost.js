@@ -1,26 +1,36 @@
 import React, { useState }  from 'react';
 import axios from "axios"; 
 import "../styles/CreatePost.scss";
+import FormData from 'form-data'; 
 
 export default function CreatePost(props) {
 
   const [post, setPost] = useState("");
   const [image, setImage] = useState("");
+  const apiImageKey = process.env.REACT_APP_IMG; 
 
-  //const user = localStorage.getItem("liftoffUser");
-  const user = props.user;
-  console.log("create post props", props.user);
-  // const userData = JSON.parse(user);
+  const user = localStorage.getItem("liftoffUser");
+  const userData = JSON.parse(user);
   const userId = user.id;
 
   const handleSubmit =(e) => {
     e.preventDefault();
-    console.log("post:", post );
-    axios 
-    .post("/api/posts", { text: post, user_id: userId }) 
-    .then((res) => { 
-      console.log("from server:", res.data);
+    const url = `https://www.filestackapi.com/api/store/S3?key=${apiImageKey}`;
+    const formData = new FormData();
+    formData.append('file', image);
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    };
+    axios.post(url, formData, config).then((response) => {
+      console.log(response.data);
     })
+    // axios 
+    // .post("/api/posts", { text: post, user_id: userId }) 
+    // .then((res) => { 
+    //   console.log("from server:", res.data);
+    // })
     .catch((err) => {
       console.log("error", err); 
     })
@@ -45,6 +55,7 @@ export default function CreatePost(props) {
             placeholder="image"
             value={ image }
             onChange={(event) => setImage(event.target.value)}
+            accept ="image/*"
           />
         </div>
         <div>
