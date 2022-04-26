@@ -63,9 +63,8 @@ a {
 // }
 
 body {
-  
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-    // background-image: linear-gradient(
+  // background-image: linear-gradient(
   //   99.9deg,
   //   rgb(14, 12, 16) 21.2%,
   //   rgba(53, 14, 87, 1) 84.8%
@@ -160,52 +159,6 @@ div .post--item {
   border-radius: 5px;
   padding: 20px;
   text-align: center;
-}
-
-.accept--comment {
-  background-image: linear-gradient(
-    to top,
-    rgb(117, 196, 126) 10%,
-    rgb(85, 166, 95) 90%
-  );
-  border-radius: 7px;
-  padding: 5px;
-  background-color: rgb(118, 213, 129);
-  border-radius: 5px;
-}
-
-.reject--comment {
-  background-image: linear-gradient(
-    to top,
-    rgb(101, 43, 133) 10%,
-    rgb(61, 16, 85) 90%
-  );
-  border-radius: 7px;
-  padding: 5px;
-}
-
-.confirm--post {
-  background-image: linear-gradient(to top, #39c375 0%, #40a4a2 100%);
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  color: #fff;
-  box-shadow: none;
-  margin: 10px;
-  font-weight: 50;
-  font-size: 20px;
-}
-
-.confirm--back {
-  background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  color: #fff;
-  box-shadow: none;
-  margin: 10px;
-  font-weight: 50;
-  font-size: 20px;
 }
 
 aside {

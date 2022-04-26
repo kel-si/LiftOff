@@ -2,6 +2,7 @@ import React from "react";
 import Sentiment from "sentiment";
 import axios from "axios";
 import FormData from "form-data";
+import "../styles/ConfirmComment.scss";
 
 export default function Confirm(props) {
   console.log("confirm props", props);
@@ -43,8 +44,8 @@ export default function Confirm(props) {
     <div>
       {commentScore.score > -2 ? (
         <div className="accept--comment">
-          <h4>Before you comment, think...🌈</h4>
-          <ul>
+          <h4 className="confirm--header">Before you comment, think...🌈</h4>
+          <ul className="confirm--body">
             How will your comment make the owner of this post feel?
             <li>💛 Is it kind?</li>
             <li>✅ Is it true?</li>
@@ -61,8 +62,8 @@ export default function Confirm(props) {
         </div>
       ) : (
         <div className="reject--comment">
-          <h4>✋Check your comment again...</h4>
-          <ul>
+          <h4 className="confirm--header">✋Check your comment again...</h4>
+          <ul className="confirm--body">
             How will it make the owner of this post feel?
             <li>💛 Is it kind?</li>
             <li>✅ Is it true?</li>
