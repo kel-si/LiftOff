@@ -43,6 +43,7 @@ export default function CreateComment(props) {
         user_id: userId,
         post_id: postId,
         status: 1,
+        comment_approval: 1,
       })
       //setComment to update state
       .then((res) => {
