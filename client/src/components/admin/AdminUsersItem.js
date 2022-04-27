@@ -73,8 +73,8 @@ export default function AdminUsersItem(props) {
               <h4>Metrics</h4>
               <p># of Comments Approved: {props.handleCommentApproval}</p>
               <p># of Comments Rejected: {props.handleCommentRejection}</p>
-              <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} 
-              <span>{userScore(numOfApproval, numOfRejection)}</span></p>
+              <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </p>
+              <p>{userScore(numOfApproval, numOfRejection)}</p>
             </div>
             
             </div>
