@@ -54,7 +54,7 @@ const statusHelper = (status, userLevel) =>  {
             <div className="approval-status">
               <span className="admin-footer-status">
                 Approval Status:  
-                <br /><strong>{statusHelper(props.status)}</strong>
+                <br /><strong>{statusHelper(props.status, props.userLevel)}</strong>
               </span>
               <div className="approval-buttons">
               <AiOutlineCheckSquare 
