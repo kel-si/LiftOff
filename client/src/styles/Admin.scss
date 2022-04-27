@@ -112,10 +112,71 @@ article.admin-comment{
 
 .approval-status {
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 15px;
+}
+
+.admin-user-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+}
+
+.admin-post-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-user-item-container {
+  width: 60%;
+}
+
+article.user-card {
+  border: 2px solid $purple-accent;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.admin-user-heading {
+  text-align: center;
+}
+
+header.admin-header {
+  border-bottom: 1px solid $purple-accent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.pink {
+  color: $pink;
+}
+
+.admin-user-name {
+  font-size: 20px;
+  margin: 10px 0;
+  color: $pink;
+}
+
+.level-arrows {
+  font-size: 30px;
+  cursor: pointer;
+  margin: 10px 5px;
+  transition: all 0.5s ease;
+
+}
+
+.level-arrows:hover {
+  color: $pink;
+}
+
+.admin-user-body {
+  border: 1px solid yellow;
 }
 
 

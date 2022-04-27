@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import AdminUsersItem from './AdminUsersItem';
+import { AiOutlineUser } from 'react-icons/ai';
 
 export default function AdminUsers() {
 
@@ -21,7 +22,7 @@ export default function AdminUsers() {
 
   const userList = users.map((user) => {
     return (
-      <div className="post--item" key={user.id}>
+      <div className="admin-post-item" key={user.id}>
         <AdminUsersItem
           id={user.id}
           name={user.name}
@@ -37,10 +38,11 @@ export default function AdminUsers() {
     );
   });
   return (
-      <div className="user-container">
-        <span># of Registered Users: {userCount} </span>
+    <>      
+      <h1 className='admin-user-heading'> <span className="pink"> {userCount} </span> Registered Users</h1>
+      <div className="admin-user-container">
         {userList}
       </div>
-    
+    </>
   )
 }

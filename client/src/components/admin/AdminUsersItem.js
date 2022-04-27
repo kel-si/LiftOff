@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import { BsArrowDownSquare, BsArrowUpSquare } from 'react-icons/bs'
 
 export default function AdminUsersItem(props) {
   
@@ -50,23 +51,23 @@ export default function AdminUsersItem(props) {
   
   return (
 <>
-    <div className="page-container">
-      <div className="post--container">
-        <article className="post">
-          <header className="post--header">
-            <h2 className="post--name">{props.name}</h2>
+      <div className="admin-user-item-container">
+        <article className="user-card">
+          <header className="admin-header">
+            <div className="admin-user-name">{props.name}</div>
+            <div className="level-arrow-container">
+            <BsArrowUpSquare type="submit" className="level-arrows" onClick={handleSubmit} value={1}/>
+            <BsArrowDownSquare type="submit" className="level-arrows" onClick={handleSubmit} value={-1}/>
+            </div>
           </header>
-
-          <div className="post--body">
+          <div className="admin-user-body">
             <p>{props.email}</p>
             <p>Level: {level}</p>
-            <span># of Comments Approved: {props.handleCommentApproval}</span>
-            <span># of Comments Rejected: {props.handleCommentRejection}</span>
-            <span>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </span>
+            <p># of Comments Approved: {props.handleCommentApproval}</p>
+            <p># of Comments Rejected: {props.handleCommentRejection}</p>
+            <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </p>
             <span>{userScore(numOfApproval, numOfRejection)}</span>
-            <button 
-              type="submit" className="btn-small" onClick={handleSubmit} value={1}>Level Up</button>
-            <button type="submit" className="btn-small" onClick={handleSubmit} value={-1}>Level Down</button>
+            
             </div>
           <footer className="post--footer">
             <small className="footer--age">{props.time}</small>
@@ -74,7 +75,6 @@ export default function AdminUsersItem(props) {
             <button className="btn-small">Delete User</button>
           </footer>
         </article>
-      </div>
       </div>
       </>
   );
