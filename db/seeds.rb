@@ -16,48 +16,90 @@ User.create!([{
   email: "miranda@fake.com",
   password_digest: "password",
   parent_email: "miranda@parent.com",
-  level: 1
+  level: 1,
+  comment_approval: 48 ,
+  comment_rejection: 2,
 },
  {
   name: "Andrea",
   email: "andrea@fake.com",
   password_digest: "password",
   parent_email: "andrea@parent.com",
-  level: 1
+  level: 1,
+  comment_approval: 45,
+  comment_rejection: 5,
  },
  {
   name: "Emily",
 email: "emily@fake.com",
 password_digest: "password",
 parent_email: "emily@parent.com",
-level: 2
+level: 2,
+comment_approval: 42,
+comment_rejection: 8,
  },
  { 
    name: "Christian",
  email: "christian@fake.com",
  password_digest: "password",
  parent_email: "christian@parent.com",
- level: 2
+ level: 2,
+ comment_approval: 40,
+ comment_rejection: 10,
   },
  {
   name: "Nigel",
   email: "nigel@fake.com",
   password_digest: "password",
   parent_email: "nigel@parent.com",
-  level: 3
+  level: 3,
+  comment_approval: 44,
+  comment_rejection: 6,
  },
  {
-  name: "Ninja",
+  name: "Nicky",
   email: "ninja@fake.com",
   password_digest: "password",
   parent_email: "ninja@parent.com",
-  level: 3
+  level: 3,
+  comment_approval: 43,
+  comment_rejection: 7,
  }]) 
 
  puts "User.count", User.count
 
  Post.create!([
    {
+    text: "Becoming a photographer with my 📸",
+    image: "https://i.ibb.co/7bKN66j/post-6.jpg",
+    user_id: 5
+ },
+ {
+  text: "Yummmmmmmmmmm",
+  image: "https://i.ibb.co/D5dJMfT/post-8.jpg",
+  user_id: 6
+ },
+ {
+  text: "Morning breakfast!☀️🍓🍓🥞",
+  image: "https://i.ibb.co/3FDRdgM/post-3.jpg",
+  user_id: 5
+ },
+ {
+  text: "Pool Party! 😎 🦖 🦕 ",
+  image: "https://i.ibb.co/1q8f1GB/post-5.jpg",
+  user_id: 5
+ },
+ {
+  text: "My new best friend",
+  image: "https://i.ibb.co/pbwzPSV/post-9.jpg",
+  user_id: 5
+ },
+ {
+  text: "😜",
+  image: "https://i.ibb.co/g401Gfz/post-6.jpg",
+  user_id: 6
+ },
+ {
   text: "My latest work of art! Meet Mr. Elephant.",
   image: "https://i.ibb.co/Kb6QcwS/post-1.jpg",
   user_id: 5
@@ -68,39 +110,9 @@ level: 2
   user_id: 6
  },
  {
-  text: "Morning breakfast!☀️🍓🍓🥞",
-  image: "https://i.ibb.co/3FDRdgM/post-3.jpg",
-  user_id: 5
- },
- {
   text: "Brothers and sisters.",
   image: "https://i.ibb.co/6FVFKMj/post-4.jpg",
   user_id: 6
- },
- {
-  text: "Pool Party! 😎 🦖 🦕 ",
-  image: "https://i.ibb.co/1q8f1GB/post-5.jpg",
-  user_id: 5
- },
- {
-  text: "😜",
-  image: "https://i.ibb.co/g401Gfz/post-6.jpg",
-  user_id: 6
- },
- {
-  text: "Becoming a photographer with my 📸",
-  image: "https://i.ibb.co/7bKN66j/post-6.jpg",
-  user_id: 5
- },
- {
-  text: "Yummmmmmmmmmm",
-  image: "https://i.ibb.co/D5dJMfT/post-8.jpg",
-  user_id: 6
- },
- {
-  text: "My new best friend",
-  image: "https://i.ibb.co/pbwzPSV/post-9.jpg",
-  user_id: 5
  }
 ])
 
@@ -114,7 +126,7 @@ Comment.create!([
 },
 {
   text: "Looks amazing!",
-  post_id: 1,
+  post_id: 2,
   user_id: 1
 },
 {
@@ -133,7 +145,7 @@ Comment.create!([
   user_id: 4
 },
 {
-  text: "Puppies are my favourite!",
+  text: "donuts are my favourite!",
   post_id: 2,
   user_id: 2
 },
