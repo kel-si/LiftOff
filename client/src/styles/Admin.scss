@@ -132,7 +132,7 @@ article.admin-comment{
 }
 
 .admin-user-item-container {
-  width: 60%;
+  width: 70%;
 }
 
 article.user-card {
@@ -158,13 +158,13 @@ header.admin-header {
 }
 
 .admin-user-name {
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 24px;
+  margin: 10px 0 10px 10px;;
   color: $pink;
 }
 
 button.level-arrows {
-  font-size: 16px;
+  font-size: 20px;
   background: none;
   cursor: pointer;
   border-radius: 10px;
@@ -184,12 +184,13 @@ button.level-arrows {
 .admin-user-body {
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }
 
 .admin-user-body h4 {
   margin-top: 5;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 1.2px;
 }
 
@@ -220,13 +221,15 @@ footer.admin-footer {
 
 .admin-body-right {
   background-color: $purple-accent;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 10px 20px;
   border-radius: 10px;
-  margin: 10px ;
+  margin: 10px;
+  width: 60%;
 }
 
 .admin-body-left {
-margin: 10px;
+  margin: 10px;
+  width: 40%;
 }
 
 
