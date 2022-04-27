@@ -1,11 +1,14 @@
 import React, {useState} from "react";
 import axios from "axios";
-import { BsArrowDownSquare, BsArrowUpSquare } from 'react-icons/bs'
+import { BsArrowDownSquare, BsArrowUpSquare } from 'react-icons/bs';
+import { AiOutlineDelete } from 'react-icons/ai';
+import Moment from "moment";
 
 export default function AdminUsersItem(props) {
   
   // set the state to render current level
   const [level, setLevel] = useState(props.level);
+  const time = Moment(props.time).format('l'); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -61,18 +64,23 @@ export default function AdminUsersItem(props) {
             </div>
           </header>
           <div className="admin-user-body">
-            <p>{props.email}</p>
-            <p>Level: {level}</p>
-            <p># of Comments Approved: {props.handleCommentApproval}</p>
-            <p># of Comments Rejected: {props.handleCommentRejection}</p>
-            <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </p>
-            <span>{userScore(numOfApproval, numOfRejection)}</span>
+            <div className="admin-body-left">
+              <h4>User Information</h4>
+              <p>{props.email}</p>
+              <p>Level: {level}</p>
+            </div>
+            <div className="admin-body-right">
+              <h4>Metrics</h4>
+              <p># of Comments Approved: {props.handleCommentApproval}</p>
+              <p># of Comments Rejected: {props.handleCommentRejection}</p>
+              <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} 
+              <span>{userScore(numOfApproval, numOfRejection)}</span></p>
+            </div>
             
             </div>
-          <footer className="post--footer">
-            <small className="footer--age">{props.time}</small>
-            <br/>
-            <button className="btn-small">Delete User</button>
+          <footer className="admin-footer">
+            <div className="admin-footer-age">User created: {time}</div>
+            <AiOutlineDelete className="delete-btn"/>
           </footer>
         </article>
       </div>

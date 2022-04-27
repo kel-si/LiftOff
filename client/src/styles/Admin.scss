@@ -176,9 +176,48 @@ header.admin-header {
 }
 
 .admin-user-body {
-  border: 1px solid yellow;
+  display: flex;
+  justify-content: space-between;
 }
 
+.admin-user-body h4 {
+  margin-top: 5;
+}
+
+.delete-btn {
+  font-size: 30px;
+  text-align: right;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+color: $pink;
+}
+
+footer.admin-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $purple-accent;
+  margin-top: 5px;
+  padding-top: 10px;
+}
+
+.admin-footer-age {
+  font-size: 14px;
+}
+
+.admin-body-right {
+  background-color: $purple-accent;
+  padding: 0 10px 10px 10px;
+  border-radius: 10px;
+  margin: 10px ;
+}
+.admin-body-left {
+margin: 10px;
+}
 
 
 
