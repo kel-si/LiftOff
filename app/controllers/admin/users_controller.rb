@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   
   def index
-    @users = User.all
+    @users = User.all.order(id: :desc)
 
     render :json => { users: @users } 
   end
