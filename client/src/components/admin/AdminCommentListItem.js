@@ -46,23 +46,22 @@ export default function AdminCommentListItem(props) {
 
   return (
     <div>
-      {props.status === 0 ? (
-        <div className="admin-comment-container">
-          <article className="admin-comment">
-            <header className="admin-comment-header">
-              <h6 className="admin-comment-name">
-                Comment from:{" "}
-                <span className="comment-user"> {props.name} </span>
-              </h6>
-            </header>
-            <div className="admin-comment-body">
-              <p>"{props.text}"</p>
-              <div className="approval-status">
-                <span className="admin-footer-status">
-                  Approval Status:
-                  <br />
-                  <strong>{statusHelper(props.status, props.userLevel)}</strong>
-                </span>
+      <div className="admin-comment-container">
+        <article className="admin-comment">
+          <header className="admin-comment-header">
+            <h6 className="admin-comment-name">
+              Comment from: <span className="comment-user"> {props.name} </span>
+            </h6>
+          </header>
+          <div className="admin-comment-body">
+            <p>"{props.text}"</p>
+            <div className="approval-status">
+              <span className="admin-footer-status">
+                Approval Status:
+                <br />
+                <strong>{statusHelper(props.status, props.userLevel)}</strong>
+              </span>
+              {props.status === 0 ? (
                 <div className="approval-buttons">
                   <AiOutlineCheckSquare
                     className="approval-btn"
@@ -75,37 +74,19 @@ export default function AdminCommentListItem(props) {
                     name="reject"
                   />
                 </div>
-              </div>
+              ) : (
+                <div>
+                  <AiOutlineCloseSquare
+                    className="approval-btn"
+                    onClick={handleReject}
+                    name="reject"
+                  />
+                </div>
+              )}
             </div>
-          </article>
-        </div>
-      ) : (
-        <div className="admin-comment-container">
-          <article className="admin-comment">
-            <header className="admin-comment-header">
-              <h6 className="admin-comment-name">
-                Comment from:{" "}
-                <span className="comment-user"> {props.name} </span>
-              </h6>
-            </header>
-            <div className="admin-comment-body">
-              <p>"{props.text}"</p>
-              <div className="approval-status">
-                <span className="admin-footer-status">
-                  Approval Status:
-                  <br />
-                  <strong>{statusHelper(props.status, props.userLevel)}</strong>
-                </span>
-                <AiOutlineCloseSquare
-                  className="approval-btn"
-                  onClick={handleReject}
-                  name="reject"
-                />
-              </div>
-            </div>
-          </article>
-        </div>
-      )}
+          </div>
+        </article>
+      </div>
     </div>
   );
 }
