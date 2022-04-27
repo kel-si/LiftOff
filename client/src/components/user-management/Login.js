@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/components.scss";
 
 export default function Login(props) {
@@ -40,7 +40,6 @@ export default function Login(props) {
 
   return (
     <div className="page-container">
-      <h1>3, 2, 1...</h1>
       
       <h1 className="logo">
           LiftOff
@@ -68,10 +67,13 @@ export default function Login(props) {
         value={user.password}
         onChange={handleChange}
       />
+      <div className="login-btn">
       <button color="primary" type="submit" className="primary--btn">
         Login
       </button>
+      </div>
     </form>
+    <Link to="/register" className="reg-link">Don't have an account?</Link>
     </div>
   );
 }

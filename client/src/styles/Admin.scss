@@ -112,11 +112,123 @@ article.admin-comment{
 
 .approval-status {
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 15px;
 }
+
+.admin-user-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+}
+
+.admin-post-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-user-item-container {
+  width: 60%;
+}
+
+article.user-card {
+  border: 2px solid $purple-accent;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.admin-user-heading {
+  text-align: center;
+}
+
+header.admin-header {
+  border-bottom: 1px solid $purple-accent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.pink {
+  color: $pink;
+}
+
+.admin-user-name {
+  font-size: 20px;
+  margin: 10px 0;
+  color: $pink;
+}
+
+button.level-arrows {
+  font-size: 16px;
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  outline: transparent;
+  padding: 5px 10px;
+  transition: all 0.5s ease;
+  margin: 0 5px 10px 5px;
+}
+
+.level-arrows:hover {
+  color: $pink;
+  transform: scale(1.1);
+}
+
+.admin-user-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-user-body h4 {
+  margin-top: 5;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+.delete-btn {
+  font-size: 30px;
+  text-align: right;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+color: $pink;
+}
+
+footer.admin-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $purple-accent;
+  margin-top: 5px;
+  padding-top: 10px;
+}
+
+.admin-footer-age {
+  font-size: 14px;
+}
+
+.admin-body-right {
+  background-color: $purple-accent;
+  padding: 0 10px 10px 10px;
+  border-radius: 10px;
+  margin: 10px ;
+}
+
+.admin-body-left {
+margin: 10px;
+}
+
 
 
 

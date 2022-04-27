@@ -1,10 +1,14 @@
 import React, {useState} from "react";
 import axios from "axios";
+import { BsArrowDownSquare, BsArrowUpSquare } from 'react-icons/bs';
+import { AiOutlineDelete } from 'react-icons/ai';
+import Moment from "moment";
 
 export default function AdminUsersItem(props) {
   
   // set the state to render current level
   const [level, setLevel] = useState(props.level);
+  const time = Moment(props.time).format('l'); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,31 +54,35 @@ export default function AdminUsersItem(props) {
   
   return (
 <>
-    <div className="page-container">
-      <div className="post--container">
-        <article className="post">
-          <header className="post--header">
-            <h2 className="post--name">{props.name}</h2>
-          </header>
-
-          <div className="post--body">
-            <p>{props.email}</p>
-            <p>Level: {level}</p>
-            <span># of Comments Approved: {props.handleCommentApproval}</span>
-            <span># of Comments Rejected: {props.handleCommentRejection}</span>
-            <span>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </span>
-            <span>{userScore(numOfApproval, numOfRejection)}</span>
-            <button 
-              type="submit" className="btn-small" onClick={handleSubmit} value={1}>Level Up</button>
-            <button type="submit" className="btn-small" onClick={handleSubmit} value={-1}>Level Down</button>
+      <div className="admin-user-item-container">
+        <article className="user-card">
+          <header className="admin-header">
+            <div className="admin-user-name">{props.name}</div>
+            <div className="level-arrow-container">
+            <button type="submit" className="level-arrows" onClick={handleSubmit} value={1}>Level Up <BsArrowUpSquare/></button>
+            <button type="submit" className="level-arrows" onClick={handleSubmit} value={-1}>Level Down <BsArrowDownSquare/></button>
             </div>
-          <footer className="post--footer">
-            <small className="footer--age">{props.time}</small>
-            <br/>
-            <button className="btn-small">Delete User</button>
+          </header>
+          <div className="admin-user-body">
+            <div className="admin-body-left">
+              <h4>User Information</h4>
+              <p>{props.email}</p>
+              <p>Level: {level}</p>
+            </div>
+            <div className="admin-body-right">
+              <h4>Metrics</h4>
+              <p># of Comments Approved: {props.handleCommentApproval}</p>
+              <p># of Comments Rejected: {props.handleCommentRejection}</p>
+              <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} 
+              <span>{userScore(numOfApproval, numOfRejection)}</span></p>
+            </div>
+            
+            </div>
+          <footer className="admin-footer">
+            <div className="admin-footer-age">User created: {time}</div>
+            <AiOutlineDelete className="delete-btn"/>
           </footer>
         </article>
-      </div>
       </div>
       </>
   );

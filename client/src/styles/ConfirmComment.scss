@@ -1,33 +1,59 @@
+@import "components.scss";
+
 .confirm--header {
   font-size: 28px;
 }
 
+.container ul.confirm--body {
+  width: 80%;
+}
+
 .confirm--body {
   font-size: 22px;
+  width: 100%;
+  padding-bottom: 15px;
 }
 
 .confirm--post {
-  background-image: linear-gradient(to top, #39c375 0%, #40a4a2 100%);
-  padding: 10px;
+  // background-image: linear-gradient(to top, #39c375 0%, #40a4a2 100%);
+  background-image: linear-gradient(to top, #37136a, $purple-accent);
+  padding: 10px 20px;;
   border: none;
   border-radius: 20px;
   color: #fff;
   box-shadow: none;
-  margin: 10px;
+  margin: 20px 10px 30px 10px;
   font-weight: 50;
   font-size: 20px;
+  font-family: $primary-font;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.confirm--post:hover {
+  background-image: linear-gradient(to bottom, #37136a, $purple-accent);
+  // background-image: linear-gradient(to bottom, #39c375 0%, #40a4a2 100%);
+  transform: scale(1.1);
 }
 
 .confirm--back {
   background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 20px;
   color: #fff;
   box-shadow: none;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   font-weight: 50;
   font-size: 20px;
+  font-family: $primary-font;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.confirm--back:hover {
+  background-image: linear-gradient(to bottom, #f77062 0%, #fe5196 100%);;
+  // background-image: linear-gradient(to bottom, #39c375 0%, #40a4a2 100%);
+  transform: scale(1.1);
 }
 
 .accept--comment {
