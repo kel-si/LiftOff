@@ -88,8 +88,6 @@ export default function AdminUsersItem(props) {
               <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </p>
               <p>{userScore(numOfApproval, numOfRejection)}</p>
             </div>
-            
-            </div>
           </div>
           <footer className="admin-footer">
             <div className="admin-footer-age">User created: {time}</div>
