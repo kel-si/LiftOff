@@ -122,7 +122,8 @@ Comment.create!([
   {
   text: "👨‍🎨 👏",
   post_id: 1,
-  user_id: 5
+  user_id: 5,
+  status: 1,
 },
 {
   text: "Looks amazing!",
@@ -132,27 +133,32 @@ Comment.create!([
 {
   text: "I love this!",
   post_id: 1,
-  user_id: 3
+  user_id: 3,
+  status: 1,
 },
 {
   text: "Awwww so cute😍",
   post_id: 9,
-  user_id: 6
+  user_id: 6,
+  status: 1,
 },
 {
   text: "So cute!!",
   post_id: 9,
-  user_id: 4
+  user_id: 4,
+  status: 1,
 },
 {
   text: "donuts are my favourite!",
   post_id: 2,
-  user_id: 2
+  user_id: 2,
+  status: 1,
 },
 {
   text: "Hi",
   post_id: 7,
   user_id: 3
+  status: 1,
 },
 
 ])
