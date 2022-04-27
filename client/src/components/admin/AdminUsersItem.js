@@ -59,8 +59,8 @@ export default function AdminUsersItem(props) {
           <header className="admin-header">
             <div className="admin-user-name">{props.name}</div>
             <div className="level-arrow-container">
-            <BsArrowUpSquare type="submit" className="level-arrows" onClick={handleSubmit} value={1}/>
-            <BsArrowDownSquare type="submit" className="level-arrows" onClick={handleSubmit} value={-1}/>
+            <button type="submit" className="level-arrows" onClick={handleSubmit} value={1}>Level Up <BsArrowUpSquare/></button>
+            <button type="submit" className="level-arrows" onClick={handleSubmit} value={-1}>Level Down <BsArrowDownSquare/></button>
             </div>
           </header>
           <div className="admin-user-body">

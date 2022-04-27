@@ -163,16 +163,22 @@ header.admin-header {
   color: $pink;
 }
 
-.level-arrows {
-  font-size: 30px;
+button.level-arrows {
+  font-size: 16px;
+  background: none;
   cursor: pointer;
-  margin: 10px 5px;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  outline: transparent;
+  padding: 5px 10px;
   transition: all 0.5s ease;
-
+  margin: 0 5px 10px 5px;
 }
 
 .level-arrows:hover {
   color: $pink;
+  transform: scale(1.1);
 }
 
 .admin-user-body {
@@ -215,9 +221,12 @@ footer.admin-footer {
   border-radius: 10px;
   margin: 10px ;
 }
+
 .admin-body-left {
 margin: 10px;
 }
+
+
 
 
 
