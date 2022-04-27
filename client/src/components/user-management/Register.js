@@ -57,7 +57,7 @@ export default function Register(props) {
           className="form-container"
           autoComplete="off"
         >
-          <h2>Register to Get Started</h2>
+          <h2>Start Your Mission</h2>
           <input
             className="form--input"
             type="name"
@@ -102,11 +102,13 @@ export default function Register(props) {
             *make sure to get your parent or guardian's permission before
             creating your account!
           </aside>
+          <div className="login-btn">
           <button color="primary" type="submit" className="primary--btn">
             Register
           </button>
+          </div>
         </form>
-        <Link to="/login">Login with your existing account</Link>
+        <Link to="/login" className="reg-link">Login with your existing account</Link>
       </div>
     </div>
   );

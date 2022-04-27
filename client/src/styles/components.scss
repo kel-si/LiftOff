@@ -20,10 +20,16 @@ input {
   font-weight: 300;
 }
 
+.form-container h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
 .intro-text {
   font-weight: 300;
   width: 50%;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 input,
@@ -32,14 +38,15 @@ textarea {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   font-family: $primary-font;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 ::placeholder {
-  font-size: 24px;
+  font-size: 22px;
   font-family: $primary-font;
   font-weight: 300;
   color: #fff;
+  opacity: .7;
 }
 
 // a.button {
@@ -92,13 +99,13 @@ ul {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   align-items: center;
   padding: 0;
 }
 
 .user-container {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -189,3 +196,31 @@ aside {
 .guidelines--tips {
   font-size: 22px;
 }
+
+.logo {
+  font-family: "Jura";
+  font-size: 60px;
+  color: #fe5196;
+  margin: 60px 25px 30px 25px;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.login-btn {
+  text-align: center;
+  margin-top: 20px;;
+}
+
+.reg-link {
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  margin-top: 10px;
+}
+
+.reg-link:hover {
+color: #fff;
+}
+
