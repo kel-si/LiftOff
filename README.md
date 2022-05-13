@@ -2,8 +2,6 @@
 
 LiftOff is a social media app designed for children between the ages of 8-10. This site is meant to guide children into the world of social media while teaching them digital citizenship skills.
 
-### Images
-
 ### Highlights
 
 - level 1 users can post a comment which must be approved by an admin
@@ -15,6 +13,24 @@ LiftOff is a social media app designed for children between the ages of 8-10. Th
 - if the score is less than the minimum, the user cannot post their comment
 - all users are asked to reflect before posting a comment and must confirm their comment
 - avatars are assigned based on level for privacy
+
+### Images
+
+- After a user creates a comment which has passed the filter:
+
+  ![](./docs/create-comment.png)
+
+- A comment will be displayed as pending until it is approved by admin:
+
+![](./docs/pending-comment.png)
+
+- Admin dashboard:
+
+  ![](./docs/approve-comment.png)
+
+- User info:
+
+  ![](./docs/user-info.png)
 
 ### Stack
 
@@ -38,6 +54,19 @@ LiftOff is a social media app designed for children between the ages of 8-10. Th
 8. in client, run `npm start`
 
 ### Dependencies
+
+- axios
+- form-data
+- moment
+- node-sass
+- react
+- react-dom
+- react-router
+- react-timer-hook
+- sentiment
+- use-timer
+- bcrypt
+- rails
 
 ## Contributors
 
