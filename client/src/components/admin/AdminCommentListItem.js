@@ -3,7 +3,6 @@ import axios from "axios";
 import { AiOutlineCheckSquare, AiOutlineCloseSquare } from "react-icons/ai";
 
 export default function AdminCommentListItem(props) {
-  console.log("props status", props.status);
   const statusHelper = (status, userLevel) => {
     if (status === 0) {
       return "pending approval";
@@ -30,7 +29,6 @@ export default function AdminCommentListItem(props) {
   };
 
   const rejectionID = props.userIdForRejection;
-  console.log("rejectionID", rejectionID);
 
   const handleReject = (event) => {
     event.preventDefault();

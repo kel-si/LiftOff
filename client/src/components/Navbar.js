@@ -26,7 +26,6 @@ export default function Navbar(props) {
     axios
       .post("/api/logout", { withCredentials: true }) // sends credentials to server
       .then((response) => {
-        console.log("response:", response.data);
         localStorage.clear();
         props.logout();
       })

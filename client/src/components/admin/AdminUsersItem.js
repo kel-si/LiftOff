@@ -14,7 +14,6 @@ export default function AdminUsersItem(props) {
     axios
       .put(`/admin/users/${props.id}`, { level: event.target.value })
       .then((res) => {
-        console.log("from server: res.data.lavel", res.data);
         setLevel(res.data.level);
       })
       .catch((err) => {
@@ -85,7 +84,13 @@ export default function AdminUsersItem(props) {
               <h4>Metrics</h4>
               <p>Comments Approved: {props.handleCommentApproval}</p>
               <p>Comments Rejected: {props.handleCommentRejection}</p>
-              <p>Approval Rate: {approvalRate(props.handleCommentApproval, props.handleCommentRejection)} </p>
+              <p>
+                Approval Rate:{" "}
+                {approvalRate(
+                  props.handleCommentApproval,
+                  props.handleCommentRejection
+                )}{" "}
+              </p>
               <p>{userScore(numOfApproval, numOfRejection)}</p>
             </div>
           </div>

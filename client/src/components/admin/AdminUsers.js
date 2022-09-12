@@ -1,18 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
-import AdminUsersItem from './AdminUsersItem';
-import { AiOutlineUser } from 'react-icons/ai';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import AdminUsersItem from "./AdminUsersItem";
+import { AiOutlineUser } from "react-icons/ai";
 
 export default function AdminUsers() {
-
   const [users, setUsers] = useState([]);
   const [userCount, setUserCount] = useState();
-  
+
   useEffect(() => {
-    axios.get("/admin/users")
+    axios
+      .get("/admin/users")
       .then((res) => {
         setUsers(res.data.users);
-        console.log(res.data.users);
         setUserCount(res.data.users.length);
       })
       .catch((error) => {
@@ -30,7 +29,7 @@ export default function AdminUsers() {
           level={user.level}
           time={user.created_at}
           usersState={users}
-          setUsers={setUsers} 
+          setUsers={setUsers}
           handleCommentApproval={user.comment_approval}
           handleCommentRejection={user.comment_rejection}
         />
@@ -38,11 +37,12 @@ export default function AdminUsers() {
     );
   });
   return (
-    <>      
-      <h1 className='admin-user-heading'> <span className="pink"> {userCount} </span> Registered Users</h1>
-      <div className="admin-user-container">
-        {userList}
-      </div>
+    <>
+      <h1 className="admin-user-heading">
+        {" "}
+        <span className="pink"> {userCount} </span> Registered Users
+      </h1>
+      <div className="admin-user-container">{userList}</div>
     </>
-  )
+  );
 }
