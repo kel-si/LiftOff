@@ -13,18 +13,15 @@ export default function Feed(props) {
   const [user, setUser] = useState(props.user);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     // gets user info from local storage to persist login
     const currentUser = localStorage.getItem("liftoffUser");
     const liftoffUser = JSON.parse(currentUser);
     setUser(liftoffUser.user);
-    console.log("user", user);
     if (!liftoffUser) {
       navigate("/");
     } else {
-      Promise.all([
-      axios.get("/api/feed"), axios.get("/api/comments")])
+      Promise.all([axios.get("/api/feed"), axios.get("/api/comments")])
         .then((all) => {
           setState({
             posts: all[0].data.posts,
@@ -50,7 +47,7 @@ export default function Feed(props) {
     <div className="Feed">
       {user.level >= 2 ? (
         <>
-          <CreatePost user={props.user}/>
+          <CreatePost user={props.user} />
           <PostList
             posts={postsWithComments}
             users={state.users}

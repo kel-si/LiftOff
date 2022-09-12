@@ -8,9 +8,8 @@ export default function CreateComment(props) {
   const user = localStorage.getItem("liftoffUser");
   const userData = JSON.parse(user);
   const userId = userData.user.id;
-  console.log("userLevel", userLevel);
   const userLevel = userData.user.level;
-  
+
   const postId = props.postId;
 
   const handleSubmit = (e) => {
