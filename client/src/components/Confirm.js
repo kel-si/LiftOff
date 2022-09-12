@@ -5,8 +5,6 @@ import FormData from "form-data";
 import "../styles/ConfirmComment.scss";
 
 export default function Confirm(props) {
-  console.log("confirm props", props);
-
   //sentiment package: gives comments a score
   const sentiment = new Sentiment();
   const findSentiment = (comment) => {
@@ -19,7 +17,6 @@ export default function Confirm(props) {
   const text = props.comment;
   const apiUser = process.env.REACT_APP_SIGHTENGINE_USER;
   const apiSecret = process.env.REACT_APP_SIGHTENGINE_SECRET;
-  console.log("apiUser", apiUser);
 
   data.append("text", text);
   data.append("lang", "en");
@@ -29,10 +26,6 @@ export default function Confirm(props) {
 
   axios
     .post("https://api.sightengine.com/1.0/text/check.json", data)
-    .then(function (response) {
-      // on success: handle response
-      console.log(response.data);
-    })
     .catch(function (error) {
       // handle error
       if (error.response) console.log("sightengine:", error.response.data);
