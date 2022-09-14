@@ -19,7 +19,6 @@ export default function App() {
     user: {},
   });
 
-
   const handleLogin = (data) => {
     setLogin({
       status: true,
@@ -73,15 +72,29 @@ export default function App() {
           <></>
         )}
         <Routes>
-          <Route path="/" element={<Landing handleLogin={handleLogin} />} />
+          <Route
+            path="/"
+            element={<Landing user={login} handleLogin={handleLogin} />}
+          />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/register" element={<Register handleLogin={handleLogin} />}/>
-          <Route path="/my-posts" element={<Feed user={login.user}/>} />
+          <Route
+            path="/register"
+            element={<Register handleLogin={handleLogin} />}
+          />
+          <Route path="/my-posts" element={<Feed user={login.user} />} />
           <Route path="/guidelines" element={<Guidelines />} />
           <Route path="/about" element={<About />} />
-          <Route path="/quiz" element={<Quiz updateLevel={handleQuizCompletion} user={login.user} />}/>
+          <Route
+            path="/quiz"
+            element={
+              <Quiz updateLevel={handleQuizCompletion} user={login.user} />
+            }
+          />
           <Route path="/admin" element={<AdminLanding />} />
-          <Route path="/admin-approvals" element={<AdminFeed user={login.user}/>} />
+          <Route
+            path="/admin-approvals"
+            element={<AdminFeed user={login.user} />}
+          />
           <Route path="/admin-users" element={<AdminUsers />} />
         </Routes>
       </Router>
