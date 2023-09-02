@@ -66,8 +66,6 @@ comment_rejection: 8,
   comment_rejection: 7,
  }]) 
 
- puts "User.count", User.count
-
  Post.create!([
    {
     text: "Becoming a photographer with my 📸",
@@ -116,8 +114,6 @@ comment_rejection: 8,
  }
 ])
 
-puts "Post.count", Post.count
-
 Comment.create!([
   {
   text: "👨‍🎨 👏",
@@ -162,5 +158,3 @@ Comment.create!([
 },
 
 ])
-
-puts "Comment.count", Comment.count

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_secure_password
+  has_secure_password
     # validates :name, presence: true
     # validates :name, uniqueness: true
     # validates :name, length: { minimum: 1 }
@@ -9,18 +9,18 @@ class User < ApplicationRecord
     # validates :password_confirmation, presence: true
     # validates :parent_email, presence: true
     
-    has_many :posts
-    has_many :comments
+  has_many :posts
+  has_many :comments
 
 
-    def self.authenticate_with_credentials email, password
-        user = User.find_by_email(email)
-        if user
-          if user.authenticate password
-          user
-          end
-        else
-          nil
-        end
+  def self.authenticate_with_credentials email, password
+    user = User.find_by_email(email)
+    if user
+      if user.authenticate password
+        user
       end
+    else
+      nil
+    end
+  end
 end

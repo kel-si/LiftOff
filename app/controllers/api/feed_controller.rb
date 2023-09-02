@@ -1,12 +1,10 @@
 class Api::FeedController < ApplicationController
-   def index
+  def index
     @posts = Post.all
     @users = User.all
-
     render :json => { posts: @posts, users: @users } 
- end
+  end
 
- def create
-   
- end
+  def create 
+  end
 end 

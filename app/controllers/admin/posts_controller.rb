@@ -7,8 +7,6 @@ class Admin::PostsController < ApplicationController
 
   def create
     @user = User.create({email: "dummy@fake.com"})
-    puts "params", params
-    puts "another one", params[:post]
     @post = Post.new(post_params)
     @post.user = @user
     if @post.save 
