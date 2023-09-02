@@ -1,13 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
-    # validates :name, presence: true
-    # validates :name, uniqueness: true
-    # validates :name, length: { minimum: 1 }
-
-    # validates :email, presence: true
-    # validates :password, presence: true
-    # validates :password_confirmation, presence: true
-    # validates :parent_email, presence: true
+  validates :name, :email, :password, :parent_email, presence: true
+  validate :check_user_and_parent_emails
+  # validates :name, length: { minimum: 1 }
     
   has_many :posts
   has_many :comments
@@ -22,5 +17,9 @@ class User < ApplicationRecord
     else
       nil
     end
+  end
+
+  def check_user_and_parent_emails
+    errors.add(:email, "cannot be the same as parent email") if email == parent_email
   end
 end

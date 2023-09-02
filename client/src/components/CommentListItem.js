@@ -21,7 +21,7 @@ export default function CommentListItem(props) {
                 <p>{props.text}</p>
               </div>
               <footer className="comment--footer">
-                <small className="footer--time">{time}</small> <br/>
+                <small className="footer--time">{time}</small> <br />
                 <small className="footer--pending">pending</small>
               </footer>
             </div>
