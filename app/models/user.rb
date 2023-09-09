@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   validates :name, :email, :password, :parent_email, presence: true
+  validates_uniqueness_of :name, :email
   validate :check_user_and_parent_emails
   # validates :name, length: { minimum: 1 }
     
