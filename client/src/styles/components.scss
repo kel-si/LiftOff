@@ -35,10 +35,11 @@ input {
 input,
 textarea {
   outline: none;
-  padding: 3px 0px 3px 3px;
+  padding: 3px 0px 3px 5px;
   margin: 5px 1px 3px 0px;
   font-family: $primary-font;
   font-size: 22px;
+  text-indent: 10px;
 }
 
 ::placeholder {
@@ -46,7 +47,8 @@ textarea {
   font-family: $primary-font;
   font-weight: 300;
   color: #fff;
-  opacity: .7;
+  opacity: 0.7;
+  padding-left: 5px;
 }
 
 // a.button {
@@ -210,7 +212,7 @@ aside {
 
 .login-btn {
   text-align: center;
-  margin-top: 20px;;
+  margin-top: 20px;
 }
 
 .reg-link {
@@ -221,6 +223,5 @@ aside {
 }
 
 .reg-link:hover {
-color: #fff;
+  color: #fff;
 }
-
