@@ -12,6 +12,7 @@ import axios from "axios";
 import AdminLanding from "./components/admin/AdminLanding";
 import AdminFeed from "./components/admin/AdminFeed";
 import AdminUsers from "./components/admin/AdminUsers";
+import Alert from "./components/Alert";
 
 export default function App() {
   const [login, setLogin] = useState({

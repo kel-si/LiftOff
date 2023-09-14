@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Alert from "../Alert";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function Register(props) {
@@ -103,6 +104,7 @@ export default function Register(props) {
             creating your account!
           </aside>
           <div className="login-btn">
+            <div className="errorMessage"><Alert /></div>
           <button color="primary" type="submit" className="primary--btn">
             Register
           </button>
