@@ -36,30 +36,36 @@
   color: #fff;
 }
 
+.form--input:focus {
+  border: 2px solid turquoise;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
 input[type="file"] {
   display: none;
 }
 
 .file-upload {
- color:#fe5196;
- font-size: 42px; 
- cursor: pointer;
- transition: all 0.3s ease;
- margin-left: 10px;
+  color: #fe5196;
+  font-size: 42px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
 }
 
 .file-upload:hover {
-  color:#f77062; 
+  color: #f77062;
   cursor: pointer;
   font-size: 45px;
- }
+}
 
- .post-form-buttons {
-   display: flex;
-   justify-content: flex-start;
-   align-items: flex-end;
- }
+.post-form-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
 
- .text-container {
-   width: 90%;
- }
+.text-container {
+  width: 90%;
+}
