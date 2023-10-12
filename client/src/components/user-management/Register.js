@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Alert from "../Alert";
 import { useNavigate, Link } from "react-router-dom";
+import "../../styles/components.scss";
+
 
 export default function Register(props) {
   const [user, setUser] = useState({
@@ -10,6 +13,9 @@ export default function Register(props) {
     password_confirmation: "",
     parent_email: "",
   });
+
+  const [alerts, setAlerts] = useState([]);
+
   const navigate = useNavigate();
 
   // sets state with the form values
@@ -26,15 +32,12 @@ export default function Register(props) {
     axios
       .post("/api/users", { user })
       .then((res) => {
-        console.log("server responding to new user", res.data);
         if (res.data.logged_in) {
           props.handleLogin(res.data);
           localStorage.setItem("liftoffUser", JSON.stringify(res.data));
           navigate("/quiz");
         } else {
-          setUser({
-            errors: res.data.errors,
-          });
+          setAlerts([res.data.errors]);
         }
       })
       // })
@@ -52,12 +55,17 @@ export default function Register(props) {
             🚀
           </span>
         </h1>
+
         <form
           onSubmit={handleSubmit}
           className="form-container"
           autoComplete="off"
         >
           <h2>Start Your Mission</h2>
+          <div className="errorMessage">
+            <Alert alerts={alerts} />
+          </div>
+
           <input
             className="form--input"
             type="name"
@@ -103,12 +111,14 @@ export default function Register(props) {
             creating your account!
           </aside>
           <div className="login-btn">
-          <button color="primary" type="submit" className="primary--btn">
-            Register
-          </button>
+            <button color="primary" type="submit" className="primary--btn">
+              Register
+            </button>
           </div>
         </form>
-        <Link to="/login" className="reg-link">Login with your existing account</Link>
+        <Link to="/login" className="reg-link">
+          Login with your existing account
+        </Link>
       </div>
     </div>
   );
