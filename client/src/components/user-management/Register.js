@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Alert from "../Alert";
 import { useNavigate, Link } from "react-router-dom";
+import "../../styles/components.scss";
+
 
 export default function Register(props) {
   const [user, setUser] = useState({

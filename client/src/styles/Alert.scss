@@ -1,0 +1,17 @@
+@import "components.scss";
+
+.alert--message {
+  color: #fff;
+  // background-image: linear-gradient(to top, #f77162 0%, #fa8fba 100%);
+  border: 2px solid #f77062;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 0.9em;
+  border-radius: 10px;
+  width: 100%;
+  
+}
+.alerts--container {
+  padding-left: 0;
+  width: 100%;
+}
